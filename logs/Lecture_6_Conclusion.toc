@@ -1,0 +1,6 @@
+\babel@toc {french}{}
+\beamer@sectionintoc {1}{Conclusion}{5}{0}{1}
+\beamer@subsectionintoc {1}{1}{Recap: What to remember from this course}{6}{0}{1}
+\beamer@subsectionintoc {1}{2}{How to learn more}{7}{0}{1}
+\beamer@subsectionintoc {1}{3}{Job Market}{8}{0}{1}
+\beamer@subsectionintoc {1}{4}{Questions}{9}{0}{1}

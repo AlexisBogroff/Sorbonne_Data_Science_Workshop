@@ -1,0 +1,265 @@
+\input{TD_class.tex}
+\setcounter{section}{1}
+
+\begin{document}
+
+%----------------------------------------------------------------------------------------
+\section{Git Filesystem \& Commits}
+%----------------------------------------------------------------------------------------
+
+%----------------------------------------------------------------------------------------
+\subsection{Configure Git}  % 5 to 10 min
+%----------------------------------------------------------------------------------------
+Using only command-line in your Linux shell,
+\begin{enumerate}
+    \item Check that Git is installed on your environment.
+    \item Configure your name and e-mail globally.
+    \item Check that Git has correctly recorded these two pieces of information. \\
+    \textit{hint: All Git commands have a \textbf{-h} flag to display the corresponding help.
+    Look there for the option of the \textbf{git config} command that lists all Git configuration.}
+\end{enumerate}
+
+\ifdefined\answer
+\begin{minted}{bash}
+    git
+    git config --global user.name "Bernard Lerenard"
+    git config --global user.email "bernard@yahoo.fr"
+    git config -h
+    git config --list
+\end{minted}
+\fi
+
+%----------------------------------------------------------------------------------------
+\subsection{Hashing}  % 30 to 45 min
+%----------------------------------------------------------------------------------------
+Using only command-line in your Linux shell and without creating a Git repository for the moment,
+\begin{enumerate}
+    \item Create a root directory.
+    \item Create a text file inside whose content is ``Hello World''.
+    \item What is the size of the file ?
+    \item Display the file content on the screen.
+    \item Compute the SHA-1 hash of the file content. \\
+        \textit{hint: You can use the GNU core utilities \textbf{sha1sum} command.}
+    \item What hash would Git compute on this file ? \\
+        \textit{hint: You can use the \textbf{git hash-object} plumbing command
+        (no need to create a Git repository for the moment).} \\
+        \\
+        They are different aren't they ? \\
+        Actually Git prepends 2 properties to the file content before hashing, compressing and saving it:
+        \begin{enumerate}
+            \item the Git object type followed by a space character
+            \item the file size followed by a null character (\textbackslash0)
+        \end{enumerate}
+    \item Create a second file whose content is what Git would really consider when saving your first file. \\
+        \textit{hint: The \textbf{echo} command has a \textbf{-e} flag to interpret backslash escapes.}
+    \item Compute the SHA-1 hash of this second file and check it is equal to the Git hash of your first file.
+\end{enumerate}
+
+\ifdefined\answer
+\begin{minted}{bash}
+    mkdir exercice_root
+    cd exercice_root/
+    echo "Hello World" > file1.txt
+    ls -l                                             -> 12
+    cat file1.txt
+    sha1sum file1.txt                                 -> 648a6a6ffffdaa0badb23b8baf90b6168dd16b3a
+    git hash-object file1.txt                         -> 557db03de997c86a4a028e1ebd3a1ceb225be238
+    echo -e "blob 12\0$(<file1.txt)" > file1_git
+    sha1sum file1_git | awk '{print $1}'              -> 557db03de997c86a4a028e1ebd3a1ceb225be238
+\end{minted}
+\fi
+
+%----------------------------------------------------------------------------------------
+\subsection{Compressing}  % 30 to 45 min
+%----------------------------------------------------------------------------------------
+Using only command-line in your Linux shell,
+\begin{enumerate}
+    \item Create an empty Git repository in your root directory
+          (if you have accidentally already created a Git repository in your root directory, delete it before).
+    \item Check that Git is aware of your 2 files but does not track them yet.
+    \item Check that no object is stored yet in the \textbf{objects} subdirectory of your Git repository.
+    \item Create a directory inside the \textbf{objects} subdirectory of your Git repository,
+          whose name is the first two characters of the SHA-1 hash computed in the previous exercise.
+    \item Install the \href{https://en.wikipedia.org/wiki/QPDF}{QPDF} free command-line program. \\
+          Part of this program is the \textbf{zlib-flate} command that compress and uncompress files
+          using the \textbf{deflate} algorithm.
+    \item Create a file inside the directory that you have just created,
+          whose content is the deflate compression (level 1) of your second file
+          and whose name is the last 38 characters of the SHA-1 hash computed in the previous exercise.
+    \item Check that Git successfully considers this file as one of its inner object. \\
+        \textit{hint: You can use the different flags of the \textbf{git cat-file} plumbing command.}
+    \item Backup your Git repository and create a new one.
+    \item Stage your first file in Git and check that its name and content are identical to yours.
+    \item Create another text file whose content is 100 lines of ``Hello Mister i'' (i varying from 1 to 100).
+    \item Stage this new file in Git
+          and check that the compression ratio on this second example is better than on the first one.
+\end{enumerate}
+
+\ifdefined\answer
+\begin{minted}{bash}
+    rm -r .git
+    git init
+    git status
+    find .git/objects/ -type f
+    sudo apt install qpdf
+    mkdir .git/objects/55
+    zlib-flate -compress=1 < file1_git > .git/objects/55/7db03de997c86a4a028e1ebd3a1ceb225be238
+    git cat-file -p 557db03
+    git cat-file -t 557db03
+    git cat-file -s 557db03
+    mv .git/ .git.bu
+    git init
+    git add file1.txt
+    diff .git/objects/55/7db03de997c86a4a028e1ebd3a1ceb225be238 .git.bu/objects/55/7db03de997c86a4a028e1ebd3a1ceb225be238
+    for i in `seq 1 100`; do echo "Hello Mister $i" >> file2.txt; done
+    git add file2.txt
+    find -type f -ls | grep -v sample
+\end{minted}
+\fi
+
+%----------------------------------------------------------------------------------------
+\subsection{Local and remote backup}  % 15 to 25 min
+%----------------------------------------------------------------------------------------
+
+Using only command-line in your Linux shell,
+\begin{enumerate}
+    \item Commit the two files that must be in your staging area.
+    \item Check that more objects have been saved in your Git repository.
+    \item Check that a commit exists in your Git repository. \\
+        \textit{hint: You can use the \textbf{git log} porcelain command.}
+    \item Walk Git inner directed acyclic graph (DAG) from your commit to your two file contents. \\
+        \textit{hint: You can use several times the \textbf{git cat-file} plumbing command.} \\
+        \textit{hint: If you are a teaser you can try combining
+        \textbf{awk}, \textbf{print}, \textbf{xargs} and \textbf{head} commands.}
+    \item Suppress your two files.
+    \item Use Git to restore your files.
+    \item Backup your Git repository elsewhere \\
+          (pretending a copy exists on another colleague's computer or on a remote server).
+    \item Suppress your root directory, create a new empty one and use your backup to restore everything.
+\end{enumerate}
+
+\ifdefined\answer
+\begin{minted}{bash}
+    git commit -m "initial commit"
+    tree .git/objects/
+    git log
+    # ---------------- hard way ----------------
+    git log --oneline | awk '{print $1}' | xargs -I{} git cat-file -p {}
+    git log --oneline | awk '{print $1}' | xargs -I{} git cat-file -p {} | head -n 1 | awk '{print $2}' | xargs -I{} git cat-file -p {}
+    # ---------------- soft way ----------------
+    git cat-file -p 7d0c488
+    git cat-file -p 8407e2e
+    # ------------------------------------------
+    rm *
+    git restore .
+    cp .git ..
+    cd ..
+    rm -rf exercice_root
+    mkdir exercice_root
+    cd exercice_root/
+    mv ../.git .
+    git checkout HEAD
+    git restore .
+\end{minted}
+\fi
+
+%----------------------------------------------------------------------------------------
+\subsection{Diff}  % 10 to 15 min
+%----------------------------------------------------------------------------------------
+
+Using only command-line in your Linux shell,
+\begin{enumerate}
+    \item Add one line to your first ``Hello World'' file.
+    \item Delete the last 10 lines of your second ``Hello Mister i'' file. \\
+        \textit{hint: You can use the \textbf{d} command and the \textbf{-i} flag of the \textbf{sed} Unix command.}
+    \item Check that Git is aware of your changes
+    \item Display the changes in your root directory since the last commit.
+          You should see your two changes. \\
+        \textit{hint: You can use the \textbf{git diff} Unix command.}
+    \item Stage your first file only.
+    \item Check that Git has correctly staged only one file.
+    \item Display again the changes in your root directory since the last commit.
+          Which file changes do you see ?
+    \item Display the other file changes.
+\end{enumerate}
+
+\ifdefined\answer
+\begin{minted}{bash}
+    echo "This is so much fun" >> file1.txt
+    sed -i '91,100d' file2.txt
+    git status
+    git add file1.txt
+    git status
+    git diff
+    git diff --staged
+\end{minted}
+\fi
+
+%----------------------------------------------------------------------------------------
+\subsection{Undo}  % 10 to 15 min
+%----------------------------------------------------------------------------------------
+
+Using only command-line in your Linux shell,
+\begin{enumerate}
+    \item Unstage your first file
+    \item Commit your two file changes directly, without staging them.
+    \item Check your commit log history. Do you see your new commit ?
+    \item Without affecting your Git repository, set your root directory state
+          as of the snapshot of your first commit.
+    \item Check your commit log history. You do not see all commits, do you ? How can you see all of them ?
+    \item Return to the snapshot of your your last commit.
+    \item Undo your second commit by adding a new commit that reverts it.
+    \item Check the content of your root directory. Have your previous changes disappeard ?
+    \item Check your commit log history. Do you see your revert commit ?
+    \item Remove the last 2 commits from the history.
+    \item Check the content of your root directory. Have your previous changes disappeard ?
+    \item Check your commit log history. Have you lost the last 2 commits ?
+\end{enumerate}
+
+\ifdefined\answer
+\begin{minted}{bash}
+    git restore --staged file1.txt
+    git commit -am "add interesting stuff"
+    git log
+    git checkout HEAD~
+    git log --all --graph
+    git checkout master
+    git revert --no-edit HEAD
+    git log --all --graph
+    git reset --hard HEAD~2
+    git log --all --graph
+\end{minted}
+\fi
+
+%----------------------------------------------------------------------------------------
+\subsection{Aliases}  % 5 to 10 min
+%----------------------------------------------------------------------------------------
+
+Using only command-line in your Linux shell,
+\begin{enumerate}
+    \item Create a ``\textbf{s}'' alias for the \textbf{git status} command.
+    \item Create a ``\textbf{co}'' alias for the \textbf{git checkout} command.
+    \item Create a ``\textbf{b}'' alias for the \textbf{git branch} command.
+    \item Create a ``\textbf{ci}'' alias for the \textbf{git commit} command.
+    \item Create a ``\textbf{dog}'' alias for the \textbf{git log --all --decorate --oneline --graph} command.
+    \item Create a ``\textbf{dag}'' alias for the \textbf{git log --all --decorate --graph} command.
+    \item Create a ``\textbf{list}'' alias for the \textbf{git diff-tree --no-commit-id --name-only -r} command.
+    \item Create a ``\textbf{unstage}'' alias for the \textbf{git reset HEAD --} command.
+    \item Create a ``\textbf{last}'' alias for the \textbf{git log -1 HEAD} command.
+\end{enumerate}
+
+\ifdefined\answer
+\begin{minted}{bash}
+    git config --global alias.s status
+    git config --global alias.co checkout
+    git config --global alias.b branch
+    git config --global alias.ci commit
+    git config --global alias.dog 'log --all --decorate --oneline --graph'
+    git config --global alias.dag 'log --all --decorate --graph'
+    git config --global alias.list 'diff-tree --no-commit-id --name-only -r'
+    git config --global alias.unstage 'reset HEAD --'
+    git config --global alias.last 'log -1 HEAD'
+\end{minted}
+\fi
+
+\end{document}

@@ -1,0 +1,521 @@
+\input{CM_class.tex}
+
+\begin{document}
+
+\begin{frame}
+   \titlepage
+\end{frame}
+
+\begin{frame}
+   \tableofcontents
+\end{frame}
+
+\section{Linux}
+
+%----------------------------------------------------------------------------------------
+\subsection{Linux shells}
+%----------------------------------------------------------------------------------------
+
+\begin{frame}
+   \frametitle{History of shell}
+   \begin{figure}
+      \centering
+      \includegraphics[width = \textwidth]{../images/shell-history.jpg}
+   \end{figure}
+\end{frame}
+
+\begin{frame}
+   \frametitle{Most common shells}
+   \begin{itemize}
+      \item {\bf sh} Bourne shell - 1979 \\
+            Developed by Stephen Bourne. \\
+            Minimal shell to expect on a *nix system.
+      \item {\bf bash} Bourne-Again shell - 1989 \\
+            GNU project to improve the Bourne shell. \\
+            Default shell for all Linux distributions.
+      \item {\bf zsh} Z shell - 1990 \\
+            A more advanced shell, prettier and easier to customize. \\
+            Maintains compatibility with the Bourne-Again shell.
+      \item {\bf fish} Fish shell - 2005 \\
+            "Finally, a command line shell for the 90s" \\
+            Much easier and nicer to use. \\
+            NOT compatible with bash scripts.
+   \end{itemize}
+\end{frame}
+
+\begin{frame}
+   \frametitle{Demo}
+   \begin{figure}
+      \centering
+      \includegraphics[width = \textwidth]{../images/shell_demo.png}
+   \end{figure}
+\end{frame}
+
+%----------------------------------------------------------------------------------------
+\subsection{Basic shell commands}
+%----------------------------------------------------------------------------------------
+
+\begin{frame}
+\frametitle{Explore filesystem}
+   \begin{itemize}
+      \item {\bf cd $<$path$>$} change directory \\
+            Move working directory to the path.
+      \item {\bf ls [-a] $<$path$>$} list \\
+            List all (hidden) files in path.
+      \item {\bf pwd} print working directory \\
+            Display the path for working directory.
+      \item {\bf which $<$command$>$} \\
+            Displays the path for the command executable.
+   \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+   \frametitle{Example}
+   \begin{minted}{bash}
+   $ cd /home/galvarez/esilv/
+   $ ls
+   README.md   esilv.sh*   linux_os_HO.tex
+   esilv.pdf   esilv.tex   linux_shell_GA.tex
+   $ pwd
+   /home/galvarez/esilv
+   $ which pwd
+   /usr/bin/pwd
+   \end{minted}
+\end{frame}
+
+\begin{frame}
+   \frametitle{Simple but important}
+   \begin{itemize}
+      \item \textbf{Q} must be pressed once to quit messages like a command manual.
+      \item \textbf{yes/no}, \textbf{y/n}, \textbf{Y/n}. Write one of them and press Enter. It is used to confirm/refuse an action (e.g. when installing a package).
+      \item Password letters are hidden. You must type without seeing what you are doing (e.g. when connecting to a server, when using sudo).
+   \end{itemize}
+\end{frame}
+
+\begin{frame}
+   \frametitle{Edit a (text) file}
+   You can use any editor of your choice. Often pre-installed editors are Vim or Nano. Basic use of Vim:
+   \begin{itemize}
+      \item 2 modes: visual mode, edition mode
+      \item Enter edition mode: \textbf{i}, or \textbf{a}, etc.
+      \item Quit edition mode: \textbf{ESC}
+      \item Quit Vim! In visual mode, press \textbf{:}, then:
+      \begin{itemize}
+         \item \textbf{wq} and press Enter, for saving and quiting.
+         \item \textbf{q!} and press Enter, for quiting without saving. Useful when you entered a read-only file.
+      \end{itemize}
+      \item Level up in Vim to copy, paste, jump to rows, specific words, etc.
+   \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+   \frametitle{Getting help}
+   You can get information on the use of a command and its parameters
+   \begin{itemize}
+      \item {\bf <command> --help}
+      \item {\bf man <command>}
+   \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+   \frametitle{Setup an environment}
+      \begin{itemize}
+         \item {\bf sudo $<$command$>$} substitute user do \\
+               Execute administrator actions, require a password.
+         \item {\bf apt $<$install$>$ $<$package$>$} Advanced Packaging Tool \\
+               Install and update packages.
+         \item {\bf source} \\
+               Execute a script, similar to
+               \begin{minted}{bash}
+                  $ ./myscript.sh
+                  $ . myscript.sh
+               \end{minted}
+      \end{itemize}
+   \end{frame}
+
+\begin{frame}[fragile]
+   \frametitle{Example - apt install}
+   \begin{minted}[fontsize=\small]{bash}
+   $ sudo apt install postgresql-contrib
+   Reading package lists... Done
+   Building dependency tree
+   Reading state information... Done
+   postgresql-contrib is already the newest version (12+214ubuntu0.1).
+   0 upgraded, 0 newly installed, 0 to remove and 13 not upgraded.
+   \end{minted}
+\end{frame}
+
+\begin{frame}[fragile]
+   \frametitle{Example - apt remove}
+   \begin{minted}[fontsize=\small]{bash}
+   $ sudo apt --purge remove postgresql-contrib
+   Reading package lists... Done
+   Building dependency tree
+   Reading state information... Done
+   The following packages will be REMOVED:
+     postgresql-contrib*
+   0 upgraded, 0 newly installed, 1 to remove and 13 not upgraded.
+   After this operation, 67.6 kB disk space will be freed.
+   Do you want to continue? [Y/n]
+   \end{minted}
+\end{frame}
+
+\begin{frame}[fragile]
+   \frametitle{System parameters - PATH}
+   PATH
+   \begin{itemize}
+      \item Variable giving the paths to launch applications
+      \item Get them using:
+      \begin{minted}[fontsize=\small]{bash}
+         $ echo $PATH
+         /usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:
+      \end{minted}
+      \item Temporarilly add an application path (for the session):
+      \begin{minted}[fontsize=\small]{bash}
+            $ export PATH=$PATH:/home/user/path_to_app
+      \end{minted}
+      \item Permanently add an application path (require relaunch):
+      \begin{minted}[fontsize=\small]{bash}
+            $ echo 'export PATH=$PATH:/path_to_app' >> /home/user/.profile
+      \end{minted}
+   \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+   \frametitle{System parameters - .profile}
+   These files contain system and user parameters: .profile or .bashrc, or other
+   \begin{minted}[fontsize=\small]{bash}
+      $ cat /home/user/.profile
+      # ~/.profile: executed by the command interpreter for login shells.
+      # This file is [...]
+
+      # set PATH so it includes user's private bin if it exists
+      if [ -d "$HOME/bin" ] ; then
+          PATH="$HOME/bin:$PATH"
+      fi
+   \end{minted}
+\end{frame}
+
+\begin{frame}[fragile]
+   \frametitle{System parameters - .profile}
+   Explore some of the locations (these might slightly differ from your configuration)
+   \begin{minted}[fontsize=\small]{bash}
+      $ cd /usr/local/sbin
+      $ cd /usr/local/bin
+      $ cd /usr/sbin
+      $ cd /usr/bin
+      $ ls | grep ssh
+      $ ls | grep scp
+      $ ls | grep grep
+      $ ls | grep ls
+   \end{minted}
+\end{frame}
+
+\begin{frame}[fragile]
+   \frametitle{Control structures}
+   \begin{itemize}
+      \item {\bf pipeline} command1 $|$ command2 \\
+            Pass a command output as input for the next one.
+      \item {\bf output redirection} command $>$ file \\
+            Write a command output into a file. \\
+            command $>>$ file \\
+            Append a command output to a file. \\
+            command $<$ file \\
+            Use a file as a command input.
+      \item {\bf pathname expansion a.k.a globbing} command *json \\
+            Command targets all files ending with json.
+      \item {\bf command substitution} command2 $`$command1$`$ \\
+            Use a command input as parameter for another command.
+      \item {\bf for} for i in 'some list' ; do echo "\$i" ; done \\
+            Execute a command on every item of a list of entries.
+   \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+   \frametitle{Example - for loop}
+   Add content of many files in a single file
+   \begin{minted}[fontsize=\small]{bash}
+      for f in $(ls *.txt)
+      do
+          cat $f >> testdir/big_file.txt
+      done
+   \end{minted}
+\end{frame}
+
+
+\begin{frame}[fragile]
+   \frametitle{Work with a remote instance (server)}
+
+   Connect using SSH to the remote instance and use it as your own
+   \begin{itemize}
+      \item With \textit{username} the username used when using the remote server.
+      \item Example
+      \begin{minted}[fontsize=\small]{bash}
+         $ # ssh -i [path_private_key] [username]@[remote_server_address]
+         $ ssh -i ~/.pssd/linux_course_key.pem ubuntu@ec2-52-14-202-75.us-east-2.compute.amazonaws.com
+      \end{minted}
+   \end{itemize}
+\end{frame}
+
+
+\begin{frame}[fragile]
+   \frametitle{Work with a remote instance (server)}
+
+   Exchange files from local to remote server using \textbf{SCP}
+   \begin{itemize}
+      \item Example
+      \begin{minted}[fontsize=\small]{bash}
+         $ # scp -i [path_private_key] [path_local_file] [username]@[remote_server_address]:[path_remote]
+         $ scp -i ~/.pssd/linux_course_key.pem dumb.txt ubuntu@ec2-52-14-202-75.us-east-2.compute.amazonaws.com:~/
+      \end{minted}
+   \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+   \frametitle{Work with a remote instance (server)}
+   Exchange files from remote server to local using \textbf{SCP}
+   \begin{itemize}
+      \item Example
+      \begin{minted}[fontsize=\small]{bash}
+         $ # scp -i [path_private_key] [username]@[remote_server_address]:[path_remote_file] [path_local]
+         $ scp -i ~/.pssd/linux_course_key.pem ubuntu@ec2-52-14-202-75.us-east-2.compute.amazonaws.com:dumby.txt .
+      \end{minted}
+   \end{itemize}
+   Careful: On Mac, don't forget to set the permissions to read for the user only. chmod 400 private\_key.pem
+   Otherwise it will be blocked.
+\end{frame}
+
+
+\begin{frame}
+   \frametitle{Manipulate data}
+   \begin{itemize}
+      \item {\bf wget} World Wide Web GET \\
+            Download a file from an URL.
+      \item {\bf curl} Client URL \\
+            Execute any HTTP command (GET by default), print received data.
+      \item {\bf grep} Global Regular Expressions Print \\
+            Select parts of files that match a pattern.
+      \item {\bf sed} Stream EDitor \\
+            Parses and transform text data.
+   \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+   \frametitle{Example - wget}
+   \begin{minted}[fontsize=\small]{bash}
+   $ wget perdu.com
+   --2020-12-01 18:19:01--  http://perdu.com/
+   Resolving perdu.com (perdu.com)... 208.97.177.124
+   Connecting to perdu.com (perdu.com)|208.97.177.124|:80... connected.
+   HTTP request sent, awaiting response... 200 OK
+   Length: 204 [text/html]
+   Saving to: ‘index.html’
+
+   index.html  100%[==========>]     204  --.-KB/s    in 0s
+
+   2020-12-01 18:19:01 (45.2 MB/s) - ‘index.html’ saved [204/204]
+   $ head index.html
+   <html><head><title>Vous Etes Perdu ?</title>...
+   \end{minted}
+\end{frame}
+
+% # Wget
+% wget perdu.com
+% wget https://cdn.kernel.org/pub/linux/kernel/v4.x/linux-4.17.2.tar.xz
+
+
+\begin{frame}[fragile]
+   \frametitle{Example - curl}
+   \begin{minted}{bash}
+   $ curl -s perdu.com
+   <html><head><title>Vous Etes Perdu ?</title>...
+   \end{minted}
+\end{frame}
+% # CURL
+% Ex1:
+% curl -s https://www.google.fr/ | grep -E chance
+% Ex2:
+% curl https://en.wikipedia.org/wiki/Unix_philosophy
+
+\begin{frame}[fragile]\frametitle{Example - grep}
+   \small
+   \begin{minted}{bash}
+   $ ls | grep '.sh'
+   esilv.sh
+   linux_shell_GA.tex
+   \end{minted}
+
+   \begin{minted}{bash}
+   $ ls | grep '\.sh'
+   esilv.sh
+   \end{minted}
+
+   \begin{minted}{bash}
+   $ ls | grep -o '.sh'
+   .sh
+   _sh
+   \end{minted}
+
+   \begin{minted}{bash}
+   $ ls | grep -P 'esilv.[^p]]|sh'
+   esilv.sh
+   esilv.tex
+   linux_shell_GA.tex
+   \end{minted}
+
+\end{frame}
+
+\begin{frame}[fragile]
+   \frametitle{Example - sed}
+   \begin{minted}[fontsize=\small]{bash}
+   $ echo 'Too" "ma"ny "double quotes"'
+      | sed 's/"//g'
+   Too many double quotes
+
+   $ echo 'Too" "ma"ny "double quotes"'
+      | sed -E 's/"([a-z])/\1"/g'
+   Too" m"an"y d"ouble quotes"
+   \end{minted}
+\end{frame}
+
+%----------------------------------------------------------------------------------------
+\subsection{Use of Regular Expressions}
+%----------------------------------------------------------------------------------------
+
+\begin{frame}[fragile]
+   \frametitle{Regular Expressions}
+   Character sequence defining a character pattern.
+   \begin{itemize}
+      \item Match a text against a pattern
+      \item Find a pattern in a text
+      \item Substitute a pattern in a text
+   \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+   \frametitle{Regular Expressions - Examples}
+   Character sequence defining a search pattern.
+   \begin{itemize}
+      \item Recognize a character sequence \\
+            "aabcda" + r"(bc)" $\rightarrow$ "bc"
+      \item With alternatives \\
+            "aabcda" + r"(b$|$c)" $\rightarrow$ "b", "c" \\
+            "aabcda" + r"([bcd])" $\rightarrow$ "b", "c", "d"
+      \item And quantifiers \\
+            "aabcda" + r"(a*b*)" $\rightarrow$ "aab", "a" \\
+            "aabcda" + r"(a*b+)" $\rightarrow$ "aab"
+      \item Greedy by default but can be lazy \\
+            "aabcda" + r"(a*?)" $\rightarrow$ "a", "a", "a"
+   \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+   \frametitle{Regular Expressions - Useful links}
+   Because syntax can quickly become very complex and it is easier to test within a sandbox:
+   \begin{itemize}
+      \item \url{https://regexr.com/}
+      \item \url{https://www.regextester.com/}
+      \item \url{https://regex101.com/}
+   \end{itemize}
+\end{frame}
+
+%----------------------------------------------------------------------------------------
+\subsection{Shell scripts}
+%----------------------------------------------------------------------------------------
+
+\begin{frame}[fragile]
+   \frametitle{Shells provide a history}
+   You will often execute the same commands many times.
+   \begin{itemize}
+      \item {\bf history} opens the complete history
+      \item $\uparrow$ and $\downarrow$ allow to navigate in previous commands
+      \item {\bf ctrl+R} allows to search among previous commands
+      \item {\bf !!} executes the previous command
+      \item recent shells (like Fish or ZSH) provide auto-completion
+      \item and many other shell-specific tools...
+   \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+   \frametitle{But it is often not enough}
+   Very easy to make mistakes
+   \begin{itemize}
+      \item most commands are very small, a typo leads to another command
+      \item the shell is sensitive to case and spacing
+      \item chaining commands compose their complexity
+   \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+   \frametitle{But it is often not enough}
+   Often need to replicate the commands
+   \begin{itemize}
+      \item multiple times until they work
+      \item on multiple files
+      \item on multiple machines
+   \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]\frametitle{Write commands in a script}
+   \footnotesize
+   Write in script.sh:
+   \begin{minted}{bash}
+      #!/bin/bash
+      echo "Hello World, your files are"
+      ls
+   \end{minted}
+   Make this file executable:
+   \begin{minted}{bash}
+      $ chmod u+x script.sh
+   \end{minted}
+   Then execute it:
+   \begin{minted}{bash}
+      $ ./script.sh
+      Hello World, your files are
+      README.md   esilv.sh*   linux_os_HO.tex
+      $ . script.sh
+      Hello World, your files are
+      README.md   esilv.sh*   linux_os_HO.tex
+      $ source script.sh
+      Hello World, your files are
+      README.md   esilv.sh*   linux_os_HO.tex
+   \end{minted}
+\end{frame}
+
+\begin{frame}[fragile]
+   \frametitle{Bash scripts can be dangerous}
+   This is a valid bash script, will use all your memory and crash your machine:
+   \begin{verbatim}
+      :(){ :|:& };:
+   \end{verbatim}
+   It is called a \href{https://en.wikipedia.org/wiki/Fork_bomb}{Fork Bomb}.
+\end{frame}
+
+\begin{frame}[fragile]
+   \frametitle{Bash scripts can be VERY dangerous}
+   This is a valid bash script, will erase your hard drive:
+   \begin{minted}{bash}
+      $ sudo rm -rf /
+   \end{minted}
+\end{frame}
+
+\begin{frame}[fragile]
+   \frametitle{Bash is Turing-complete}
+   So you can use it to solve any problem...
+   \begin{minted}{bash}
+      #!/bin/bash
+      min() {
+         printf "%s\n" "${@:2}" | sort "$1" | head -n1
+      }
+      max() {
+         min ${1}r ${@:2}
+      }
+   \end{minted}
+   ...but prefer using higher-level languages!
+\end{frame}
+
+%----------------------------------------------------------------------------------------
+\section{Git}
+\section{Python}
+
+\end{document}

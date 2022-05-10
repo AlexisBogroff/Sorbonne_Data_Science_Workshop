@@ -1,0 +1,503 @@
+\input{CM_class.tex}
+
+\begin{document}
+
+\begin{frame}
+   \titlepage
+\end{frame}
+
+\begin{frame}
+   \tableofcontents
+\end{frame}
+
+\section{Linux}
+\section{Git}
+
+%----------------------------------------------------------------------------------------
+\subsection{Git distant repositories}
+%----------------------------------------------------------------------------------------
+
+% for pretty graphs:
+% http://jsfiddle.net/4t2cpgjo/57/
+% can save the image in the bottom right corner
+
+\begin{frame}
+\frametitle{Local Git repository}
+   Contains Git objects as explained in previous lesson.
+   \begin{itemize}
+      \item Stores a history of changes (a.k.a. commits).
+      \item Allows to revert back to any state of the history.
+   \end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Local Git repository - some commands}
+   \begin{itemize}
+      \item {\bf git init} Create a Git repository from an existing folder.
+      \item {\bf git add} Register some changes for next commit.
+      \item {\bf git commit} Add changes to local Git history.
+      \item {\bf git checkout} Change files to another point in Git history.
+      \item ...
+   \end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Distant Git repository}
+   Same as a local Git repository...
+   \begin{itemize}
+      \item Stores a history of changes (a.k.a. commits).
+      \item Allows to revert back to any state of the history.
+   \end{itemize}
+   ...on a distant server.
+   \begin{itemize}
+      \item Can send and receive commits and other Git objects.
+   \end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Distant Git repository - new commands}
+   \begin{itemize}
+      \item {\bf git clone} Copy a distant repository.
+      \item {\bf git fetch} Download Git objects from distant repository.
+      \item {\bf git merge} Merge two sets of {\it local} Git objects, by default the local and remote (i.e. already downloaded from distant repository) ones.
+      \item {\bf git pull} Fetch AND merge from distant repository.
+      \item {\bf git push} Send Git objects to a distant repository.
+   \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Edit a distant repository: clone/commit/push}
+   \small
+   When starting to work on a repository:
+   \begin{minted}{bash}
+      $ git clone https://gitlab.hsoftware.com/galvarez/test-project.git
+      $ cd test-project
+      $ echo "some changes" >> README.md
+      $ git add README.md
+      $ git commit -m "Some changes in readme"
+      $ git push
+   \end{minted}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Edit a distant repository: pull/commit/push}
+   When resuming work on a repository:
+   \begin{minted}{bash}
+      $ git pull --rebase
+      $ echo "some more changes" >> README.md
+      $ git add README.md
+      $ git commit -m "More changes in readme"
+      $ git push
+   \end{minted}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Note on git push}
+   With default naming, these are equivalent:
+   \begin{minted}{bash}
+      git push
+      git push origin master
+   \end{minted}
+
+   They both mean
+   \begin{quotation}
+      push to the 'master' branch on 'origin' repository
+   \end{quotation}
+   'origin' is the usual default name for a distant repository.
+   'master' is the default branch (it may change due to the \href{https://tools.ietf.org/id/draft-knodel-terminology-00.html#rfc.section.1.1}{master-slave} issue).
+\end{frame}
+
+\begin{frame}
+\frametitle{Edit a distant repository}
+   Demo...
+   \begin{figure}
+      \centering
+      \includegraphics[width = \textwidth]{../images/demo_edit_distant_repo.png}
+   \end{figure}
+\end{frame}
+
+\begin{frame}
+\frametitle{Cloud repository managers}
+   Provide support for basic Git commands and devops features likes
+   issue tracking, wiki, continuous integration, deployment pipelines, etc.
+   \begin{itemize}
+      \item https://github.com/ (cloud only)
+      \item https://gitlab.com/ (cloud + on-premise)
+      \item https://bitbucket.org/ (cloud + on-premise)
+   \end{itemize}
+\end{frame}
+
+%----------------------------------------------------------------------------------------
+\subsection{Git tags}
+%----------------------------------------------------------------------------------------
+
+\begin{frame}
+\frametitle{Tags}
+   Tags mark a commit.
+   \begin{itemize}
+      \item Provide information on that commit.
+      \item Shortcut to that commit.
+   \end{itemize}
+\end{frame}
+
+\begin{frame}\frametitle{Tags - commands}
+   \small
+   The main command is {\bf git tag}:
+   \mint{bash}|git tag|
+   List all tags in local repository.
+   \mint{bash}|git tag -l "v1*"|
+   List tags starting with 'v1' in local repository.
+   \mint{bash}|git tag v1.2|
+   Tag last commit with tag 'v1.2' in local repository.
+   \mint{bash}|git tag -d v1.2|
+   Delete tag 'v1.2' from local repository. \\
+   The commit is NOT deleted!
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Tags - commands}
+   You can also roll back your history to a past tag:
+   \mint{bash}|git checkout v1.2|
+   Check out tag 'v1.2' from local repository \\
+   It changes your local files to their state in tag v1.2. \\
+   \alert{With a huge warning in shell:}
+   \begin{minted}[fontsize=\tiny]{bash}
+   Note: switching to 'v1.2'.
+
+   You are in 'detached HEAD' state. You can look around, make experimental
+   changes and commit them, and you can discard any commits you make in this
+   state without impacting any branches by switching back to a branch.
+
+   If you want to create a new branch to retain commits you create, you may
+   do so (now or later) by using -c with the switch command. Example:
+
+      git switch -c <new-branch-name>
+
+   Or undo this operation with:
+
+      git switch -
+
+   Turn off this advice by setting config variable advice.detachedHead to false
+   \end{minted}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Tags - commands}
+   \footnotesize
+   \alert{Warning:} \\
+   The {\bf git push}, {\bf git fetch} and {\bf git pull} commands do not push/fetch/pull tags by default! Thus, use one of:\\
+   Push all tags to distant repository.
+   \mint{bash}|git push --tags|
+   Push tag 'v1.2' to distant repository.
+   \mint{bash}|git push origin v1.2|
+   Delete tag 'v1.2' from distant repository.
+   \mint{bash}|git push origin -d v1.2|
+   Download all tags from distant repository.
+   \begin{minted}{bash}
+      git fetch --tags
+      git pull --tags
+   \end{minted}
+\end{frame}
+
+%----------------------------------------------------------------------------------------
+\subsection{Git branches}
+%----------------------------------------------------------------------------------------
+
+\begin{frame}
+\frametitle{Why use branches?}
+   \begin{itemize}
+      \item<1-> Try out new ideas.
+      \item<2-> Work on your own state and still save on common server.
+      \item<3-> Prepare changes to the common code.
+      \item<4-> Separate a specific set of changes.
+   \end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Why use branches?}
+   \begin{figure}
+      \centering
+      \includegraphics[width = \textwidth]{../images/graphs/branches.png}
+   \end{figure}
+\end{frame}
+
+\begin{frame}
+\frametitle{What are branches?}
+   Git is an oriented tree of commits.
+   \begin{itemize}
+      \item The leafs are the HEAD commits, those without children.
+      \item A 'branch' is a reference to a head (= leaf) commit and all its parents.
+      \item By convention a branch designates the referenced commit up to its ancestor.
+   \end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{What are branches?}
+   \begin{figure}
+      \centering
+      \includegraphics[width = \textwidth]{../images/graphs/branches.png}
+   \end{figure}
+\end{frame}
+
+\begin{frame}
+\frametitle{What are branches?}
+   \begin{figure}
+      \centering
+      \includegraphics[width = \textwidth]{../images/graphs/branches_with_merge.png}
+   \end{figure}
+\end{frame}
+
+\begin{frame}
+\frametitle{What are branches?}
+   \begin{figure}
+      \centering
+      \includegraphics[width = \textwidth]{../images/graphs/branches_with_merge2.png}
+   \end{figure}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Branches - commands}
+   \scriptsize
+   The main command is {\bf git branch}:
+   List all branches in local repository.
+   \mint{bash}|git branch|
+   List branches starting with 'v1' in local repository.
+   \mint{bash}|git branch -l "v1*"|
+   Start branch 'v1.2' from last commit with tag  in local repository.
+   \mint{bash}|git branch v1.2|
+   Delete branch 'v1.2' from local repository. \\
+   \mint{bash}|git branch -d v1.2|
+   It will gently warn you though:
+   \alert{The commits ARE deleted!}
+   It is very similar to {\bf git tag}.
+   \begin{minted}[fontsize=\tiny]{bash}
+      $ git branch -d v1.2
+      error: The branch 'v1.2' is not fully merged.
+      If you are sure you want to delete it, run 'git branch -D v1.2'.
+   \end{minted}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Branches - commands}
+   Push the current branch to default distant repository.
+   \mint{bash}|git push|
+   Push branch 'v1.2' to distant repository.
+   \mint{bash}|git push origin v1.2|
+   Delete branch 'v1.2' from distant repository.
+   \mint{bash}|git push origin -d v1.2|
+   Download (and merge) branch 'v1.2' from distant repository.
+   \begin{minted}{bash}
+      git fetch origin v1.2
+      git pull origin v1.2
+   \end{minted}
+\end{frame}
+
+\begin{frame}
+\frametitle{How to switch branches?}
+   There are different methods:\\
+   Load files from branch 'v1.2':
+   \mint{bash}|git checkout v1.2|
+   Or:
+   \mint{bash}|git switch v1.2|
+   Create branch 'v1.2' and start working on it:
+   \mint{bash}|git checkout -b v1.2|
+\end{frame}
+
+\begin{frame}
+\frametitle{How to merge branches?}
+   The main command is {\bf git merge}:\\
+   Merge commits from branch 'v1.2' with current branch:
+   \mint{bash}|git merge v1.2|
+   It creates a merge commit with two parents
+   \begin{minipage}{0.48\linewidth}
+      \begin{figure}
+         \centering
+         \includegraphics[width = \textwidth]{../images/graphs/branches_merge_before.png}
+      \end{figure}
+   \end{minipage}
+   \begin{minipage}{0.48\linewidth}
+      \begin{figure}
+         \centering
+         \includegraphics[width = \textwidth]{../images/graphs/branches_merge_after.png}
+      \end{figure}
+   \end{minipage}
+\end{frame}
+
+\begin{frame}
+\frametitle{How to merge branches?}
+   Another solution for {\it fast-forward changes} is {\bf git rebase}:
+   Rebase commits from branch 'v1.2' after master branch:
+   \mint{bash}|git rebase master v1.2|
+   It does NOT create a merge commit.
+   \begin{minipage}{0.48\linewidth}
+      \begin{figure}
+         \centering
+         \includegraphics[width = \textwidth]{../images/graphs/branches_merge_before.png}
+      \end{figure}
+   \end{minipage}
+   \begin{minipage}{0.48\linewidth}
+      \begin{figure}
+         \centering
+         \includegraphics[width = \textwidth]{../images/graphs/branches_rebase_after.png}
+      \end{figure}
+   \end{minipage}
+\end{frame}
+
+\begin{frame}
+\frametitle{Warning on git rebase}
+   \alert{It changes the commit history:}
+   \begin{itemize}
+      \item The commit id (SHA-1) depends on its parent and content.
+      \item Rebasing changes the parent so it changes the commit id.
+      \item Parent commits are identified by their id.
+   \end{itemize}
+   {\bf $\rightarrow$ Pushing a rebase commit on a shared branch will break other people workspaces.}
+\end{frame}
+
+\begin{frame}
+\frametitle{fetch + merge + rebase}
+   \mint{bash}|git pull --rebase|
+   \begin{itemize}
+      \item Same as fetch + merge + rebase.
+      \item \alert{Only when you know what you pull} (simple repo, not too many people pushing).
+      \item Your local changes (here Start BIG feature) are then applied on top of the remote changes (here Small fix - Tony)
+   \end{itemize}
+   \begin{minipage}{0.48\linewidth}
+      \begin{figure}
+         \centering
+         \includegraphics[width = \textwidth]{../images/graphs/branches_pull_rebase_before.png}
+      \end{figure}
+   \end{minipage}
+   \begin{minipage}{0.48\linewidth}
+      \begin{figure}
+         \centering
+         \includegraphics[width = \textwidth]{../images/graphs/branches_pull_rebase_after.png}
+      \end{figure}
+   \end{minipage}
+\end{frame}
+
+\begin{frame}
+\frametitle{Clean history before pushing}
+   \mint{bash}|git rebase -i HEAD~3|
+   \begin{itemize}
+      \item This is called {\it interactive rebase}.
+      \item Can change history on the last n (here 3) commits:
+         \begin{itemize}
+            \item Squash (merge) commits.
+            \item Rewrite commits messages.
+            \item Delete commits.
+         \end{itemize}
+      \item \alert{Prevent other people from seeing your trashy intermediate commits!}
+   \end{itemize}
+   \begin{minipage}{0.48\linewidth}
+      \begin{figure}
+         \centering
+         \includegraphics[width = \textwidth]{../images/graphs/branches_interactive_before.png}
+      \end{figure}
+   \end{minipage}
+   \begin{minipage}{0.48\linewidth}
+      \begin{figure}
+         \centering
+         \includegraphics[width = \textwidth]{../images/graphs/branches_interactive_after.png}
+      \end{figure}
+   \end{minipage}
+\end{frame}
+
+\begin{frame}
+\frametitle{Practice makes perfect}
+   https://learngitbranching.js.org/
+\end{frame}
+
+%----------------------------------------------------------------------------------------
+\subsection{Git workflows}
+%----------------------------------------------------------------------------------------
+
+\begin{frame}
+\frametitle{Why Git workflows?}
+   Git is a toolbox, a team needs to agree on how to use it.
+   \begin{itemize}
+      \item<1-> How to name the branches?
+      \item<2-> Rebase branches or create merge commits?
+      \item<3-> When to create tags?
+      \item<4-> Each cloud repository come with its own features...
+   \end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Best practices}
+   Not universal but very common.
+   \begin{itemize}
+      \item Commits messages are meant to be read by others (including the future you).
+      \item The 'master' branch should always build/work/succeed.
+      \item Implement new features on branches, merge with 'master' when it builds.
+      \item Tag new versions/releases of the software.
+   \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Merge commits or rebase?}
+   Branches can be merged by two different commands:
+   \begin{columns}
+   \begin{column}{0.5\linewidth}
+      \mint{bash}|git merge|
+      \begin{itemize}
+         \item Generates a {\it merge commit} of little value.
+         \item The set of commits remains in a separate branch.
+      \end{itemize}
+      $\rightarrow$ Better for big changes?
+   \end{column}
+   \begin{column}{0.5\linewidth}
+      \mint{bash}|git rebase|
+      \begin{itemize}
+         \item Git history is lean and direct.
+         \item Risk of messing with the 'master' branch history.
+      \end{itemize}
+      $\rightarrow$ Better for small changes?
+   \end{column}
+   \end{columns}
+\end{frame}
+
+\begin{frame}
+\frametitle{Merge Requests / Pull Requests}
+   Standard on all cloud repositories (GitHub, GitLab, Bitbucket...).
+   \begin{itemize}
+      \item Implement changes in a local branch.
+      \item Push the branch on the project main repository.
+      \item Create a Merge Request on the repository website.
+      \item Discuss the proposed changes on the Merge Request webpage.
+      \item Maintainer of the project merges the request in the 'master' branch.
+   \end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Gitflow}
+   A complex workflow defined from https://nvie.com/posts/a-successful-git-branching-model/
+   \begin{itemize}
+      \item Five different kind of branches, with different behavior rules.
+      \item Protects some branches for unintended and untested changes.
+      \item Ensure reproducibility of versions.
+      \item Big mental and organizational overhead.
+   \end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Gitflow}
+   \begin{figure}
+      \centering
+      \includegraphics[height = 0.9\textheight]{../images/gitflow.png}
+   \end{figure}
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Prepare for the exercises...}
+   Install git in your shell and make sure you can create a repository.
+
+   Create an account on GitHub or GitLab cloud service.
+   Ensure you can create a repository and clone it on your computer.
+\end{frame}
+
+%----------------------------------------------------------------------------------------
+\section{Python}
+
+\end{document}

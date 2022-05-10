@@ -1,0 +1,145 @@
+\input{TD_class.tex}
+\setcounter{section}{3}
+
+\begin{document}
+
+%----------------------------------------------------------------------------------------
+\section{Linux, Git and Python}
+%----------------------------------------------------------------------------------------
+
+%----------------------------------------------------------------------------------------
+\subsection{Working Directory}  % 15 to 25 min
+%----------------------------------------------------------------------------------------
+
+Using only command-line in your Linux shell,
+\begin{enumerate}
+    \item Create an empty working directory called ``td4''.
+    \item Initialize a Git repository in it.
+    \item Install the Linux python3-pip package using your Linux package manager.
+    \item Install the VirtualEnv Python package using pip3.
+    \item Create a Python virtual environment called ``.env''. \\
+          Do you see the change in your working directory ?
+    \item Activate your virtual environment. \\
+          Do you see the change in your prompt ?
+    \item List the Python packages installed in your virtual environment.
+    \item Does Git want you to commit something ? \\
+          Do you think it is a good thing ? \\
+          \textit{hint: You can find templates at \href{https://github.com/github/gitignore}
+          {https://github.com/github/gitignore}}
+    \item Create a .gitignore file to tell Git which files should be untracked.
+    \item Does Git want you to commit something ? \\
+          Do you think it is a good thing this time ?
+    \item Do your first commit and check that Git is happy now.
+\end{enumerate}
+
+\ifdefined\answer
+\begin{minted}{bash}
+    mkdir td4
+    cd td4
+    git init
+    sudo apt update
+    sudo apt install python3-pip
+    pip3 install virtualenv --force-reinstall
+    python3 -m venv .env
+    ls -la
+    source .env/bin/activate
+    pip list
+    git status
+    echo ".env/" > .gitignore
+    git status
+    git add .gitignore
+    git commit -m "Initial commit"
+    git status
+\end{minted}
+\fi
+
+%----------------------------------------------------------------------------------------
+\subsection{Python Script}  % 15 to 25 min
+%----------------------------------------------------------------------------------------
+
+Back to the Domesday Book, the greatest medieval census. \\
+It lists the manors (private properties) in every place of every county in England
+in the years 1066 and 1086, before and after the Norman conquest. \\
+\href{https://opendomesday.org/}{OpenDomesday} presents it in a
+modern-human-readable website,
+as well as a RESTful web \textit{application programming interface} API:
+\href{https://opendomesday.org/api/}{https://opendomesday.org/api/}
+
+\begin{enumerate}
+    \item Install the Python package \href{https://github.com/psf/requests}{Requests}
+          using pip. \\
+          \textit{info: Requests is a simple, yet elegant HTTP library
+          and the de facto standard for querying RESTful web API.}
+    \item Create a Python script that returns the list of all place ids in Derbyshire.
+          \textit{hint: Look at the county structure inside the web API documentation} \\
+          \textit{hint: As the web API returns JSON, no need to use regular expressions}
+    \item Commit your changes in Git
+\end{enumerate}
+
+\ifdefined\answer
+\begin{minted}{bash}
+    pip install requests
+    vi script.py
+\end{minted}
+\inputminted[]{python}{TD4_Python_Linux_similarities_answers_python_script.py}
+\begin{minted}{bash}
+    git add .
+    git commit -m "retrieve all place ids in Derbyshire"
+\end{minted}
+\fi
+
+%----------------------------------------------------------------------------------------
+\subsection{Python Module}  % 15 to 25 min
+%----------------------------------------------------------------------------------------
+
+\begin{enumerate}
+    \item Create a Python module with a \textbf{get\_manor\_ids} function
+          that takes a place id as parameter and returns the list of manors.
+    \item Check that calling your module does not produce any output.
+    \item To test your module, open a python interpreter and call your function with
+          the first place id from Derbyshire.
+    \item Add a \textbf{if \_\_name\_\_ == '\_\_main\_\_':} block with your previous test,
+          at the end of your module, to make it usable as a script.
+    \item Check that calling your module now does produce an output.
+    \item Commit your changes in Git
+\end{enumerate}
+
+\ifdefined\answer
+\begin{minted}{bash}
+    vi module.py
+\end{minted}
+\inputminted[firstline=1,lastline=11]{python}{TD4_Python_Linux_similarities_answers_python_module.py}
+\begin{minted}{bash}
+    python module.py
+    python
+    >>> import module
+    >>> print(module.get_manor_ids(1036))
+    [13038]
+\end{minted}
+\inputminted[]{python}{TD4_Python_Linux_similarities_answers_python_module.py}
+\begin{minted}{bash}
+    python module.py
+    [13038]
+    git add .
+    git commit -m "retrieve all place ids in Derbyshire"
+\end{minted}
+\fi
+
+%----------------------------------------------------------------------------------------
+\subsection{Python Program}  % 15 to 25 min
+%----------------------------------------------------------------------------------------
+
+\begin{enumerate}
+    \item Enrich your module to get all manors in all places in Derbyshire.
+    \item Retrieve the geld paid and total ploughs owned by all those manors.
+    \item Create a Pandas DataFrame with the same information.
+    \item Use Pandas to compute the sum of geld paid and total ploughs owned in Derbyshire.
+    \item Add docstrings to your functions.
+    \item Commit your changes in Git.
+\end{enumerate}
+
+\ifdefined\answer
+\inputminted[]{python}{TD4_Python_Linux_similarities_answers_python_full.py}
+\fi
+
+\end{document}

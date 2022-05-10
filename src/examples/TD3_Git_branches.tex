@@ -1,0 +1,202 @@
+\input{TD_class.tex}
+\setcounter{section}{2}
+
+\begin{document}
+
+%----------------------------------------------------------------------------------------
+\section{Git Branches}
+%----------------------------------------------------------------------------------------
+
+These exercises must be done by teams of 3-4 students.
+
+%----------------------------------------------------------------------------------------
+\subsection{Clone a Git repository}  % 5 to 10 min
+%----------------------------------------------------------------------------------------
+
+\begin{enumerate}
+    \item Choose the repository created on GitHub or GitLab by one of your teammates, share its web URL.
+    \item \textbf{For the repository owner...} Ensure there is at least a README.md file, it appears on the project frontpage in the web UI.
+    \item Using only command-line in your Linux shell, clone it to a local repository.
+    \item \textbf{For the repository owner...} Give push rights to your teammates:
+        \begin{itemize}
+            \item on \textit{GitHub} got to "Settings", "Manage access", "Invite a collaborator" \\
+                  see https://docs.github.com/en/github/setting-up-and-managing-your-github-user-account/inviting-collaborators-to-a-personal-repository
+            \item on \textit{GitLab} got to "Members", "Invite member" \\
+                  see https://docs.gitlab.com/ee/user/project/members/
+        \end{itemize}
+\end{enumerate}
+
+\textit{hint: All Git commands have a \textbf{-h} flag to display the corresponding help.}
+
+\textit{hint: Unless you setup a SSH private key, you want to clone using the HTTPS address, not the SSH or CLI one.}
+
+% git clone <url>
+
+%----------------------------------------------------------------------------------------
+\subsection{Push files to common repository}  % 10 to 20 min
+%----------------------------------------------------------------------------------------
+
+Using only the shell in your local repository:
+
+\begin{enumerate}
+    \item Create a branch named after you.
+    \item Create a new text file named after you (with the content you want).
+    \item Commit this new file.
+    \item Push your branch to the remote repository.
+\end{enumerate}
+
+Check in the web UI you see your branch (there is a button with 'master' as default).
+Ensure it contains your file with the same content you entered locally.
+
+% git branch galvarez
+% git switch galvarez
+% echo "test" > galvarez.txt
+% git add galvarez.txt
+% git commit -m "New file from Guillaume Alvarez"
+% git push origin galvarez
+
+\textit{hint: Lost in your commits?} use \verb+git log+ or \verb+git log --graph --oneline+ to print the commit tree.
+
+%----------------------------------------------------------------------------------------
+\subsection{Merge simple changes}  % 10 to 20 min
+%----------------------------------------------------------------------------------------
+
+Using only the shell:
+\begin{enumerate}
+    \item Merge your branch into the 'master' branch.
+    \item Push your changes in the 'master' branch to the remote repository.
+\end{enumerate}
+
+\textit{hint: You may have to merge or rebase on the changes from your teammates.}
+
+Check in the web UI you see your own file in the 'master' branch.
+Ensure it contains the same content you entered locally.
+
+% git switch master
+% git merge galvarez
+% git push origin master
+
+% may need rebase after other people in the team committed they own files
+% git pull --rebase
+
+
+%----------------------------------------------------------------------------------------
+\subsection{Resolve merge conflicts}  % 20 to 40 min
+%----------------------------------------------------------------------------------------
+
+\textbf{For the repository owner...} In the web UI, make sure lines 2 to 6 of the README.md are not empty.
+
+\textit{One person at a time}, using only the shell:
+\begin{enumerate}
+    \item Switch back to your own branch (not including the latest changes from the master branch).
+    \item Edit the lines 2 to 6 of the README.md file with a text you like (a poem, a quote, some clever code...).
+          It can be any readable text, it may be incomplete, it must just take about 5 lines and be different from your teammates.
+          It must start on line 2 to trigger conflicts between team members.
+    \item Commit this change.
+    \item Pull latest status from the remote repository 'master' branch into your local 'master' branch.
+    \item Merge your branch into the local 'master' branch.
+    \item If there are conflicts, \textit{we want the paragraph to appear in alphabetical order in the final README.md file.}
+    \item Push your changes in the 'master' branch to the remote repository.
+\end{enumerate}
+
+\textit{hint: You may edit the README.md file using nano or vim in shell, nano may be easier as it displays available commands at the bottom.}
+
+Check the README.md content in the web UI.
+After everyone in the group made their change and resolved conflicts, the file in 'master' branch should contain one paragraph per team member.
+
+% git switch galvarez
+% vim README.md
+% git add README.md
+% git commit -m "Add a paragraph"
+% git switch master 
+% git pull --rebase
+% git merge galvarez
+% vim README.md to resolve the conflict
+% git add README.md
+% git commit -m "Add a paragraph"
+% git push origin master
+
+%----------------------------------------------------------------------------------------
+\subsection{Take latest changes from master in local branch}  % 10 to 20 min
+%----------------------------------------------------------------------------------------
+
+\textbf{For the repository owner...} In the web UI, add a line of text at the beginning of the README.md with the team members' names or aliases.
+
+Using only the shell in your local repository:
+\begin{enumerate}
+    \item Pull the latest changes in the 'master' branch, check the README.md is up-to-date (contains all the paragraphs and the new line).
+    \item Switch back to your own branch (not including the latest changes from the master branch).
+    \item Merge the changes from 'master' to your own branch.
+    \item Commit this change.
+\end{enumerate}
+
+Check the README.md content in the web UI.
+After everyone in the group made their change and resolved conflicts, the file in 'master' branch should contain one paragraph per team member.
+
+% git pull --rebase
+% git switch galvarez
+% git merge master
+% vim README.md to resolve the conflict
+% git add README.md
+% git commit -m "Merge latest changes from master"
+
+%----------------------------------------------------------------------------------------
+\subsection{Delete a branch}  % 5 to 10 min
+%----------------------------------------------------------------------------------------
+
+Using only the shell in your local repository:
+\begin{enumerate}
+    \item Delete your branch on local repository.
+    \item Delete your branch on distant repository.
+\end{enumerate}
+
+Using the web UI, ensure only the 'master' branch remains.
+
+%----------------------------------------------------------------------------------------
+\subsection{Rebase interactively to have a clean history}  % 20 to 30 min
+%----------------------------------------------------------------------------------------
+
+Using only the shell in your local repository:
+\begin{enumerate}
+    \item Pull the latest changes in the 'master' branch.
+    \item Create a new local branch named after you and switch to it.
+    \item Then \textbf{with a separate commit for each change}:
+        \begin{enumerate}
+            \item Clear the whole file, removing all text.
+            \item Add a title line "Git interactive rebase".
+            \item Copy the first paragraph from https://git-scm.com/book/en/v2/Git-Tools-Rewriting-History.
+            \item Add the second paragraph from the same page.
+            \item Add the first and second paragraphs from the \textit{"Changing Multiple Commit Messages"} section in the same page.
+            \item Remove the second paragraph from your file.
+            \item Add the missing title \textit{"Changing Multiple Commit Messages"} on a line just before the two paragraphs your copied (before \textit{To modify a commit that is farther back in your history...}).
+            \item Add a final line with your name or alias.
+        \end{enumerate}
+        The commit history of your branch should then be a bit messy with 8 commits.
+    \item Use interactive rebase to have a single commit with message \textit{"Explain git interactive rebase."}.
+    \item Push your branch on the remote repository.
+\end{enumerate}
+
+\textit{hint: You can change Git default editor with command \textbf{git config --global core.editor "path to editor"}.
+By default it uses \textbf{nano}.}
+
+Using the web UI, check the README.md content in your branch on the remote repository.
+Check the your branch history or graph, it should only contain the aggregated commit you pushed, not all the local commits.
+The 'master' branch should not have changed.
+
+%----------------------------------------------------------------------------------------
+\subsection{Create and approve a Merge/Pull Request}  % 20 to 30 min
+%----------------------------------------------------------------------------------------
+
+In the web UI open your branch then
+\begin{itemize}
+    \item In \textbf{GitLab} click on \textit{'Create merge request'} to create a Merge Request to merge your branch into the 'master' branch.
+    \item In \textbf{GitHub} click on \textit{'pull request'} to create a Pull Request to merge your branch into the 'master' branch.
+    \item Ask another team member to check there is a single commit and merge the Merge/Pull Request.
+\end{itemize}
+
+\textit{hint: As multiple people will try to change the same file, you may well have conflicts.
+In that case you have to rebase your branch on the latest state of the 'master' branch, resolving potential conflicts, and push it again.
+Reloading the merge/pull request webpage will update it.}
+
+
+\end{document}

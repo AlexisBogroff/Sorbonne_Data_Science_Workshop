@@ -1,0 +1,516 @@
+\input{CM_class.tex}
+
+\begin{document}
+
+\begin{frame}
+   \titlepage
+\end{frame}
+
+\begin{frame}
+   \tableofcontents
+\end{frame}
+
+\section{Linux}
+\section{Git}
+\section{Python}
+
+%----------------------------------------------------------------------------------------
+\subsection{Python Objects}
+%----------------------------------------------------------------------------------------
+
+% explain the interest of OOP
+% syntax of objects in python
+% differences with objects in Java/.NET/JS/C++ (no force private, functions take self as parameter, standard functions in place of interfaces)
+
+\begin{frame}[fragile]
+\frametitle{Imperative Programming}
+   \begin{minted}{python}
+      sum = 1 + 1
+      print(f"1 + 1 = {sum}")
+   \end{minted}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Imperative Programming with control structures}
+   \begin{minted}{python}
+      for n in range(1, 10):
+         sum = n + 1
+         print(f"{n} + 1 = {sum}")
+   \end{minted}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Imperative Programming with functions}
+   \begin{minted}{python}
+      def sqrt(number):
+         """Compute square root of integer number"""
+         ...
+         return ...
+
+      for n in range(1, 100):
+         print(f"square root of {n} is {sqrt(n)}")
+   \end{minted}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Imperative Programming with complex systems}
+   \begin{minted}[fontsize=\scriptsize]{python}
+      stock1 = dict(name="stock1", isin="FR010578277", orders=list(), status=OPEN)
+      market = list(stock1, stock2, ...)
+
+      def insert_order(market, stock_name, price quantity):
+         stock = find_stock(market, stock_name)
+         existing_order = find_order(stock.orders, price, quantity)
+         if existing_order:
+            raise "Already exist"
+         new_order = add_order(stock.orders, price, quantity)
+         check_order_executes(stock.orders, order)
+         ...
+   \end{minted}
+   \begin{itemize}
+      \item<2-> What if I need to index orders by id? add a validity to orders? handle auctions?
+   \end{itemize}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Imperative Programming}
+   \begin{itemize}
+      \item Strong separation between state (i.e. data) and instructions (i.e. changing data).
+
+      \item Strong code coupling between data structure and functions.
+      % \item Data structure cannot be easily changed.
+      \item Hard to reason about for complex domains.
+   \end{itemize}
+\end{frame}
+
+% \begin{frame}[fragile]
+%    \frametitle{Strong code coupling between data structure and functions}
+%    \begin{minted}{python}
+%       # Because everything is an object, even a data structure.
+%       # So a function can be accessed from the data itself
+%       >> 'I love chocolate'.upper()
+%       'I LOVE CHOCOLATE'
+%       >> 12.54.__int__()
+%       12
+%       >> x = 1
+%       >> x.__add__(3)
+%       4
+%    \end{minted}
+% \end{frame}
+
+
+\begin{frame}
+\frametitle{Object Oriented Programming}
+   \begin{itemize}
+      \item Object contains both
+            \begin{itemize}
+               \item state (called fields or attributes)
+               \item instructions (called methods or functions)
+            \end{itemize}
+      \item Classes define objects.
+      \item A class \textit{encapsulate}s a concept.
+   \end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Object Oriented Programming in Python}
+   Do not forget the reference doc: \\
+   https://docs.python.org/3/tutorial/classes.html
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Object Oriented Programming in Python}
+   \begin{minted}[fontsize=\scriptsize]{python}
+      class MyClass:
+         """A simple example class"""
+         i = 12345 # an attribute of the class
+
+         def say_hello(self):
+            """A simple function in the class"""
+            return 'hello world'
+
+      myObject = MyClass()
+      print(myObject.say_hello()) # hello world
+      print(myObject.i) # 12345
+   \end{minted}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Class Constructor}
+   \begin{minted}[fontsize=\scriptsize]{python}
+      class Order:
+         def __init__(self, quantity, price, buy=True):
+            self.quantity = quantity
+            self.price = price
+            self.buy = buy
+
+         def is_sell(self):
+            return not self.buy
+
+      o = Order(5, 11.0)
+      print(o.quantity) # 5
+      print(o.is_sell()) # False
+   \end{minted}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Python is permissive}
+   \begin{minted}[fontsize=\scriptsize]{python}
+      class Order:
+         def __init__(self, quantity, price, buy=True):
+            self.quantity = quantity
+            self.price = price
+            self.buy = buy
+
+      o = Order(5, 11.0)
+      print(o.quantity) # 5
+
+      o.quantity = 10
+      print(o.quantity) # 10
+   \end{minted}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Python is really permissive}
+   \begin{minted}[fontsize=\scriptsize]{python}
+      class Order:
+         def __init__(self, quantity, price, buy=True):
+            self.__quantity = quantity
+            self.price = price
+            self.buy = buy
+
+         def quantity(self):
+            return self.__quantity if self.buy else -self.__quantity
+
+      o = Order(5, 11.0)
+      print(o.quantity()) # 5
+      print(o.__quantity) # 5
+
+      o.__quantity = 10
+      print(o.quantity()) # 10
+      print(o.__quantity) # 10
+   \end{minted}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Python is really really permissive}
+   \begin{minted}[fontsize=\scriptsize]{python}
+      class Order:
+         def __init__(self, quantity, price, buy=True):
+            self.__quantity = quantity
+            self.price = price
+            self.buy = buy
+
+      o = Order(5, 11.0)
+      o.quantity = 10
+      print(o.quantity) # 10
+      print(o.__quantity) # 5
+   \end{minted}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Class - Common functions - string representation}
+   \begin{minted}[fontsize=\scriptsize]{python}
+      class Order:
+         def __init__(self, quantity, price):
+            self.quantity = quantity
+            self.price = price
+
+         def __str__(self): # human-readable content
+            return f"{self.quantity} @ {self.price}")
+
+         def __repr__(self): # unambiguous representation of the object
+            return f"Order({self.quantity}, {self.price})")
+
+      o = Order(5, 11.0)
+      print(o) # 5 @ 11.0
+      print(str(o)) # 5 @ 11.0
+      print(repr(o)) # Order(5, 11.0)
+   \end{minted}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Class - Common functions - comparisons}
+   \begin{minted}[fontsize=\scriptsize]{python}
+      class Order:
+         def __init__(self, quantity, price):
+            self.quantity = quantity
+            self.price = price
+
+         def __eq__(self, other): # self == other
+            return other and self.quantity == other.quantity and self.price == other.price
+
+         def __lt__(self, other): # self < other
+            return other and self.price < other.price
+
+      o1 = Order(5, 11.0)
+      o2 = Order(20, 10.0)
+      print(o1 == o2) # False
+      print(o1 < o2) # False
+      print(o2 < o1) # True
+      print(o1 > o2) # True
+      print(o1 >= o2) # TypeError: '>=' not supported between instances of 'Order' and 'Order'
+   \end{minted}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Class - Common functions - comparisons}
+   \begin{minted}[fontsize=\scriptsize]{python}
+      from functools import total_ordering
+
+      @total_ordering
+      class Order:
+         def __init__(self, quantity, price):
+            self.quantity = quantity
+            self.price = price
+
+         def __eq__(self, other): # self == other
+            return other and self.quantity == other.quantity and self.price == other.price
+
+         def __lt__(self, other): # self < other
+            return other and self.price < other.price
+
+      o1 = Order(5, 11.0)
+      o2 = Order(20, 10.0)
+      print(o1 == o2) # False
+      print(o1 < o2) # False
+      print(o2 < o1) # True
+      print(o1 > o2) # True
+      print(o1 >= o2) # True
+   \end{minted}
+\end{frame}
+
+
+%----------------------------------------------------------------------------------------
+\subsection{Order Book Example}
+%----------------------------------------------------------------------------------------
+
+\begin{frame}
+\frametitle{What is an exchange order book?}
+   \begin{itemize}
+      \item Contains all orders on a financial instrument (stock, bond, future, option, etc.)
+      \item Orders are usually sorted by execution order
+         \begin{itemize}
+            \item \textit{BUY:} from higher price to worst price
+            \item \textit{SELL:} from lower price to worst price
+         \end{itemize}
+         First orders (with the \textit{best price}) are the first to execute. \\
+         Most exchanges also prioritize by insertion order: first in, first out.
+      \item Display can aggregate orders on the same limit (i.e. price level).
+   \end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Trading sequence example}
+   Start with an empty book on Orange
+   \begin{table}
+      \centering
+      \resizebox{\textwidth}{!}{%
+      \begin{tabular}{ r | r || l | l }
+         \multicolumn{4}{c}{ Orange - FR0000133308 @ XPAR } \\
+         \hline
+         \multicolumn{2}{c}{ BUY } & \multicolumn{2}{c}{ SELL }  \\
+         \hline
+         \hspace{1cm} & \hspace{1cm} & \hspace{1cm} & \hspace{1cm} \\
+      \end{tabular}
+      } % end of scope of "\resizebox"  directive
+   \end{table}
+\end{frame}
+
+\begin{frame}
+\frametitle{Trading sequence example}
+   Buy 10 stocks at 10.0
+   \begin{table}
+      \centering
+      \resizebox{\textwidth}{!}{%
+      \begin{tabular}{ r | r || l | l }
+         \multicolumn{4}{c}{ Orange - FR0000133308 @ XPAR } \\
+         \hline
+         \multicolumn{2}{c}{ BUY } & \multicolumn{2}{c}{ SELL }  \\
+         \hline
+         {\bf 10} & {\bf 10.0} & & \\
+         \hspace{1cm} & \hspace{1cm} & \hspace{1cm} & \hspace{1cm} \\
+      \end{tabular}
+      } % end of scope of "\resizebox"  directive
+   \end{table}
+\end{frame}
+
+\begin{frame}
+\frametitle{Trading sequence example}
+   Sell 5 stocks at 11.0
+   \begin{table}
+      \centering
+      \resizebox{\textwidth}{!}{%
+      \begin{tabular}{ r | r || l | l }
+         \multicolumn{4}{c}{ Orange - FR0000133308 @ XPAR } \\
+         \hline
+         \multicolumn{2}{c}{ BUY } & \multicolumn{2}{c}{ SELL }  \\
+         \hline
+         10 & 10.0 & {\bf 11.0} & {\bf 5} \\
+         \hspace{1cm} & \hspace{1cm} & \hspace{1cm} & \hspace{1cm} \\
+      \end{tabular}
+      } % end of scope of "\resizebox"  directive
+   \end{table}
+\end{frame}
+
+\begin{frame}
+\frametitle{Trading sequence example}
+   Buy 123 stocks at 10.5
+   \begin{table}
+      \centering
+      \resizebox{\textwidth}{!}{%
+      \begin{tabular}{ r | r || l | l }
+         \multicolumn{4}{c}{ Orange - FR0000133308 @ XPAR } \\
+         \hline
+         \multicolumn{2}{c}{ BUY } & \multicolumn{2}{c}{ SELL }  \\
+         \hline
+         {\bf 123} & {\bf 10.5} & 11.0 & 5 \\
+         10 & 10.0 & &  \\
+         \hspace{1cm} & \hspace{1cm} & \hspace{1cm} & \hspace{1cm} \\
+      \end{tabular}
+      } % end of scope of "\resizebox"  directive
+   \end{table}
+\end{frame}
+
+\begin{frame}
+\frametitle{Trading sequence example}
+   Sell 62 stocks at 11.0
+   \begin{table}
+      \centering
+      \resizebox{\textwidth}{!}{%
+      \begin{tabular}{ r | r || l | l }
+         \multicolumn{4}{c}{ Orange - FR0000133308 @ XPAR } \\
+         \hline
+         \multicolumn{2}{c}{ BUY } & \multicolumn{2}{c}{ SELL }  \\
+         \hline
+         123 & 10.5 & 11.0 & 5 \\
+         10 & 10.0 & {\bf 11.0} & {\bf 62} \\
+         \hspace{1cm} & \hspace{1cm} & \hspace{1cm} & \hspace{1cm} \\
+      \end{tabular}
+      } % end of scope of "\resizebox"  directive
+   \end{table}
+   They appear below the best SELL order because they will execute after the previous SELL order.
+\end{frame}
+
+\begin{frame}
+\frametitle{Trading sequence example}
+   Sell 16 stocks at 10.6
+   \begin{table}
+      \centering
+      \resizebox{\textwidth}{!}{%
+      \begin{tabular}{ r | r || l | l }
+         \multicolumn{4}{c}{ Orange - FR0000133308 @ XPAR } \\
+         \hline
+         \multicolumn{2}{c}{ BUY } & \multicolumn{2}{c}{ SELL }  \\
+         \hline
+         123 & 10.5 & {\bf 10.6} & {\bf 16} \\
+         10 & 10.0 & 11.0 & 5 \\
+          &  & 11.0 & 62 \\
+         \hspace{1cm} & \hspace{1cm} & \hspace{1cm} & \hspace{1cm} \\
+      \end{tabular}
+      } % end of scope of "\resizebox"  directive
+   \end{table}
+\end{frame}
+
+\begin{frame}
+\frametitle{Trading sequence example}
+   Buy 2 stocks at 10.6
+   \begin{table}
+      \centering
+      \resizebox{\textwidth}{!}{%
+      \begin{tabular}{ r | r || l | l }
+         \multicolumn{4}{c}{ Orange - FR0000133308 @ XPAR } \\
+         \hline
+         \multicolumn{2}{c}{ BUY } & \multicolumn{2}{c}{ SELL }  \\
+         \hline
+         {\bf 2} & {\bf 10.6} & {\bf 10.6} & {\bf 16} \\
+         123 & 10.5 & 11.0 & 5 \\
+         10 & 10.0 & 11.0 & 62 \\
+         \hspace{1cm} & \hspace{1cm} & \hspace{1cm} & \hspace{1cm} \\
+      \end{tabular}
+      } % end of scope of "\resizebox"  directive
+   \end{table}
+   BUY and SELL orders match $\rightarrow$ an execution happens! \\
+   Execute 2 at 10.6...
+\end{frame}
+
+\begin{frame}
+\frametitle{Trading sequence example}
+   ...Execute 2 at 10.6
+   \begin{table}
+      \centering
+      \resizebox{\textwidth}{!}{%
+      \begin{tabular}{ r | r || l | l }
+         \multicolumn{4}{c}{ Orange - FR0000133308 @ XPAR } \\
+         \hline
+         \multicolumn{2}{c}{ BUY } & \multicolumn{2}{c}{ SELL }  \\
+         \hline
+         123 & 10.5 & 10.6 & {\bf 14} \\
+         10 & 10.0 & 11.0 & 5 \\
+          & & 11.0 & 62 \\
+         \hspace{1cm} & \hspace{1cm} & \hspace{1cm} & \hspace{1cm} \\
+      \end{tabular}
+      } % end of scope of "\resizebox"  directive
+   \end{table}
+   BUY order is totally executed $\rightarrow$ removed from order book. \\
+   SELL order is partly executed $\rightarrow$ quantity reduced to {\bf 14}.
+\end{frame}
+
+\begin{frame}
+\frametitle{Order book UML}
+   \begin{minipage}{0.48\linewidth}
+      First define the main objects of the model:
+      \begin{itemize}
+         \item A market contains books for instruments.
+         \item Each book can contain orders.
+      \end{itemize}
+   \end{minipage}
+   \begin{minipage}{0.48\linewidth}
+      \begin{figure}
+         \centering
+         \includegraphics[height=0.9\textheight]{../images/order_book.pdf}
+      \end{figure}
+   \end{minipage}
+\end{frame}
+
+\begin{frame}
+\frametitle{Order book UML}
+   \begin{minipage}{0.48\linewidth}
+      Then refine each object requirements:
+      \begin{itemize}
+         \item The market gives access to its books.
+         \item Books have a name.
+         \item User needs a method to insert orders in books.
+         \item Orders of a book are defined by their quantity, price and side.
+      \end{itemize}
+   \end{minipage}
+   \begin{minipage}{0.48\linewidth}
+      \begin{figure}
+         \centering
+         \includegraphics[width = \textwidth]{../images/order_book2.pdf}
+      \end{figure}
+   \end{minipage}
+\end{frame}
+
+\begin{frame}
+\frametitle{Order book UML}
+   \begin{minipage}{0.48\linewidth}
+      Finally think about technical implementation:
+      \begin{itemize}
+         \item Each side of the order book is an ordered list of orders.
+         \item So orders on the same side can be compared.
+         \item Need a priority to identify the first order at a price level.
+      \end{itemize}
+   \end{minipage}
+   \begin{minipage}{0.48\linewidth}
+      \begin{figure}
+         \centering
+         \includegraphics[width = \textwidth]{../images/order_book3.pdf}
+      \end{figure}
+   \end{minipage}
+\end{frame}
+
+
+
+\end{document}

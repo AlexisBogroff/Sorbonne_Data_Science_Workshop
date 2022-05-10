@@ -1,0 +1,350 @@
+\input{TD_class.tex}
+\setcounter{section}{0}
+
+\begin{document}
+%----------------------------------------------------------------------------------------
+%========================================================================================
+\section{Use basic Linux commands}
+%========================================================================================
+%----------------------------------------------------------------------------------------
+
+
+%****************************************************************************************
+\subsection{Create, Rename, copy, move, delete}
+%****************************************************************************************
+
+
+\begin{enumerate}
+    \item Go to your home directory
+    \item Create a folder \textit{linux\_ex\_1}
+    \item Make sure that you are in the right location
+    \item Create an empty text file named \textit{[first\_name]\_[last\_name].txt} (e.g. \textit{alexis\_bogroff.txt})
+    \item Create a folder \textit{notes}
+    \item Move your text file into this folder
+    \item Rename the text file by appending the current year \textit{[first\_name]\_[last\_name]\_[current\_year].txt}
+    \item Make a copy of this folder, name it \textit{notes\_2022}
+    \item Delete the first folder using the verbose option
+\end{enumerate}
+
+
+\ifdefined\answer
+\begin{minted}{bash}
+    cd  # This goes to the home
+    mkdir linux_ex_1
+    cd linux_ex_1
+    pwd
+    echo "" > alexis_bogroff.txt
+    mkdir notes
+    mv alexis_bogroff.txt notes/alexis_bogroff.txt
+    mv notes/alexis_bogroff.txt notes/alexis_bogroff_2022.txt
+    cp -r notes notes_2022
+    rm -rv notes
+\end{minted}
+\fi
+
+
+%****************************************************************************************
+\subsection{Create and run a script}
+%****************************************************************************************
+
+\begin{enumerate}
+    \item Create a script \textit{script\_1.sh} in the folder \textit{linux\_ex\_1}
+    \item In the script, write the commands that would output the following:\\
+        Script running please wait ...\\
+        Done.
+    \item Display the content of the script (using a command, not from an editor)
+    \item Run the script
+\end{enumerate}
+
+\ifdefined\answer
+\begin{minted}{bash}
+    vim script_1.sh
+        #!/bin/bash
+        echo "Script running please wait ..."
+        echo "Done."
+    cat script_1.sh
+    source script_1.sh
+\end{minted}
+\fi
+
+
+
+%****************************************************************************************
+\subsection{Accessing or modifying a file: permissions and root privilege}
+%****************************************************************************************
+
+%----------------------------------------------------------------------------------------
+\subsubsection{Change the rights for accessing or modifying a file}
+%----------------------------------------------------------------------------------------
+
+\begin{enumerate}
+    \item Create a file \textit{credentials} in the folder \textit{linux\_ex\_1}
+    \begin{enumerate}
+        \item Write any kind of (fake) personal information within the file
+        \item Display the file content
+        \item Display the current permissions
+    \end{enumerate}
+    \item Change the current permissions to: read only for all users
+    \begin{enumerate}
+        \item Display the new permissions
+        \item Modify and save the file
+        \item Display the file content
+    \end{enumerate}
+    \item Change the permissions back to read and write for all users
+    \begin{enumerate}
+        \item Display the new permissions
+        \item Modify and save the file
+        \item Display the file content
+    \end{enumerate}
+\end{enumerate}
+
+\ifdefined\answer
+\begin{minted}{bash}
+    vim credentials
+        id: cleverid
+        pssd: veryprivatepassword
+    cat credentials
+    ls -l
+
+    chmod 444 credentials
+    ls -l
+    vim credentials
+    # You cannot modify the file as expected! (use :q! to escape from this trap!)
+    cat credentials
+    # Thus the content hasn't changed as expected!
+
+    chmod 666 credentials
+    ls -l
+    vim credentials
+    cat credentials
+\end{minted}
+\fi
+
+\hfill \break
+On the same file:
+\begin{enumerate}
+    \item Add the execute permission to the owner
+    \begin{enumerate}
+        \item Display the new permissions
+    \end{enumerate}
+    \item Remove the read permission to other users
+    \begin{enumerate}
+        \item Display the new permissions
+    \end{enumerate}
+    \item Change the permissions to read, write and execute for all users
+    \begin{enumerate}
+        \item Display the new permissions
+    \end{enumerate}
+\end{enumerate}
+
+\ifdefined\answer
+\begin{minted}{bash}
+    chmod u+x credentials
+    ls -l
+
+    chmod o-r credentials
+    ls -l
+
+    chmod 777 credentials
+    ls -l
+
+    # See how it is cleaner to use absolute mode when changing permissions of all users, and to user symbolic mode for minimal change.
+\end{minted}
+\fi
+
+
+%----------------------------------------------------------------------------------------
+\subsubsection{Access root files}
+%----------------------------------------------------------------------------------------
+
+\begin{enumerate}
+    \item Go to the root folder
+    \item Create a file in root user mode named \textit{.private\_file}
+    \begin{enumerate}
+        \item Write some information in the file
+        \item Display the file content
+        \item Display all the files in the folder including hidden files
+    \end{enumerate}
+    \item Modify the file in normal user mode
+    \begin{enumerate}
+        \item Write some new information in the file
+        \item Display the file content
+    \end{enumerate}
+    \item Modify the file in root user mode
+    \begin{enumerate}
+        \item Write some new information in the file
+        \item Display the file content
+    \end{enumerate}
+    \item Change permissions to read, write and execute for all users
+    \begin{enumerate}
+        \item Modify the file content in normal user mode
+        \item Display the file content
+    \end{enumerate}
+\end{enumerate}
+
+\ifdefined\answer
+\begin{minted}{bash}
+    cd /.
+    sudo vim .private_file
+        This file can be modified with root privilege only
+    cat .private_file
+    ls -a
+
+    vim .private_file
+    # This cannot be edited withtout root privilege as expected
+    cat .private_file
+
+    sudo vim .private_file
+        This file can be modified with root privilege only
+        cat .private_file
+
+    # See how changing the permissions require to have a root privilege.
+    sudo chmod 777 .private_file
+    vim .private_file
+        This file can now be modified by any user!
+    cat .private_file
+\end{minted}
+\fi
+
+%----------------------------------------------------------------------------------------
+\subsubsection{Change a file owner}
+%----------------------------------------------------------------------------------------
+
+\begin{enumerate}
+    \item Change permissions of \textit{.private\_file} to read and write for all users, in normal user mode
+    \item Set the new file owner as the current user
+    \item Change permissions of \textit{.private\_file} to read and write for all users, in normal user mode
+\end{enumerate}
+
+
+\ifdefined\answer
+\begin{minted}{bash}
+    chmod 666 .private_file
+    # See how it is still necessary to be a root user, even though the permissions have been changed
+
+    sudo chown alexisbogroff .private_file
+
+    chmod 666 .private_file
+    ls -l .private_file
+\end{minted}
+\fi
+
+%****************************************************************************************
+\subsection{Extract data from a website}
+%****************************************************************************************
+
+The Domesday Book is the greatest medieval census.
+It lists the manors (private properties) in every place of every county in England in the years 1066 and 1086, before and after the Norman conquest.
+\href{https://opendomesday.org/}{OpenDomesday} presents it in a modern-human-readable website, as well as an {\it application programming interface} (API).
+
+We will use this API to extract some data from our command-line shell.
+
+{\bf The Internet is your friend, do not hesitate to ask his help to find a better command.}
+
+%----------------------------------------------------------------------------------------
+\subsubsection{curl}
+%----------------------------------------------------------------------------------------
+
+Check the data on https://opendomesday.org/api/, for instance
+
+\begin{itemize}
+    \item https://opendomesday.org/api/1.0/county/
+    \item https://opendomesday.org/api/1.0/place/2346/
+    \item https://opendomesday.org/api/1.0/manor/181/
+\end{itemize}
+
+Can you find other interesting URLs?
+
+\ifdefined\answer
+\begin{minted}{bash}
+    # examples:
+    # can try any manor id < 25000
+    # https://opendomesday.org/api/1.0/manor/20385/
+    # can also try other places, and from places get manors
+\end{minted}
+\fi
+
+%----------------------------------------------------------------------------------------
+\subsubsection{curl and grep}
+%----------------------------------------------------------------------------------------
+
+Let's try to get the ids for all the places in Derbyshire!
+
+\ifdefined\answer
+\inputminted[firstline=1,lastline=7]{bash}{TD1_Linux_shell_answers.sh}
+\fi
+
+%----------------------------------------------------------------------------------------
+\subsubsection{curl, grep and for}
+%----------------------------------------------------------------------------------------
+
+Now that we have ids for all the places in Derbyshire, we can load all their details...
+
+And from their details, we can list all the details of their \href{http://www.domesdaybook.net/domesday-book/structure-of-domesday-book/manor}{manors}.
+
+Go grep the data!
+
+{\bf You may write the raw data into a file to avoid downloading it everytime.}
+
+\ifdefined\answer
+\begin{minted}{bash}
+    # first list all the places ids, easy as they are the only numerical entries
+    grep -oP '\d+' derbyshire.json
+    # and try load the manors data from a single place
+    curl https://opendomesday.org/api/1.0/place/43196/ | grep -oP '\[(\{"id":\d+\})+]' | grep -oP '\d+'
+    # now we can loop on it
+\end{minted}
+\inputminted[firstline=9,lastline=23]{bash}{TD1_Linux_shell_answers.sh}
+\fi
+
+%----------------------------------------------------------------------------------------
+\subsubsection{curl, grep, for and sed}
+%----------------------------------------------------------------------------------------
+
+Now that we have a heap of raw data, we will extract the interesting parts.
+In our case we want to count the \href{http://www.domesdaybook.net/domesday-book/data-terminology/taxation/tax-or-geld}{geld} paid by each manor
+and compare it to the number of \href{http://www.domesdaybook.net/domesday-book/data-terminology/taxation/plough}{ploughs} it owns.
+
+\begin{itemize}
+    \item Can you find the corresponding json fields?
+    \item Then you can list these numbers for each manor in Derbyshire.
+    \item And format this in a proper {\it comma-separated values} (CSV) file.
+\end{itemize}
+
+\ifdefined\answer
+\inputminted[firstline=25,lastline=31]{bash}{TD1_Linux_shell_answers.sh}
+\fi
+
+%----------------------------------------------------------------------------------------
+\subsubsection{discover new commands}
+%----------------------------------------------------------------------------------------
+
+The CSV file you created could be loaded in Excel. But do you have one?
+
+Use your search skills to find a way to sum values in a column and provide the final result.
+
+\ifdefined\answer
+\begin{minted}{bash}
+    # google: https://www.google.com/search?client=firefox-b-d&q=bash+sum+csv+columns
+    # stackoverflow: https://stackoverflow.com/questions/18683368/command-to-sum-2nd-colum-of-csv-file
+
+    # for geld:
+    awk -F"," '{print;x+=$2}END{print "Total " x}' manors.csv
+    # for ploughs
+    awk -F"," '{print;x+=$3}END{print "Total " x}' manors.csv
+\end{minted}
+\fi
+
+%----------------------------------------------------------------------------------------
+\subsubsection{Bonus}
+%----------------------------------------------------------------------------------------
+
+Install gnuplot, and generate a pretty graph from your CSV file.
+
+%----------------------------------------------------------------------------------------
+\subsubsection{Bonus}
+%----------------------------------------------------------------------------------------
+
+Use Vim to write a single bash script that does all of these actions.
+
+\end{document}

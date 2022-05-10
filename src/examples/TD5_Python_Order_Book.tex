@@ -1,0 +1,146 @@
+\input{TD_class.tex}
+\setcounter{section}{4}
+
+\begin{document}
+
+%----------------------------------------------------------------------------------------
+\section{Market project}
+%----------------------------------------------------------------------------------------
+
+These exercices will be graded on 5 points.
+
+Only working code pushed on a public github or gitlab repository will be examined.
+The URL for your public repository will be asked during the MCQ exam.
+
+\textbf{Please commit at least after each exercise, you will also be evaluated on your commit messages readability and usefulness.}
+
+\textit{You are strongly advised to push to the remote repository after each exercise.}
+
+%----------------------------------------------------------------------------------------
+\subsection{Setup a basic python project}
+%----------------------------------------------------------------------------------------
+
+\begin{enumerate}
+    \item Create a new git repository for this project.
+    \item Switch to the 'main' branch.
+    \item Create a virtualenv and add it to your .gitignore (it should not be committed).
+    \item Export your dependencies using \verb+pip freeze > requirements.txt+ and make sure to commit that file.
+        It can be used with \verb+pip install -r requirements.txt+ to reload the dependencies in a new virtualenv.
+        You will need to rewrite it whenever you install new libraries in your project.
+\end{enumerate}
+
+%----------------------------------------------------------------------------------------
+\subsection{Create the required objects}
+%----------------------------------------------------------------------------------------
+
+\begin{enumerate}
+    \item Create the following file:
+        \begin{verbatim}
+        #!/usr/bin/env python3
+
+        from book import Book
+
+        def main():
+            book = Book("TEST")
+            book.insert_buy(10, 10.0)
+            book.insert_sell(120, 12.0)
+            book.insert_buy(5, 10.0)
+            book.insert_buy(2, 11.0)
+            book.insert_sell(1, 10.0)
+            book.insert_sell(10, 10.0)
+
+        if __name__ == "__main__":
+            main()
+        \end{verbatim}
+    \item Create a book.py file with Book and Order objects.
+\end{enumerate}
+
+
+%----------------------------------------------------------------------------------------
+\subsection{First implementation}
+%----------------------------------------------------------------------------------------
+
+Implement the Book and Order objects to obtain a result log showing for each insert call
+\begin{itemize}
+    \item the insert action details,
+    \item the executed orders if any,
+    \item the book state after insertion and execution.
+\end{itemize}
+
+Here is an example:
+\begin{verbatim}
+--- Insert BUY 10@10.0 id=1 on TEST
+Book on TEST
+        BUY 10@10.0 id=1
+------------------------
+--- Insert SELL 120@12.0 id=2 on TEST
+Book on TEST
+        SELL 120@12.0 id=2
+        BUY 10@10.0 id=1
+------------------------
+--- Insert BUY 5@10.0 id=3 on TEST
+Book on TEST
+        SELL 120@12.0 id=2
+        BUY 10@10.0 id=1
+        BUY 5@10.0 id=3
+------------------------
+--- Insert BUY 2@11.0 id=4 on TEST
+Book on TEST
+        SELL 120@12.0 id=2
+        BUY 2@11.0 id=4
+        BUY 10@10.0 id=1
+        BUY 5@10.0 id=3
+------------------------
+--- Insert SELL 1@10.0 id=5 on TEST
+Execute 1 at 11.0 on TEST
+Book on TEST
+        SELL 120@12.0 id=2
+        BUY 1@11.0 id=4
+        BUY 10@10.0 id=1
+        BUY 5@10.0 id=3
+------------------------
+--- Insert SELL 10@10.0 id=6 on TEST
+Execute 1 at 11.0 on TEST
+Execute 9 at 10.0 on TEST
+Book on TEST
+        SELL 120@12.0 id=2
+        BUY 1@10.0 id=1
+        BUY 5@10.0 id=3
+------------------------
+\end{verbatim}
+
+\textit{The layout can be slightly different but the quantities and prices values must be the same.}
+
+%----------------------------------------------------------------------------------------
+\subsection{Write a bash script to launch the main.py class}
+%----------------------------------------------------------------------------------------
+
+Write a bash script named \textbf{run.sh} that
+
+\begin{enumerate}
+    \item Create the virtualenv if it does not exists, and load the dependencies from the requirements.txt.
+    \item Activate the virtualenv if it exists.
+    \item Run the main.py Python file.
+\end{enumerate}
+
+\textit{hint: \url{https://www.google.com/search?client=firefox-b-d&q=bash+how+to+test+file+exists}}
+
+\textit{The corrector will use the bash script to check the python code behavior. If it does not work, he won't be able to validate it.}
+
+%----------------------------------------------------------------------------------------
+\subsection{Add pandas for visualization}
+%----------------------------------------------------------------------------------------
+
+\begin{enumerate}
+    \item Create a new 'pandas' branch in your project.
+    \item When building the string representation of your book
+        \begin{itemize}
+            \item create a panda DataFrame for each side
+            \item fill it with the orders
+            \item print it to have a tabular layout
+        \end{itemize}
+    \item Commit the changes.
+    \item Merge this branch into the 'main' branch.    
+\end{enumerate}
+
+\end{document}

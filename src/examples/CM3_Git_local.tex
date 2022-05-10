@@ -1,0 +1,804 @@
+\input{CM_class.tex}
+
+\begin{document}
+
+\begin{frame}
+   \titlepage
+\end{frame}
+
+\begin{frame}
+   \tableofcontents
+\end{frame}
+
+\section{Linux}
+\section{Git}
+
+%----------------------------------------------------------------------------------------
+\subsection{Version Control System}
+%----------------------------------------------------------------------------------------
+
+\begin{frame}\frametitle{When do you need a Version Control System (VCS) ?}
+   When you have:
+   \begin{itemize}
+      \item Project directory
+      \item With text files
+      \item Living
+      \item Precious
+   \end{itemize}
+   \vspace{1em}
+   Typical examples: Software development project, Internship report
+\end{frame}
+
+\begin{frame}\frametitle{Manual Version Control}
+   \begin{enumerate}
+      \item Snapshot your project directory by copying it
+      \item Suffix the copy with an increasing number (or a timestamp)
+      \item Repeat this each time you think it is relevant
+   \end{enumerate}
+\end{frame}
+
+\begin{frame}[fragile]\frametitle{Manual Version Control}
+   \begin{lstlisting}[language=bash, style=bash, autogobble]
+      $ ls -1
+      Project
+      Project_01
+      Project_02
+      Project_03
+      Project_04
+      Project_05
+      Project_06
+      Project_07
+   \end{lstlisting}
+\end{frame}
+
+\begin{frame}\frametitle{Manual Version Control}
+   \begin{enumerate}\setcounter{enumi}{3}
+      \item Add a topic suffix each time you want to work on different topics
+      \item Add a collaborator suffix each time you work with a different collaborator
+   \end{enumerate}
+\end{frame}
+
+\begin{frame}[fragile]\frametitle{Manual Version Control}
+   \begin{lstlisting}[language=bash, style=bash, autogobble]
+      $ ls -1
+      Project
+      Project_01
+      Project_02
+      Project_03
+      Project_04
+      Project_05
+      Project_06
+      Project_07
+      Project_07_Gui
+      Project_07_Gui_Bernard
+      Project_07_Gui_JeanPierre
+      Project_07_Model
+   \end{lstlisting}
+\end{frame}
+
+\begin{frame}\frametitle{Manual Version Control}
+   \centering
+   \Huge
+   We can do better
+\end{frame}
+
+%----------------------------------------------------------------------------------------
+\subsection{Introducing Git}
+%----------------------------------------------------------------------------------------
+
+\begin{frame}\frametitle{Git History}
+   VCS created in 2005 to manage the Linux kernel \\
+   as BitKeeper used since 2002 was proprietary and closed-source \\[2ex]
+
+   Some of the goals of the new system were:
+   \begin{itemize}
+      \item Speed
+      \item Simple design
+      \item Strong support for non-linear development \\ (thousands of parallel branches)
+      \item Fully distributed \\ (work offline, local branch, commit often, data protection)
+      \item Able to handle large projects like the Linux kernel efficiently \\ (speed and data size)
+   \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]\frametitle{Git Reference Manual}
+   \begin{lstlisting}[language=bash, style=bash]
+      $ git help git
+
+      GIT(1)          Git Manual          GIT(1)
+      NAME
+            git - the stupid content tracker
+
+      SYNOPSIS
+            git [--version] [--help] [-C <path>] [-c <name>=<value>]
+               [--exec-path[=<path>]] [--html-path] [--man-path] [--info-path]
+               [-p|--paginate|-P|--no-pager] [--no-replace-objects] [--bare]
+               [--git-dir=<path>] [--work-tree=<path>] [--namespace=<name>]
+               [--super-prefix=<path>]
+               <command> [<args>]
+
+      DESCRIPTION
+            Git is a fast, scalable, distributed revision control system
+            with an unusually rich command set that provides both
+            high-level operations and full access to internals.
+   \end{lstlisting}
+\end{frame}
+
+%----------------------------------------------------------------------------------------
+\subsection{First Git commands}
+%----------------------------------------------------------------------------------------
+
+\begin{frame}[fragile]\frametitle{Git configuration}
+   \begin{center}
+      \Huge git config \normalsize
+   \end{center}
+   \begin{lstlisting}[language=bash, style=bash]
+      $ git config --global user.email "hoduche@yahoo.fr"
+      $ git config --global user.name "Henri-Olivier Duche"
+   \end{lstlisting}
+   Saved in .gitconfig text file in user's home directory:
+   \begin{lstlisting}[language=bash, style=bash, autogobble]
+      $ cat ~/.gitconfig
+      [user]
+            email = hoduche@yahoo.fr
+            name = Henri-Olivier Duche
+   \end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]\frametitle{Create a Git repository}
+   \begin{center}
+      \Huge git init \normalsize
+   \end{center}
+   \begin{lstlisting}[language=bash, style=bash]
+      $ git init
+      Initialized empty Git repository in /mnt/c/esilv/project/.git/
+   \end{lstlisting}
+   This creates a Git repository inside your directory \\
+   i.e. a new subdirectory named ``.git''
+   that contains \textbf{everything}
+\end{frame}
+
+\begin{frame}[fragile]\frametitle{Git repository status}
+   \begin{center}
+      \Huge git status \normalsize
+   \end{center}
+   \begin{lstlisting}[language=bash, style=bash, autogobble]
+      $ echo "Hello World" > file1.txt
+      $ git status
+      On branch master
+
+      No commits yet
+
+      Untracked files:
+        (use "git add <file>..." to include in what will be committed)
+              file1.txt
+
+      nothing added to commit but untracked files present (use "git add" to track)
+   \end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]\frametitle{Save a file in Git}
+   \begin{center}
+      \Huge git add \normalsize
+   \end{center}
+   \begin{lstlisting}[language=bash, style=bash]
+      $ git add file1.txt
+      $ git status
+      On branch master
+
+      No commits yet
+
+      Changes to be committed:
+        (use "git rm --cached <file>..." to unstage)
+              new file:   file1.txt
+   \end{lstlisting}
+\end{frame}
+
+%----------------------------------------------------------------------------------------
+\subsection{Inside Git filesystem}
+%----------------------------------------------------------------------------------------
+
+\begin{frame}\frametitle{The Law of Leaky Abstractions}
+   \begin{quote}
+      ``All non-trivial abstractions, to some degree, are leaky'' \\
+   \end{quote}
+   \vspace{-1em}
+   \begin{flushright}
+      \href{https://www.joelonsoftware.com/2002/11/11/the-law-of-leaky-abstractions/}
+      {\textcolor{DarkBlue}{Joel Spolsky - Stack Overflow website founder}}
+   \end{flushright}
+\end{frame}
+
+\begin{frame}\frametitle{You'd better learn the ``Plumbing'' not just the ``Porcelain''}
+   \begin{minipage}{0.48\linewidth}
+      \includegraphics[width=\textwidth]{../images/git.png} \\
+      \centering\href{https://xkcd.com/1597/}{\textcolor{DarkBlue}{xkcd}}
+   \end{minipage}
+   \begin{minipage}{0.48\linewidth}
+      \begin{quote}
+         ``All abstractions leak, and the only way to deal with the leaks competently is
+         to learn about how the abstractions work and what they are abstracting.
+         So the abstractions save us time working, but they don’t save us time learning''
+      \end{quote}
+      \begin{flushright}
+         Joel Spolsky
+      \end{flushright}
+      \end{minipage}
+\end{frame}
+
+\begin{frame}[fragile]\frametitle{Look inside your Git repository}
+   \begin{lstlisting}[language=bash, style=bash, autogobble]
+      $ tree --charset=ascii .git
+      .git
+      |-- HEAD
+      |-- branches
+      |-- config
+      |-- description
+      |-- hooks
+      |   `-- applypatch-msg.sample
+      |-- index
+      |-- info
+      |   `-- exclude
+      |-- objects
+      |   |-- 55
+      |   |   `-- 7db03de997c86a4a028e1ebd3a1ceb225be238
+      |   |-- info
+      |   `-- pack
+      `-- refs
+         |-- heads
+         `-- tags
+
+      10 directories, 7 files
+   \end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]\frametitle{Not that obvious}
+   \begin{lstlisting}[language=bash, style=bash]
+      $ cat .git/objects/55/7db03de997c86a4a028e1ebd3a1ceb225be238
+   \end{lstlisting}
+   \begin{center}
+      \includegraphics[width=0.8\textwidth]{../images/compressed_content.png}
+   \end{center}
+   \vspace{1em}
+   \begin{center}
+      Cryptic file name + Cryptic file content
+   \end{center}
+\end{frame}
+
+\begin{frame}[fragile]\frametitle{Lossless Compression}
+   \begin{center}
+      \Huge git cat-file -p \normalsize
+   \end{center}
+   \begin{lstlisting}[language=bash, style=bash]
+      $ git cat-file -p 557db03
+      Hello World
+   \end{lstlisting}
+   \vspace{1em}
+   In Git filesystem, file content is compressed with Deflate lossless compression algorithm
+   \footnote{https://zlib.net/feldspar.html}
+\end{frame}
+
+\begin{frame}[fragile]\frametitle{Blob}
+   \begin{center}
+      \Huge git cat-file -t \normalsize
+   \end{center}
+   \begin{lstlisting}[language=bash, style=bash]
+      $ git cat-file -t 557db03
+      blob
+   \end{lstlisting}
+   \vspace{1em}
+   \begin{center}
+      In Git filesystem, a file content is called a ``blob''
+   \end{center}
+\end{frame}
+
+\begin{frame}[fragile]\frametitle{Cryptographic Hash}
+   \begin{center}
+      \Huge git hash-object \normalsize
+   \end{center}
+   \begin{lstlisting}[language=bash, style=bash]
+      $ git hash-object file1.txt
+      557db03de997c86a4a028e1ebd3a1ceb225be238
+   \end{lstlisting}
+   \vspace{1em}
+   \begin{enumerate}
+      \item A hash function converts any input to a fixed-size output
+      \item A checksum adds avalanche effect
+      \item A fingerprint adds very low probability of collision
+      \item A cryptographic hash function adds reverse impossibility
+   \end{enumerate}
+   \vspace{1em}
+   In Git filesystem, file content is hashed with SHA-1 algorithm. \\
+   A cryptographic hash function that produces 40 hexadecimal digits output: \\
+   2 for the directory / 38 for the file
+\end{frame}
+
+\begin{frame}[fragile]\frametitle{Display your Git repository as a Graph}
+   \begin{center}
+      \Huge git graph \normalsize
+   \end{center}
+   \begin{lstlisting}[language=bash, style=bash]
+      $ git graph -n bt 2>/dev/null
+      2021_01_11_00_45_11_git_graph.dot.pdf saved in /mnt/c/esilv/project/.gitGraph
+   \end{lstlisting}
+   \vspace{1em}
+   \begin{center}
+      \includegraphics[scale=1]{../images/2021_01_11_00_45_11_git_graph.dot-crop.pdf}
+   \end{center}
+   \vspace{1em}
+   \begin{itemize}
+      \item Git-graph is an \href{https://github.com/hoduche/git-graph}
+   {\textcolor{DarkBlue}{open source Git plugin}} written in Python
+      \item Alternatively, use a \href{https://marketplace.visualstudio.com/items?itemName=mhutchie.git-graph}
+   {\textcolor{DarkBlue}{git-graph extension in VSCode}}
+   \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]\frametitle{Save your work in Git}
+   \begin{center}
+      \Huge git commit \normalsize
+   \end{center}
+   \begin{lstlisting}[language=bash, style=bash]
+      $ git commit -m "initial commit"
+      [master (root-commit) 575bce5] initial commit
+       1 file changed, 1 insertion(+)
+       create mode 100644 file1.txt
+   \end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]\frametitle{Check your Git repository}
+   \begin{minipage}{0.68\linewidth}
+      \begin{lstlisting}[language=bash, style=bash, autogobble]
+         $ tree --charset=ascii .git
+         .git
+         |-- COMMIT_EDITMSG
+         |-- HEAD
+         |-- branches
+         |-- config
+         |-- description
+         |-- hooks
+         |   `-- applypatch-msg.sample
+         |-- index
+         |-- info
+         |   `-- exclude
+         |-- logs
+         |   |-- HEAD
+         |   `-- refs
+         |       `-- heads
+         |           `-- master
+         |-- objects
+         |   |-- 30
+         |   |   `-- a0b0faedd574340629413656ab79d82b588d96
+         |   |-- 55
+         |   |   `-- 7db03de997c86a4a028e1ebd3a1ceb225be238
+         |   |-- 57
+         |   |   `-- 5bce585ef620a4a6e9395c838f923a26705e7d
+         |   |-- info
+         |   `-- pack
+         `-- refs
+             |-- heads
+             |   `-- master
+             `-- tags
+
+         15 directories, 13 files
+      \end{lstlisting}
+   \end{minipage}
+   \begin{minipage}{0.28\linewidth}
+      \centering
+      \includegraphics[scale=0.75]{../images/short_graph.dot-crop.pdf}
+   \end{minipage}
+\end{frame}
+
+\begin{frame}[fragile]\frametitle{Tree and commit}
+   \begin{minipage}{0.68\linewidth}
+      \begin{lstlisting}[language=bash, style=bash, autogobble]
+         $ git cat-file -t 30a0b0f
+         tree
+         $ git cat-file -p 30a0b0f
+         100644 blob 557db03de997c86a4a028e1ebd3a1ceb225be238    file1.txt
+         $ git cat-file -t 575bce5
+         commit
+         $ git cat-file -p 575bce5
+         tree 30a0b0faedd574340629413656ab79d82b588d96
+         author Henri-Olivier Duche <hoduche@yahoo.fr> 1610576538 +0100
+         committer Henri-Olivier Duche <hoduche@yahoo.fr> 1610576538 +0100
+
+         initial commit
+      \end{lstlisting}
+      \vspace{1em}
+      In Git filesystem:
+      \begin{itemize}
+         \item A directory is called a ``tree'' and points to blob(s) and other tree(s)
+         \item A snapshot is called a ``commit'' and points to a tree and other commit(s)
+      \end{itemize}
+   \end{minipage}
+   \begin{minipage}{0.28\linewidth}
+      \centering
+      \includegraphics[scale=0.75]{../images/short_graph.dot-crop.pdf}
+   \end{minipage}
+\end{frame}
+
+\begin{frame}[fragile]\frametitle{Save more content in Git}
+   \begin{lstlisting}[language=bash, style=bash, autogobble]
+      $ mkdir folder
+      mkdir: created directory 'folder'
+      $ cp file1.txt folder/file2.txt
+      'file1.txt' -> 'folder/file2.txt'
+      $ echo "Hello World 3" > file3.txt
+      $ git add .
+      $ git commit -m "add intersting stuff"
+      [master e5de582] add intersting stuff
+         2 files changed, 2 insertions(+)
+         create mode 100644 file3.txt
+         create mode 100644 folder/file2.txt
+   \end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]\frametitle{Save more content in Git}
+   \begin{minipage}{0.20\linewidth}
+      \includegraphics[scale=0.5]{../images/short_graph.dot-crop.pdf}
+   \end{minipage}
+   \begin{minipage}{0.28\linewidth}
+      \begin{lstlisting}[language=bash, style=bash, autogobble]
+         $ tree
+         .
+         |-- file1.txt
+         |-- file3.txt
+         `-- folder
+            `-- file2.txt
+
+         1 directory, 3 files
+      \end{lstlisting}
+   \end{minipage}
+   \begin{minipage}{0.48\linewidth}
+      \begin{flushright}
+      \includegraphics[scale=0.5]{../images/2021_01_14_10_14_08_git_graph.dot-crop.pdf}
+      \end{flushright}
+   \end{minipage}
+\end{frame}
+
+\begin{frame}[fragile]\frametitle{HEAD and master branch}
+   \begin{minipage}{0.52\linewidth}
+      \begin{lstlisting}[language=bash, style=bash, autogobble]
+         $ cat .git/HEAD
+         ref: refs/heads/master
+         $ cat .git/refs/heads/master
+         e5de5824bb151db5d2761ff576cbbeb8eb50959b
+      \end{lstlisting}
+      \vspace{1em}
+      In Git filesystem:
+      \begin{itemize}
+         \item master is the default ``branch'' and points to the latest commit (snapshot)
+         \item HEAD is a reference that points to the current branch
+      \end{itemize}
+   \end{minipage}
+   \begin{minipage}{0.44\linewidth}
+      \begin{flushright}
+      \includegraphics[scale=0.5]{../images/2021_01_14_00_26_30_git_graph.dot-crop.pdf}
+      \end{flushright}
+   \end{minipage}
+\end{frame}
+
+\begin{frame}[fragile]\frametitle{Restore a snapshot}
+   \begin{center}
+      \Huge git checkout \normalsize
+   \end{center}
+   \begin{minipage}{0.48\linewidth}
+      \begin{lstlisting}[language=bash, style=bash, autogobble]
+         $ git checkout 575bce5
+         Note: switching to '575bce5'.
+
+         You are in 'detached HEAD' state.
+         ...
+
+         HEAD is now at 575bce5 initial commit
+         $ tree --charset=ascii
+         .
+         `-- file1.txt
+
+         0 directories, 1 file
+      \end{lstlisting}
+      \vspace{1em}
+      At checkout, Git walks the \\
+      directed acyclic graph (DAG) from the commit to recreate the corresponding snapshot
+   \end{minipage}
+   \begin{minipage}{0.48\linewidth}
+      \begin{flushright}
+         \includegraphics[scale=0.5]{../images/2021_01_14_11_10_23_git_graph.dot-crop.pdf}
+      \end{flushright}
+   \end{minipage}
+\end{frame}
+
+\begin{frame}[fragile]\frametitle{See your current changes}
+   \begin{center}
+      \Huge git diff \normalsize
+   \end{center}
+   \begin{lstlisting}[language=bash, style=bash, autogobble]
+      $ vi file3.txt
+      $ vi file1.txt
+
+      $ git diff
+      diff --git a/file1.txt b/file1.txt
+      index 557db03..fe0dbd9 100644
+      --- a/file1.txt
+      +++ b/file1.txt
+      @@ -1 +1,2 @@
+       Hello World
+      +I add a little information here
+      diff --git a/file3.txt b/file3.txt
+      index 22c0dee..efad9e7 100644
+      --- a/file3.txt
+      +++ b/file3.txt
+      @@ -1 +1,2 @@
+       Hello World 3
+      +And a piece of information there
+   \end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]\frametitle{Staging area (a.k.a. index)}
+   \begin{minipage}{0.63\linewidth}
+      \begin{small}
+      \begin{enumerate}
+         \setlength\itemsep{1em}
+         \item Modified: File changed locally
+         \item Staged: File selected for next commit
+         \item Committed: File saved in local .git
+      \end{enumerate}
+      \end{small}
+   \end{minipage}
+   \begin{minipage}{0.33\linewidth}
+      \includegraphics[scale=0.18]{../images/staging.png}
+   \end{minipage}
+   \begin{lstlisting}[language=bash, style=bash, autogobble]
+      $ git status
+      On branch master
+      Changes not staged for commit:
+      (use "git add <file>..." to update what will be committed)
+      (use "git restore <file>..." to discard changes in working directory)
+            modified:   file1.txt
+            modified:   file3.txt
+      no changes added to commit (use "git add" and/or "git commit -a")
+
+      $ git add file1.txt
+      $ git status
+      On branch master
+      Changes to be committed:
+      (use "git restore --staged <file>..." to unstage)
+            modified:   file1.txt
+      Changes not staged for commit:
+      (use "git add <file>..." to update what will be committed)
+      (use "git restore <file>..." to discard changes in working directory)
+            modified:   file3.txt
+   \end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]\frametitle{See your current changes}
+   \begin{center}
+      \Huge git diff --staged\normalsize
+   \end{center}
+   \vspace{1em}
+   \begin{minipage}{0.44\linewidth}
+      \centering
+      staging area\\
+      vs\\
+      .git repository
+      \begin{lstlisting}[language=bash, style=bash, autogobble]
+         $ git diff --staged
+         diff --git a/file1.txt b/file1.txt
+         index 557db03..fe0dbd9 100644
+         --- a/file1.txt
+         +++ b/file1.txt
+         @@ -1 +1,2 @@
+          Hello World
+         +I add a little information here
+      \end{lstlisting}
+   \end{minipage}
+   \hfill
+   \begin{minipage}{0.44\linewidth}
+      \centering
+      working directory\\
+      vs\\
+      .git repository
+      \begin{lstlisting}[language=bash, style=bash, autogobble]
+         $ git diff
+         diff --git a/file3.txt b/file3.txt
+         index 22c0dee..efad9e7 100644
+         --- a/file3.txt
+         +++ b/file3.txt
+         @@ -1 +1,2 @@
+         Hello World 3
+         +And a piece of information there
+      \end{lstlisting}
+   \end{minipage}
+\end{frame}
+
+\begin{frame}[fragile]\frametitle{Interactive staging}
+   \begin{center}
+      \Huge git add --interactive\normalsize
+   \end{center}
+   \vspace{1em}
+   \begin{lstlisting}[language=bash, style=bash, autogobble]
+      $ git add --interactive
+               staged     unstaged path
+      1:        +1/-0      nothing file1.txt
+      2:    unchanged        +1/-0 file3.txt
+
+      *** Commands ***
+      1: status       2: update       3: revert       4: add untracked
+      5: patch        6: diff         7: quit         8: help
+      What now> u
+               staged     unstaged path
+      1:    unchanged        +1/-0 file3.txt
+      Update>> 1
+               staged     unstaged path
+      * 1:    unchanged        +1/-0 file3.txt
+      Update>>
+   \end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]\frametitle{Interactive staging}
+   \begin{center}
+      \Huge git add --patch\normalsize
+   \end{center}
+   \vspace{1em}
+   It is possible to stage certain parts of a file\footnote{\url{https://nuclearsquid.com/writings/git-add/}}
+   \vspace{1em}
+   \begin{lstlisting}[language=bash, style=bash, autogobble]
+      $ git add --patch file3.txt
+      diff --git a/file3.txt b/file3.txt
+      index 22c0dee..efad9e7 100644
+      --- a/file3.txt
+      +++ b/file3.txt
+      @@ -1 +1,2 @@
+      Hello World 3
+      +And a piece of information there
+      (1/1) Stage this hunk [y,n,q,a,d,e,?]?
+   \end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]\frametitle{Navigate between commits}
+   \begin{itemize}
+      \item \textbf{HEAD\~{}}: 1 commit older than HEAD
+      \item \textbf{HEAD\^{}1}: 1 commit older than HEAD (first parent)
+      \item \textbf{HEAD\^{}2}: 1 commit older than HEAD (second parent if HEAD was a merge commit)
+      \item \textbf{HEAD\~{}2}: 2 commits older than HEAD
+   \end{itemize}
+   \vspace{1em}
+   \begin{lstlisting}[language=bash, style=bash, autogobble]
+      $ git diff HEAD~ HEAD
+      diff --git a/file3.txt b/file3.txt
+      new file mode 100644
+      index 0000000..22c0dee
+      --- /dev/null
+      +++ b/file3.txt
+      @@ -0,0 +1 @@
+      +Hello World 3
+      diff --git a/folder/file2.txt b/folder/file2.txt
+      new file mode 100644
+      index 0000000..557db03
+      --- /dev/null
+      +++ b/folder/file2.txt
+      @@ -0,0 +1 @@
+      +Hello World
+   \end{lstlisting}
+\end{frame}
+
+\begin{frame}\frametitle{Undo work}
+   \begin{itemize}
+      \item \textbf{git reset <commit>}: removes commits from the branch (changes the commit history)
+      \item \textbf{git revert <commit>}: creates a new commit that reverts an existing commit
+      \item \textbf{git restore <file>}: discard changes in working directory (which have not been added to the staging zone)
+      \item \textbf{git restore --staged <file>}: unstage file
+   \end{itemize}
+\end{frame}
+
+% HERE
+% ed2a4f88e8d361ed1d41032d126c37b87e301a00 (HEAD -> master) Commit that should dissapear
+% a860791c6535a6bbd91f9ae1f82ac9f30a4f657f Init
+\begin{frame}[fragile]\frametitle{Navigate between commits}
+      \textbf{git reset a8607}: 1 commit older than HEAD
+   \vspace{1em}
+   \begin{lstlisting}[language=bash, style=bash, autogobble]
+      $ git diff HEAD~ HEAD
+      diff --git a/file3.txt b/file3.txt
+      new file mode 100644
+      index 0000000..22c0dee
+      --- /dev/null
+      +++ b/file3.txt
+      @@ -0,0 +1 @@
+      +Hello World 3
+      diff --git a/folder/file2.txt b/folder/file2.txt
+      new file mode 100644
+      index 0000000..557db03
+      --- /dev/null
+      +++ b/folder/file2.txt
+      @@ -0,0 +1 @@
+      +Hello World
+   \end{lstlisting}
+\end{frame}
+
+\begin{frame}\frametitle{Undo work - bring back content}
+   \begin{itemize}
+      \item \textbf{git checkout 156ad file1.txt}: Bring back a file from a specific version
+      \item \textbf{git checkout 156ad file1.txt -p}: Bring back a file portion from a specific version
+      \footnote{\url{https://www.youtube.com/watch?v=ipav1TCV8BI}}
+      \footnote{\url{https://www.youtube.com/watch?v=MIFQwHlEI9o}}
+   \end{itemize}
+\end{frame}
+
+
+\begin{frame}[fragile]\frametitle{Ignore files}
+   Two main ways to ignore files:
+   \begin{itemize}
+      \item \textbf{.gitignore}: commited in your project and visible by others
+      \item \textbf{.git/info/exclude}: not commited and not visible by others
+   \end{itemize}
+   \vspace{1em}
+   Both use glob patterns to define ignored files:
+   \begin{minipage}{0.44\linewidth}
+      \begin{lstlisting}[language=bash, style=bash, autogobble]
+         $ cat .gitignore
+         logs/
+         *.pdf
+         *.aux
+         *.log
+      \end{lstlisting}
+   \end{minipage}
+   \hfill
+   \begin{minipage}{0.44\linewidth}
+      \begin{lstlisting}[language=bash, style=bash, autogobble]
+         $ cat .git/info/exclude
+         .vscode/
+         *.o
+         *.a
+         *~
+      \end{lstlisting}
+   \end{minipage}
+   \\[2em]
+   There is a \href{https://github.com/github/gitignore}
+   {\textcolor{DarkBlue}{collection of .gitignore templates}}
+   on GitHub.
+\end{frame}
+
+\begin{frame}[fragile]\frametitle{Git Aliases}
+   Feature that can make your Git experience simpler, easier, and more familiar
+   \begin{itemize}
+      \item Give shorcut to commands
+      \item Create your own commands
+   \end{itemize}
+   \vspace{0.5em}
+   Examples:
+   \begin{lstlisting}[language=bash, style=bash, autogobble]
+      $ git config --global alias.s status
+      $ git config --global alias.co checkout
+   \end{lstlisting}
+   Saved in .gitconfig text file in user's home directory:
+   \begin{lstlisting}[language=bash, style=bash, autogobble]
+      $ cat ~/.gitconfig
+      [user]
+            email = hoduche@yahoo.fr
+            name = Henri-Olivier Duche
+      [alias]
+            s = status
+            co = checkout
+   \end{lstlisting}
+   Also achievable from \~{}/.bashrc in Linux
+\end{frame}
+
+\begin{frame}[fragile]\frametitle{Interesting Git Aliases}
+   \begin{lstlisting}[language=bash, style=bash, autogobble]
+      $ git config --global alias.s status
+      $ git config --global alias.co checkout
+      $ git config --global alias.b branch
+      $ git config --global alias.ci commit
+      $ git config --global alias.dog 'log --all --decorate --oneline --graph'
+      $ git config --global alias.dag 'log --all --decorate --graph'
+      $ git config --global alias.list 'diff-tree --no-commit-id --name-only -r'
+      $ git config --global alias.unstage 'reset HEAD --'
+      $ git config --global alias.last 'log -1 HEAD'
+   \end{lstlisting}
+\end{frame}
+
+%----------------------------------------------------------------------------------------
+\section{Python}
+
+\end{document}

@@ -1,0 +1,436 @@
+\input{CM_class.tex}
+
+\begin{document}
+
+\begin{frame}
+   \titlepage
+\end{frame}
+
+\begin{frame}
+   \tableofcontents
+\end{frame}
+
+\section{Linux}
+\section{Git}
+\section{Python}
+
+% %----------------------------------------------------------------------------------------
+% \subsection{Machine Learning: selecting an appropriate model for the problem}
+% %----------------------------------------------------------------------------------------
+
+% \begin{frame}[fragile]
+%    \frametitle{Type of problem}
+%    % Attention je mélange 2 concepts: linéaire et non-linéaire vs regression et classification
+%    \begin{itemize}
+%       \item Regression: what should be the price of this house? 400k.
+%       \item Classification: is this price overvalued? No.
+%    \end{itemize}
+
+%    \begin{itemize}
+%       \item Linear:
+%       \begin{itemize}
+%          \item regression: what is the price of this house, based on its surface?
+%          \item classification: is this price overvalued, based on the house surface?
+%       \end{itemize}
+%       \item Non-Linear:
+%       \begin{itemize}
+%          \item regression: what is the price of this house, based on ?
+%          \item classification: is this price overvalued, based on the house surface?
+%       \end{itemize}
+%    \end{itemize}
+% \end{frame}
+
+% \begin{frame}[fragile]
+%    \frametitle{Under/Over-fitting}
+%    \begin{itemize}
+%       \item Complexity:
+%       \begin{itemize}
+%          \item Type of algorithm
+%          \item number of parameters
+%       \end{itemize}
+%    \end{itemize}
+% \end{frame}
+
+% %----------------------------------------------------------------------------------------
+% \subsection{Neural Networks}
+% %----------------------------------------------------------------------------------------
+
+
+% \subsubsection{What is a Neural Network?}
+% %----------------------------------------
+
+% \begin{frame}[fragile]
+%    \frametitle{Perceptron, MLP}
+%    \href{https://images.squarespace-cdn.com/content/v1/519a7bc0e4b08ccdf8f31445/1523266910642-HWXCXXOSLG4JLWJ3NPTE/rdn.png?format=1000w}{perceptron}
+% \end{frame}
+
+% \begin{frame}[fragile]
+%    Is just a linear regression if no use of non-linear functions
+%    \frametitle{Non-linear functions}
+%    \begin{itemize}
+%       \item Sigmoid
+%       \item Relu, Tanh
+%       \item Softmax
+%    \end{itemize}
+% \end{frame}
+
+% \begin{frame}[fragile]
+%    \frametitle{Deep Neural Network}
+% \end{frame}
+
+
+% %----------------------------------------------------------------------------------------
+% \subsection{Pytorch}
+% %----------------------------------------------------------------------------------------
+
+% ========================================
+% ========================================
+% ========================================
+% ========================================
+% ========================================
+
+%----------------------------------------------------------------------------------------
+\subsection{Deep Learning}
+%----------------------------------------------------------------------------------------
+
+
+\begin{frame}[fragile]
+   \frametitle{What is a Neural Network in Machine Learning?}
+   \begin{itemize}
+      \item Also called Multi-layer Perceptron (MLP)
+   \end{itemize}
+   \begin{center}
+      \includegraphics[width=0.8\textwidth]{../images/artificial_neural_networks.jpeg}
+   \end{center}
+\end{frame}
+
+
+\begin{frame}[fragile]
+   \frametitle{What is a Perceptron?}
+   \begin{itemize}
+      \item Comparison with a linear regression
+      \item Add non linear functions (Sigmoid, Softmax, ReLu, Tanh)
+   \end{itemize}
+   \begin{center}
+      \includegraphics[width=0.6\textwidth]{../images/perceptron.png}
+   \end{center}
+\end{frame}
+
+
+\begin{frame}[fragile]
+   \frametitle{Fitting (under, good, over)}
+   \begin{itemize}
+      \item Objective: generalize for production (out-of-sample data)
+      \item Simple vs Polynomial regression (few, multiple degrees)
+      \item Example house prices (tiny flats, normal, luxury flats)
+   \end{itemize}
+   \begin{center}
+      \includegraphics[width=.8\textwidth]{../images/overfit.png}
+   \end{center}
+\end{frame}
+
+
+\begin{frame}[fragile]
+   \frametitle{Generalization: Model choice given the task complexity}
+   \begin{itemize}
+      \item Importance of:
+      \begin{itemize}
+         \item quantity and initial value of parameters
+         \item functions that link the variables and parameters
+         \item optimization method
+      \end{itemize}
+      \item Simpler (often) means more robust
+      \item Too simple cannot fit complex tasks
+      \item Find the good balance
+   \end{itemize}
+\end{frame}
+
+
+\begin{frame}[fragile]
+   \frametitle{Adapt model complexity}
+   \begin{itemize}
+      \item Regularization methods:
+      \begin{itemize}
+         \item Ridge and Lasso methods for simpler models
+         \item Equivalent dropout method for neural networks
+      \end{itemize}
+      \begin{center}
+         \includegraphics[width=.9\textwidth]{../images/ridge.png}
+      \end{center}
+      \begin{center}
+         \includegraphics[width=.9\textwidth]{../images/lasso.png}
+      \end{center}
+   \end{itemize}
+\end{frame}
+
+
+\begin{frame}[fragile]
+   \frametitle{What is Deep Learning?}
+   \begin{itemize}
+      \item A model (often) using deep nets (>5 hidden layers)
+      \item Different levels of representation (raw to elaborate)
+      \item See \href{https://www.deeplearningbook.org/}{Y. Goodfellow's book}
+   \end{itemize}
+   \begin{center}
+      \includegraphics[width=.8\textwidth]{../images/deep_net.png}
+   \end{center}
+\end{frame}
+
+
+\begin{frame}[fragile]
+   \frametitle{Advanced model structures}
+   \begin{itemize}
+      \item Blocs: dense, convolution, pooling, padding, dropout, etc.
+      \begin{center}
+         \includegraphics[width=.7\textwidth]{../images/convnet.jpeg}
+      \end{center}
+      \item VGG16
+      \begin{center}
+         \includegraphics[width=.9\textwidth]{../images/vgg_16.png}
+      \end{center}
+   \end{itemize}
+\end{frame}
+
+
+
+\begin{frame}[fragile]
+   \frametitle{Frameworks}
+   \begin{itemize}
+      \item Tensorflow (Google) and Pytorch (Facebook) frameworks
+      \item Faster, simpler and more robust construction of deep learning models
+      \item Also help in:
+      \begin{itemize}
+         \item handling parallel computing, GPU usage for matrix computations
+         \item Loading large data sets throughout model training
+         \item Visualize and control model fitting / performances
+      \end{itemize}
+   \end{itemize}
+   \begin{center}
+      \includegraphics[width=.3\textwidth]{../images/tensorflow_logo.png}
+   \end{center}
+   \begin{center}
+      \includegraphics[width=.25\textwidth]{../images/pytorch_logo_1.png}
+   \end{center}
+\end{frame}
+
+
+%----------------------------------------------------------------------------------------
+\subsection{Pytorch}
+%----------------------------------------------------------------------------------------
+
+
+\begin{frame}[fragile]
+   \frametitle{Building models using Pytorch: Graph}
+   \begin{itemize}
+      \item Building computational graph upfront, then launch the graph
+      \item Dynamic Computational Graphs: built upon running next training iteration\\
+      \textit{\href{https://cs230.stanford.edu/section/5/}{See: Graph difference Pytorch and Tensorflow}}
+      \begin{center}
+         \includegraphics[width=0.6\textwidth]{../images/computational_graph.png}
+      \end{center}
+   \end{itemize}
+\end{frame}
+
+
+\begin{frame}[fragile]
+   \frametitle{Building models using Pytorch: VGG16 Example}
+   \begin{itemize}
+      \item \textit{\href{https://github.com/pytorch/vision/blob/main/torchvision/models/vgg.py}{Source}}
+   \end{itemize}
+   \begin{center}
+      \includegraphics[width=1\textwidth]{../images/vgg16_pytorch.png}
+   \end{center}
+\end{frame}
+
+\begin{frame}[fragile]
+   \frametitle{\href{https://pytorch.org/docs/stable/nn.html}{Building models using Pytorch: Components}}
+   \begin{itemize}
+      \item Layers
+      \begin{itemize}
+         \item Linear
+         \begin{itemize}
+            \item \href{https://pytorch.org/docs/stable/generated/torch.nn.Linear.html}{Linear} (dense layer vs sparse layer)
+         \end{itemize}
+
+         \item Convolutions
+         \begin{itemize}
+               \item \href{https://pytorch.org/docs/stable/generated/torch.nn.Conv2d.html#torch.nn.Conv2d}{Conv2d}
+               \item \href{https://pytorch.org/docs/stable/generated/torch.nn.AvgPool2d.html#torch.nn.AvgPool2d}{AvgPool2d}
+               \item \href{https://pytorch.org/docs/stable/generated/torch.nn.MaxPool2d.html#torch.nn.MaxPool2d}{MaxPool2d}
+         \end{itemize}
+
+         \item Recurrent
+         \begin{itemize}
+            \item \href{https://pytorch.org/docs/stable/generated/torch.nn.RNN.html#torch.nn.RNN}{RNN}
+            \item \href{https://pytorch.org/docs/stable/generated/torch.nn.LSTM.html#torch.nn.LSTM}{LSTM}
+         \end{itemize}
+
+         \item Transformations
+         \begin{itemize}
+            \item \href{https://pytorch.org/docs/stable/generated/torch.nn.BatchNorm2d.html#torch.nn.BatchNorm2d}{BatchNorm2d}
+            \item \href{https://pytorch.org/docs/stable/generated/torch.nn.Dropout2d.html#torch.nn.Dropout2d}{Dropout2d}
+            \item \href{https://pytorch.org/docs/stable/generated/torch.flatten.html}{Flatten}
+         \end{itemize}
+      \end{itemize}
+
+      \item (Non-linear) Activation functions:
+      \begin{itemize}
+         \item \href{https://pytorch.org/docs/stable/generated/torch.nn.Sigmoid.html}{Sigmoid}
+         \item \href{https://pytorch.org/docs/stable/generated/torch.nn.ReLU.html}{ReLu}
+         \item \href{https://pytorch.org/docs/stable/generated/torch.nn.Tanh.html#torch.nn.Tanh}{Tanh}
+      \end{itemize}
+
+      \item \href{https://pytorch.org/docs/stable/nn.html#loss-functions}{Loss functions}: MSELoss, CrossEntropyLoss
+   \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+   \frametitle{Building models using Pytorch: Optimization loop}
+   \begin{center}
+      \includegraphics[width=1\textwidth]{../images/optimization_loop_pytorch.png}
+   \end{center}
+\end{frame}
+
+
+\begin{frame}[fragile]
+   \frametitle{\href{https://pytorch.org/tutorials/beginner/basics/intro.html}{Pytorch Inner Workings}}
+   \begin{itemize}
+      \item \href{https://pytorch.org/tutorials/beginner/basics/tensorqs_tutorial.html}{Tensors: like Numpy Arrays + enable computational graphs and autograd}\\
+      \includegraphics[width=.5\textwidth]{../images/tensor_pytorch.png}
+      \item Automatic Differenciation (AutoGrad)
+      \includegraphics[width=.8\textwidth]{../images/define_parameters.png}
+      \includegraphics[width=.35\textwidth]{../images/get_gradients.png}
+   \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+   \frametitle{\href{https://pytorch.org/docs/stable/optim.html}{Optimizers}}
+   \begin{itemize}
+         \item SGD
+         \item Adam
+   \end{itemize}
+   \includegraphics[width=.9\textwidth]{../images/optimizers_pytorch.pdf}
+   \includegraphics[width=.6\textwidth]{../images/optimization.jpeg}
+\end{frame}
+
+
+\begin{frame}[fragile]
+   \frametitle{\href{https://pytorch.org/tutorials/beginner/basics/data_tutorial.html}{Datasets and DataLoaders}}
+   \begin{itemize}
+      \item Batches\\
+      \includegraphics[width=.8\textwidth]{../images/dataloaders.png}
+      \item \href{https://pytorch.org/tutorials/beginner/basics/data_tutorial.html}{Specific transformations}
+      \includegraphics[width=.9\textwidth]{../images/set_dataloaders.png}
+   \end{itemize}
+\end{frame}
+
+
+\begin{frame}[fragile]
+   \frametitle{Working with a trained model}
+   \begin{itemize}
+      \item Save, Load and Use Model
+      \item Transfer Learning (freezing weights)
+   \end{itemize}
+\end{frame}
+
+
+
+\begin{frame}[fragile]
+   \frametitle{Examples}
+   \begin{itemize}
+      \item \href{https://github.com/pytorch/examples/blob/main/mnist/main.py}{Example applied to MNIST - Github}
+      \item \href{https://github.com/pytorch/examples/blob/main/mnist/main.py}{Example applied to MNIST - Google Colab}
+   \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+   \frametitle{Further}
+   \begin{itemize}
+      \item \href{https://pytorch.org/tutorials/}{Official documentation}
+   \end{itemize}
+\end{frame}
+
+
+%----------------------------------------------------------------------------------------
+\section{Conclusion}
+%----------------------------------------------------------------------------------------
+
+
+\begin{frame}
+\frametitle{Quick Summary - Linux}
+   Linux OS:
+   \begin{itemize}
+      \item Open source development and production platform.
+      \item Designed by IT for IT.
+   \end{itemize}
+   Linux shell:
+   \begin{itemize}
+      \item Precise way to manipulate basic IT tools.
+      \item Can be reproduced and automatized.
+   \end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Quick Summary - Git}
+   Decentralized versioning system:
+   \begin{itemize}
+      \item Follow your own changes.
+      \item Share your work with others.
+      \item Can experiment in branches.
+   \end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Quick Summary - Python}
+   High-level language:
+   \begin{itemize}
+      \item Can do everything from script to web server.
+      \item Define virtual environment with multiple libraries.
+      \item Can use imperative, object or functional programming.
+   \end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Sample use cases}
+   Web server
+   \begin{itemize}
+      \item Implement it in Python using the Django framework.
+      \item Share it on a private Github, using merge requests for changes.
+      \item Install, start and maintain it using shell commands.
+   \end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Sample use cases}
+   Data analysis
+   \begin{itemize}
+      \item Download data using linux shell.
+      \item Parse and compute data in Python, using a Jupyter notebook.
+      \item Share it on Gitlab.
+   \end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Sample use cases}
+   Data monitoring prototype
+   \begin{itemize}
+      \item Implement data loading and parsing in a Python script.
+      \item Execute every night by a Linux shell command.
+      \item Deliver it in the company private Gitlab.
+   \end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Questions?}
+   Any question?
+\end{frame}
+
+\begin{frame}
+\frametitle{Reminder: final project}
+   Its text will be published soon. \\
+   \\
+   You can start working on it as soon as the text is published.
+\end{frame}
+
+
+\end{document}
