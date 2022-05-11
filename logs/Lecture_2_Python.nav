@@ -7,44 +7,32 @@
 \headcommand {\beamer@sectionpages {1}{4}}
 \headcommand {\beamer@subsectionpages {1}{4}}
 \headcommand {\sectionentry {1}{Python Programming}{5}{Python Programming}{0}}
-\headcommand {\slideentry {1}{0}{1}{5/5}{}{0}}
+\headcommand {\beamer@subsectionpages {5}{4}}
+\headcommand {\beamer@subsectionentry {0}{1}{1}{5}{Why Python?}}
+\headcommand {\slideentry {1}{1}{1}{5/5}{Why Python?}{0}}
 \headcommand {\beamer@framepages {5}{5}}
 \headcommand {\beamer@subsectionpages {5}{5}}
-\headcommand {\beamer@subsectionentry {0}{1}{1}{6}{Why programming, why Python}}
-\headcommand {\slideentry {1}{1}{1}{6/6}{Why programming, why Python}{0}}
-\headcommand {\beamer@framepages {6}{6}}
-\headcommand {\slideentry {1}{1}{2}{7/7}{Why programming, why Python}{0}}
-\headcommand {\beamer@framepages {7}{7}}
-\headcommand {\beamer@subsectionpages {6}{7}}
-\headcommand {\beamer@subsectionentry {0}{1}{2}{8}{Programming Environment}}
-\headcommand {\slideentry {1}{2}{1}{8/8}{Programming Environment}{0}}
-\headcommand {\beamer@framepages {8}{8}}
-\headcommand {\slideentry {1}{2}{2}{9/15}{Programming Environment}{0}}
-\headcommand {\beamer@framepages {9}{15}}
-\headcommand {\beamer@subsectionpages {8}{15}}
-\headcommand {\beamer@subsectionentry {0}{1}{3}{16}{Essentials in the Python language}}
-\headcommand {\slideentry {1}{3}{1}{16/16}{Essentials in the Python language}{0}}
+\headcommand {\beamer@subsectionentry {0}{1}{2}{6}{Programming Environment}}
+\headcommand {\slideentry {1}{2}{1}{6/13}{Programming Environment}{0}}
+\headcommand {\beamer@framepages {6}{13}}
+\headcommand {\beamer@subsectionpages {6}{13}}
+\headcommand {\beamer@subsectionentry {0}{1}{3}{14}{Essentials in the Python language}}
+\headcommand {\slideentry {1}{3}{1}{14/14}{Essentials in the Python language}{0}}
+\headcommand {\beamer@framepages {14}{14}}
+\headcommand {\beamer@subsectionpages {14}{14}}
+\headcommand {\beamer@subsectionentry {0}{1}{4}{15}{Programming in general}}
+\headcommand {\beamer@subsubsectionentry {0}{1}{4}{1}{15}{Good Practices}}
+\headcommand {\slideentry {1}{4}{1}{15/15}{Programming in general}{0}}
+\headcommand {\beamer@framepages {15}{15}}
+\headcommand {\beamer@subsubsectionentry {0}{1}{4}{2}{16}{Other languages}}
+\headcommand {\slideentry {1}{4}{2}{16/16}{Programming in general}{0}}
 \headcommand {\beamer@framepages {16}{16}}
-\headcommand {\slideentry {1}{3}{2}{17/17}{Essentials in the Python language}{0}}
+\headcommand {\beamer@subsectionpages {15}{16}}
+\headcommand {\beamer@subsectionentry {0}{1}{5}{17}{How to learn programming}}
+\headcommand {\slideentry {1}{5}{1}{17/17}{How to learn programming}{0}}
 \headcommand {\beamer@framepages {17}{17}}
-\headcommand {\beamer@subsectionpages {16}{17}}
-\headcommand {\beamer@subsectionentry {0}{1}{4}{18}{Programming in general}}
-\headcommand {\slideentry {1}{4}{1}{18/18}{Programming in general}{0}}
-\headcommand {\beamer@framepages {18}{18}}
-\headcommand {\beamer@subsubsectionentry {0}{1}{4}{1}{19}{Good Practices}}
-\headcommand {\slideentry {1}{4}{2}{19/19}{Programming in general}{0}}
-\headcommand {\beamer@framepages {19}{19}}
-\headcommand {\beamer@subsubsectionentry {0}{1}{4}{2}{20}{Other languages}}
-\headcommand {\slideentry {1}{4}{3}{20/20}{Programming in general}{0}}
-\headcommand {\beamer@framepages {20}{20}}
-\headcommand {\beamer@subsectionpages {18}{20}}
-\headcommand {\beamer@subsectionentry {0}{1}{5}{21}{How to learn programming}}
-\headcommand {\slideentry {1}{5}{1}{21/21}{How to learn programming}{0}}
-\headcommand {\beamer@framepages {21}{21}}
-\headcommand {\slideentry {1}{5}{2}{22/22}{How to learn programming}{0}}
-\headcommand {\beamer@framepages {22}{22}}
-\headcommand {\beamer@partpages {1}{22}}
-\headcommand {\beamer@subsectionpages {21}{22}}
-\headcommand {\beamer@sectionpages {5}{22}}
-\headcommand {\beamer@documentpages {22}}
-\headcommand {\gdef \inserttotalframenumber {15}}
+\headcommand {\beamer@partpages {1}{17}}
+\headcommand {\beamer@subsectionpages {17}{17}}
+\headcommand {\beamer@sectionpages {5}{17}}
+\headcommand {\beamer@documentpages {17}}
+\headcommand {\gdef \inserttotalframenumber {9}}
