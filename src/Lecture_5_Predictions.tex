@@ -25,6 +25,29 @@
 %------------------------------------------------------------------------------
 % Use cases
 
+\begin{frame}\frametitle{What does that mean?}
+   \begin{itemize}
+      \item Patterns (correlations)
+      \item Correlation vs Causality
+      \item Continuity (stationarity)
+      \item Examples:
+      \begin{itemize}
+         \item Present:
+         \begin{itemize}
+            \item Electricity consumption (e.g. Seattle)
+            \item Missing values
+            \item Client category
+         \end{itemize}
+         \item Future:
+         \begin{itemize}
+            \item Electricity consumption next month (time series)
+            \item Client clicking add (recommander sys.)
+            \item Pedestrian and cars trajectories (RL)
+         \end{itemize}
+      \end{itemize}
+   \end{itemize}
+   % TODO: add graph with predictions
+\end{frame}
 
 
 %------------------------------------------------------------------------------
@@ -40,6 +63,7 @@
       \item SARIMA
       \item Deep Learning (RNN, LSTM)
    \end{itemize}
+   % TODO: add visual and code examples, and math expressions
 \end{frame}
 
 
@@ -52,6 +76,7 @@
       \item K-NN
       \item Neural Network (Deep Learning: CNN)
    \end{itemize}
+   % TODO: add visual and code examples, and math expressions
 \end{frame}
 
 
@@ -61,45 +86,18 @@
 
 \begin{frame}\frametitle{Unsupervised ML}
    \begin{itemize}
-      \item PCA:
+      \item Clustering (grouping)
+      \item Dimensionality reduction
+      \item Reducing multicolinearity
+      \item Models:
       \begin{itemize}
-         \item Dimensionality reduction
-         \item Reduce multi-colinearity
+         \item K-Means: entropy minimisation principle (min var intra, max var inter)
+         \item Hierarchical Clustering
+         \item PCA
       \end{itemize}
-      \item K-Means: entropy minimisation principle (min var intra, max var inter)
-      \item Hierarchical Clustering
    \end{itemize}
+   % TODO: add visual and code examples, and math expressions
 \end{frame}
-
-
-%------------------------------------------------------------------------------
-\subsection{Programming in general}
-%------------------------------------------------------------------------------
-
-\subsubsection{Good Practices}
-
-\begin{frame}\frametitle{Good Practices}
-   \begin{itemize}
-      \item Principles
-      \item Code organization
-      \item Vectorization
-   \end{itemize}
-\end{frame}
-
-
-\subsubsection{Other languages}
-
-\begin{frame}\frametitle{Other languages}
-   \begin{itemize}
-      \item Software development
-      \begin{itemize}
-         \item Front-end
-         \item Back-end
-      \end{itemize}
-      \item Analysis, statistics
-   \end{itemize}
-\end{frame}
-
 
 
 
@@ -115,9 +113,10 @@
       \item Parameters
       \item Hyperparameters
       \item Train, cross-validate, test
-      \item Data Leakage
       \item Feature importance
+      \item Data Leakage
    \end{itemize}
+   % TODO: add visual and code examples, and math expressions
 \end{frame}
 
 
@@ -130,6 +129,7 @@
       \item Over/Under-sampling
       \item Unbalanced Datasets (weights on cost function, SMOTE, Auto-encoder)
    \end{itemize}
+   % TODO: add visual and code examples, and math expressions
 \end{frame}
 
 
@@ -149,26 +149,40 @@
          \item AUC, ROC Curve
          \item Other metrics based on confusion matrix
       \end{itemize}
+      % TODO: add visual and code examples, and math expressions
    \end{itemize}
 \end{frame}
 
 
 \subsubsection{Transfer Learning}
 
-\begin{frame}\frametitle{Transfer Learning}
+\begin{frame}\frametitle{Transfer Learning, Why?}
    \begin{itemize}
-      \item Regression
-      \begin{itemize}
-         \item RMSE
-         \item $R^2$
-      \end{itemize}
+      \item Training can be complicated, long and expensive
+      \item Specific but complex (and similar) task (NLP)
+      \item Few samples
+      % TODO: add visual and code examples, and math expressions
+   \end{itemize}
+\end{frame}
 
-      \item Classification
+\begin{frame}\frametitle{What has been learnt?}
+   \begin{itemize}
+      \item Weights value (or centroids)
+      \item Hyperparameters
+      % TODO: add visual and code examples, and math expressions
+   \end{itemize}
+\end{frame}
+
+
+\begin{frame}\frametitle{Deep Learning}
+   \begin{itemize}
+      \item Optimize target objective on long term, intermediate steps on short term:
       \begin{itemize}
-         \item Accuracy
-         \item AUC, ROC Curve
-         \item Other metrics based on confusion matrix
+         \item Increase task difficulty gradually
+         \item Better generalisation: Multi-task learning (RL, learn recognize unrelated objects)
+         \item Improve Neural Network architecture (genetic algorithms)
       \end{itemize}
+      % TODO: add visual and code examples, and math expressions
    \end{itemize}
 \end{frame}
 
@@ -182,6 +196,7 @@
       \item Sklearn simple 4 lines of code
       \item More advanced Sklearn
       \item Deep Learning with Pytorch
+      % TODO: add visual and code examples, and math expressions
    \end{itemize}
 \end{frame}
 
