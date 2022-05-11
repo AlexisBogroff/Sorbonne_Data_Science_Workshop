@@ -26,8 +26,18 @@
 
 \begin{frame}\frametitle{Measures}
    \begin{itemize}
-      \item Centrality
-      \item Dispersion
+      \item Centrality:
+      \begin{itemize}
+         \item Average (mean)
+         \item Median
+      \end{itemize}
+      \item Dispersion:
+      \begin{itemize}
+         \item Standard deviation (sqrt variance)
+         \item Min-Max
+         \item Interquartile Range (IQR)
+      \end{itemize}
+
    \end{itemize}
 \end{frame}
 
@@ -37,10 +47,29 @@
 
 \begin{frame}\frametitle{Patterns}
    \begin{itemize}
-      \item Trend
-      \item Saisonality
-      \item Auto-correlation
       \item Correlations
+      \begin{itemize}
+         \item Trend
+         \item Saisonality
+         \item Auto-correlation
+      \end{itemize}
+      \item Correlations with other variables:
+      \begin{itemize}
+         \item Linear
+         \item Non-Linear
+      \end{itemize}
+   \end{itemize}
+\end{frame}
+
+\begin{frame}\frametitle{Correlation}
+   \begin{itemize}
+      \item Move repetitively in conjunction
+      \item Methods
+      \begin{itemize}
+         \item Pearson
+         \item Spearman (Rank)
+      \end{itemize}
+      \item Spurious correlation (ice cream, Eiffel Tower)
    \end{itemize}
 \end{frame}
 
@@ -54,7 +83,21 @@
 \begin{frame}\frametitle{Statistical Laws}
    \begin{itemize}
       \item Normal Law / Gauss Curve
-      \item Power Laws
+      \begin{itemize}
+         \item Totally resumed by mean and variance
+         \item Constant mean (0 if centered) and variance (1 if reduced)
+         \item Uncorrelated individuals
+         \item Symetric (Skewness=0)
+         \item Precise bell shape (Kurtosis=3)
+      \end{itemize}
+
+      \item Power Laws: multiplicative growth
+      % TODO: insert graph examples of both distributions
+      \item Examples:
+      \begin{itemize}
+         \item Normal: human age, size, weight, grades
+         \item Power: lakes size, wealth
+      \end{itemize}
    \end{itemize}
 \end{frame}
 
@@ -63,8 +106,16 @@
 
 \begin{frame}\frametitle{Statistical Tests}
    \begin{itemize}
-      \item Intention
+      \item Intention: prevent sampling error
       \item Hypothesis (Normal Law)
+      \item Examples:
+      \begin{itemize}
+         \item Normality test
+         \item ANOVA
+         \item Pearson's r
+         \item Chi square
+      \end{itemize}
+         % TODO: review https://www.scribbr.com/statistics/statistical-tests/
    \end{itemize}
 \end{frame}
 
@@ -79,13 +130,27 @@
 
 
 %------------------------------------------------------------------------------
+\subsection{Data Management}
+%------------------------------------------------------------------------------
+
+\begin{frame}\frametitle{Data Management}
+   \begin{itemize}
+      \item Select variables
+      \item Merge tables
+      % TODO: add multiple code examples
+   \end{itemize}
+\end{frame}
+
+
+%------------------------------------------------------------------------------
 \subsection{Data Cleaning}
 %------------------------------------------------------------------------------
 
 \begin{frame}\frametitle{Data Cleaning}
    \begin{itemize}
-      \item Outliers
       \item NaN Imputation
+      \item Outliers
+      % TODO: add multiple code examples
    \end{itemize}
 \end{frame}
 
@@ -96,8 +161,10 @@
 
 \begin{frame}\frametitle{Feature Engineering}
    \begin{itemize}
-      \item Quantitative variables (numbers representing quantities)
-      \item Qualitative variables (categories)
+      \item Quantitative variables (numbers representing quantities): create groups
+      \item Qualitative variables (categories): one-hot encode
+      \item Filter
+      % TODO: add multiple examples
    \end{itemize}
 \end{frame}
 
