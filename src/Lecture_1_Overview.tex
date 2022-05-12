@@ -1,6 +1,18 @@
 \input{CM_class.tex}
 
+\newlength\myheight
+\newlength\mydepth
+\settototalheight\myheight{Xygp}
+\settodepth\mydepth{Xygp}
+\setlength\fboxsep{0pt}
+\newcommand*\inlinegraphics[1]{%
+  \settototalheight\myheight{Xygp}%
+  \settodepth\mydepth{Xygp}%
+  \raisebox{-\mydepth}{\includegraphics[height=\myheight]{#1}}%
+}
+
 \begin{document}
+
 
 \begin{frame}
    \titlepage
@@ -21,6 +33,21 @@
 
 
 %------------------------------------------------------------------------------
+\subsection{Positional Assessment}
+%------------------------------------------------------------------------------
+\begin{frame}\frametitle{Positional Assessment}
+   \begin{itemize}
+      \item Go to ... make the quizz
+   \end{itemize}
+
+   \begin{figure}[H]
+      \includegraphics[width=10cm]{../images/illustrations/quiz.jpeg}
+   \end{figure}
+\end{frame} 
+
+
+
+%------------------------------------------------------------------------------
 \subsection{Why this course}
 %------------------------------------------------------------------------------
 \begin{frame}\frametitle{Why this course}
@@ -29,18 +56,32 @@
       % \item TODO: find article about jobs using data even though they are not data scientists
       % \item TODO: find graphs about these points
       \item You already work in a data rich environment
-      \item Benefit from upskilling in Data Science
+      \item Benefit from upskilling in Data Science \inlinegraphics{../images/illustrations/up_arrow_green.png}
    \end{itemize}
-\end{frame}
+
+
+   \begin{figure}[H]
+      \includegraphics[width=10cm]{../images/illustrations/data_everywhere.jpeg}
+   \end{figure}
+\end{frame} 
 
 \begin{frame}\frametitle{Why this course}
    \begin{itemize}
-      \item Short 3 days course
+      \item Short 3 days course \inlinegraphics{../images/illustrations/run.jpeg}
       \item Objective 1: understand the current data ecosystem
       \begin{itemize}
          \item Fundamental components
          \item Their (intricated) links
       \end{itemize}
+      \begin{figure}[H]
+         \includegraphics[width=10cm]{../images/illustrations/data_ecosystem.png}
+      \end{figure}
+   \end{itemize}
+\end{frame}
+
+
+\begin{frame}\frametitle{Why this course}
+   \begin{itemize}
       \item Objective 2: confidence in your abilities to learn by yourself
       \begin{itemize}
          \item Understand theoretical points
@@ -48,6 +89,11 @@
       \end{itemize}
       \item Comparison to complete formations (3 days vs 1 year)
    \end{itemize}
+
+   \begin{figure}[H]
+      \includegraphics[width=10cm]{../images/illustrations/learn_autonomous.jpeg}
+   \end{figure}
+
 \end{frame}
 
 

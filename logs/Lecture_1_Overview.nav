@@ -8,33 +8,39 @@
 \headcommand {\beamer@subsectionpages {1}{4}}
 \headcommand {\sectionentry {1}{Overview}{5}{Overview}{0}}
 \headcommand {\beamer@subsectionpages {5}{4}}
-\headcommand {\beamer@subsectionentry {0}{1}{1}{5}{Why this course}}
-\headcommand {\slideentry {1}{1}{1}{5/5}{Why this course}{0}}
+\headcommand {\beamer@subsectionentry {0}{1}{1}{5}{Positional Assessment}}
+\headcommand {\slideentry {1}{1}{1}{5/5}{Positional Assessment}{0}}
 \headcommand {\beamer@framepages {5}{5}}
-\headcommand {\slideentry {1}{1}{2}{6/6}{Why this course}{0}}
+\headcommand {\beamer@subsectionpages {5}{5}}
+\headcommand {\beamer@subsectionentry {0}{1}{2}{6}{Why this course}}
+\headcommand {\slideentry {1}{2}{1}{6/6}{Why this course}{0}}
 \headcommand {\beamer@framepages {6}{6}}
-\headcommand {\beamer@subsectionpages {5}{6}}
-\headcommand {\beamer@subsectionentry {0}{1}{2}{7}{What is Artificial Intelligence}}
-\headcommand {\slideentry {1}{2}{1}{7/7}{What is Artificial Intelligence}{0}}
+\headcommand {\slideentry {1}{2}{2}{7/7}{Why this course}{0}}
 \headcommand {\beamer@framepages {7}{7}}
-\headcommand {\slideentry {1}{2}{2}{8/8}{What is Artificial Intelligence}{0}}
+\headcommand {\slideentry {1}{2}{3}{8/8}{Why this course}{0}}
 \headcommand {\beamer@framepages {8}{8}}
-\headcommand {\beamer@subsectionpages {7}{8}}
-\headcommand {\beamer@subsectionentry {0}{1}{3}{9}{What is programming}}
-\headcommand {\slideentry {1}{3}{1}{9/9}{What is programming}{0}}
+\headcommand {\beamer@subsectionpages {6}{8}}
+\headcommand {\beamer@subsectionentry {0}{1}{3}{9}{What is Artificial Intelligence}}
+\headcommand {\slideentry {1}{3}{1}{9/9}{What is Artificial Intelligence}{0}}
 \headcommand {\beamer@framepages {9}{9}}
-\headcommand {\slideentry {1}{3}{2}{10/10}{What is programming}{0}}
+\headcommand {\slideentry {1}{3}{2}{10/10}{What is Artificial Intelligence}{0}}
 \headcommand {\beamer@framepages {10}{10}}
 \headcommand {\beamer@subsectionpages {9}{10}}
-\headcommand {\beamer@subsectionentry {0}{1}{4}{11}{Issues}}
-\headcommand {\slideentry {1}{4}{1}{11/11}{Issues}{0}}
+\headcommand {\beamer@subsectionentry {0}{1}{4}{11}{What is programming}}
+\headcommand {\slideentry {1}{4}{1}{11/11}{What is programming}{0}}
 \headcommand {\beamer@framepages {11}{11}}
-\headcommand {\beamer@subsectionpages {11}{11}}
-\headcommand {\beamer@subsectionentry {0}{1}{5}{12}{Resources}}
-\headcommand {\slideentry {1}{5}{1}{12/12}{Resources}{0}}
+\headcommand {\slideentry {1}{4}{2}{12/12}{What is programming}{0}}
 \headcommand {\beamer@framepages {12}{12}}
-\headcommand {\beamer@partpages {1}{12}}
-\headcommand {\beamer@subsectionpages {12}{12}}
-\headcommand {\beamer@sectionpages {5}{12}}
-\headcommand {\beamer@documentpages {12}}
-\headcommand {\gdef \inserttotalframenumber {11}}
+\headcommand {\beamer@subsectionpages {11}{12}}
+\headcommand {\beamer@subsectionentry {0}{1}{5}{13}{Issues}}
+\headcommand {\slideentry {1}{5}{1}{13/13}{Issues}{0}}
+\headcommand {\beamer@framepages {13}{13}}
+\headcommand {\beamer@subsectionpages {13}{13}}
+\headcommand {\beamer@subsectionentry {0}{1}{6}{14}{Resources}}
+\headcommand {\slideentry {1}{6}{1}{14/14}{Resources}{0}}
+\headcommand {\beamer@framepages {14}{14}}
+\headcommand {\beamer@partpages {1}{14}}
+\headcommand {\beamer@subsectionpages {14}{14}}
+\headcommand {\beamer@sectionpages {5}{14}}
+\headcommand {\beamer@documentpages {14}}
+\headcommand {\gdef \inserttotalframenumber {13}}
