@@ -13,26 +13,42 @@
 \headcommand {\beamer@framepages {5}{5}}
 \headcommand {\beamer@subsectionpages {5}{5}}
 \headcommand {\beamer@subsectionentry {0}{1}{2}{6}{Programming Environment}}
-\headcommand {\slideentry {1}{2}{1}{6/13}{Programming Environment}{0}}
-\headcommand {\beamer@framepages {6}{13}}
+\headcommand {\slideentry {1}{2}{1}{6/6}{Programming Environment}{0}}
+\headcommand {\beamer@framepages {6}{6}}
+\headcommand {\slideentry {1}{2}{2}{7/7}{Programming Environment}{0}}
+\headcommand {\beamer@framepages {7}{7}}
+\headcommand {\slideentry {1}{2}{3}{8/8}{Programming Environment}{0}}
+\headcommand {\beamer@framepages {8}{8}}
+\headcommand {\slideentry {1}{2}{4}{9/9}{Programming Environment}{0}}
+\headcommand {\beamer@framepages {9}{9}}
+\headcommand {\slideentry {1}{2}{5}{10/10}{Programming Environment}{0}}
+\headcommand {\beamer@framepages {10}{10}}
+\headcommand {\slideentry {1}{2}{6}{11/11}{Programming Environment}{0}}
+\headcommand {\beamer@framepages {11}{11}}
+\headcommand {\slideentry {1}{2}{7}{12/12}{Programming Environment}{0}}
+\headcommand {\beamer@framepages {12}{12}}
+\headcommand {\slideentry {1}{2}{8}{13/13}{Programming Environment}{0}}
+\headcommand {\beamer@framepages {13}{13}}
 \headcommand {\beamer@subsectionpages {6}{13}}
 \headcommand {\beamer@subsectionentry {0}{1}{3}{14}{Essentials in the Python language}}
 \headcommand {\slideentry {1}{3}{1}{14/14}{Essentials in the Python language}{0}}
 \headcommand {\beamer@framepages {14}{14}}
-\headcommand {\beamer@subsectionpages {14}{14}}
-\headcommand {\beamer@subsectionentry {0}{1}{4}{15}{Programming in general}}
-\headcommand {\beamer@subsubsectionentry {0}{1}{4}{1}{15}{Good Practices}}
-\headcommand {\slideentry {1}{4}{1}{15/15}{Programming in general}{0}}
+\headcommand {\slideentry {1}{3}{2}{15/15}{Essentials in the Python language}{0}}
 \headcommand {\beamer@framepages {15}{15}}
-\headcommand {\beamer@subsubsectionentry {0}{1}{4}{2}{16}{Other languages}}
-\headcommand {\slideentry {1}{4}{2}{16/16}{Programming in general}{0}}
+\headcommand {\beamer@subsectionpages {14}{15}}
+\headcommand {\beamer@subsectionentry {0}{1}{4}{16}{Programming in general}}
+\headcommand {\beamer@subsubsectionentry {0}{1}{4}{1}{16}{Good Practices}}
+\headcommand {\slideentry {1}{4}{1}{16/16}{Programming in general}{0}}
 \headcommand {\beamer@framepages {16}{16}}
-\headcommand {\beamer@subsectionpages {15}{16}}
-\headcommand {\beamer@subsectionentry {0}{1}{5}{17}{How to learn programming}}
-\headcommand {\slideentry {1}{5}{1}{17/17}{How to learn programming}{0}}
+\headcommand {\beamer@subsubsectionentry {0}{1}{4}{2}{17}{Other languages}}
+\headcommand {\slideentry {1}{4}{2}{17/17}{Programming in general}{0}}
 \headcommand {\beamer@framepages {17}{17}}
-\headcommand {\beamer@partpages {1}{17}}
-\headcommand {\beamer@subsectionpages {17}{17}}
-\headcommand {\beamer@sectionpages {5}{17}}
-\headcommand {\beamer@documentpages {17}}
-\headcommand {\gdef \inserttotalframenumber {9}}
+\headcommand {\beamer@subsectionpages {16}{17}}
+\headcommand {\beamer@subsectionentry {0}{1}{5}{18}{How to learn programming}}
+\headcommand {\slideentry {1}{5}{1}{18/18}{How to learn programming}{0}}
+\headcommand {\beamer@framepages {18}{18}}
+\headcommand {\beamer@partpages {1}{18}}
+\headcommand {\beamer@subsectionpages {18}{18}}
+\headcommand {\beamer@sectionpages {5}{18}}
+\headcommand {\beamer@documentpages {18}}
+\headcommand {\gdef \inserttotalframenumber {17}}
