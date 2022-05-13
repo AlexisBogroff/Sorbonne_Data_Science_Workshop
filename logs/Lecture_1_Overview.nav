@@ -25,22 +25,26 @@
 \headcommand {\beamer@framepages {9}{9}}
 \headcommand {\slideentry {1}{3}{2}{10/10}{What is Artificial Intelligence}{0}}
 \headcommand {\beamer@framepages {10}{10}}
-\headcommand {\beamer@subsectionpages {9}{10}}
-\headcommand {\beamer@subsectionentry {0}{1}{4}{11}{What is programming}}
-\headcommand {\slideentry {1}{4}{1}{11/11}{What is programming}{0}}
+\headcommand {\slideentry {1}{3}{3}{11/11}{What is Artificial Intelligence}{0}}
 \headcommand {\beamer@framepages {11}{11}}
-\headcommand {\slideentry {1}{4}{2}{12/12}{What is programming}{0}}
+\headcommand {\slideentry {1}{3}{4}{12/12}{What is Artificial Intelligence}{0}}
 \headcommand {\beamer@framepages {12}{12}}
-\headcommand {\beamer@subsectionpages {11}{12}}
-\headcommand {\beamer@subsectionentry {0}{1}{5}{13}{Issues}}
-\headcommand {\slideentry {1}{5}{1}{13/13}{Issues}{0}}
+\headcommand {\beamer@subsectionpages {9}{12}}
+\headcommand {\beamer@subsectionentry {0}{1}{4}{13}{What is programming}}
+\headcommand {\slideentry {1}{4}{1}{13/13}{What is programming}{0}}
 \headcommand {\beamer@framepages {13}{13}}
-\headcommand {\beamer@subsectionpages {13}{13}}
-\headcommand {\beamer@subsectionentry {0}{1}{6}{14}{Resources}}
-\headcommand {\slideentry {1}{6}{1}{14/14}{Resources}{0}}
+\headcommand {\slideentry {1}{4}{2}{14/14}{What is programming}{0}}
 \headcommand {\beamer@framepages {14}{14}}
-\headcommand {\beamer@partpages {1}{14}}
-\headcommand {\beamer@subsectionpages {14}{14}}
-\headcommand {\beamer@sectionpages {5}{14}}
-\headcommand {\beamer@documentpages {14}}
-\headcommand {\gdef \inserttotalframenumber {13}}
+\headcommand {\beamer@subsectionpages {13}{14}}
+\headcommand {\beamer@subsectionentry {0}{1}{5}{15}{Issues}}
+\headcommand {\slideentry {1}{5}{1}{15/15}{Issues}{0}}
+\headcommand {\beamer@framepages {15}{15}}
+\headcommand {\beamer@subsectionpages {15}{15}}
+\headcommand {\beamer@subsectionentry {0}{1}{6}{16}{Resources}}
+\headcommand {\slideentry {1}{6}{1}{16/16}{Resources}{0}}
+\headcommand {\beamer@framepages {16}{16}}
+\headcommand {\beamer@partpages {1}{16}}
+\headcommand {\beamer@subsectionpages {16}{16}}
+\headcommand {\beamer@sectionpages {5}{16}}
+\headcommand {\beamer@documentpages {16}}
+\headcommand {\gdef \inserttotalframenumber {15}}
