@@ -196,15 +196,49 @@
 \begin{frame}\frametitle{Use cases}
    \begin{itemize}
       \item At your reach:
+      \vspace*{20px}
       \begin{itemize}
          \item Fraud detection
+         \begin{minipage}{0.1\linewidth}
+            \begin{figure}[H]
+               \includegraphics[width=2cm]{../images/illustrations/fraud.jpeg}
+            \end{figure}
+         \end{minipage}
          \item Client segmentation
+         \begin{minipage}{0.1\linewidth}
+            \begin{figure}[H]
+               \includegraphics[width=2cm]{../images/illustrations/client_segmentation.jpeg}
+            \end{figure}
+         \end{minipage}
          \item Revenue, expenditures, commands prediction
+         \begin{minipage}{0.1\linewidth}
+            \begin{figure}[H]
+               \includegraphics[width=3cm]{../images/illustrations/time_series_pred.jpeg}
+            \end{figure}
+         \end{minipage}
       \end{itemize}
+   \end{itemize}
+\end{frame}
+
+
+\begin{frame}\frametitle{Use cases}
+   \begin{itemize}
       \item Not yet for you:
       \begin{itemize}
          \item (Good) Chatbots
-         \item Sattelite imagery based predictions (corn prices)
+         \begin{minipage}{0.2\linewidth}
+            \begin{figure}[H]
+               \includegraphics[width=4cm]{../images/illustrations/chatbot.png}
+            \end{figure}
+         \end{minipage}
+         
+         \item Sattelite imagery based predictions
+         \begin{minipage}{0.2\linewidth}
+            \begin{figure}[H]
+               \includegraphics[width=3cm]{../images/illustrations/corn_field.jpeg}
+            \end{figure}
+         \end{minipage}
+         
       \end{itemize}
    \end{itemize}
 \end{frame}
@@ -216,26 +250,81 @@
 %------------------------------------------------------------------------------
 % ETL
 \begin{frame}\frametitle{What is programming}
-   \begin{itemize}
-      \item Software development
+   \begin{minipage}{0.48\linewidth}
+
       \begin{itemize}
-         \item Computer
-         \item Smartphone
-         \item Any numerical system
+         \item Software development
+         \begin{itemize}
+            \item Computer
+            \begin{minipage}{0.2\linewidth}
+               \begin{figure}[H]
+                  \includegraphics[width=1cm]{../images/illustrations/photoshop.png}
+               \end{figure}
+            \end{minipage}
+            \item Smartphone
+            \begin{minipage}{0.2\linewidth}
+               \begin{figure}[H]
+                  \includegraphics[width=1cm]{../images/illustrations/instagram.png}
+               \end{figure}
+            \end{minipage}
+            \item Any numerical system
+            \begin{minipage}{0.15\linewidth}
+               \begin{figure}[H]
+                  \includegraphics[width=1cm]{../images/illustrations/montre.jpeg}
+               \end{figure}
+            \end{minipage}
+            \hspace{2px}
+            \begin{minipage}{0.2\linewidth}
+               \begin{figure}[H]
+                  \includegraphics[width=.8cm]{../images/illustrations/chauffage.jpeg}
+               \end{figure}
+            \end{minipage}
+            \begin{minipage}{0.2\linewidth}
+               \begin{figure}[H]
+                  \includegraphics[width=1.5cm]{../images/illustrations/metro.jpg}
+               \end{figure}
+            \end{minipage}
+         \end{itemize}
+         \item Automation
+         \begin{itemize}
+            \item Medium-sized app
+            \item Light macro
+            \begin{minipage}{0.2\linewidth}
+               \begin{figure}[H]
+                  \includegraphics[width=1cm]{../images/illustrations/excel.png}
+               \end{figure}
+            \end{minipage}
+         \end{itemize}
       \end{itemize}
-      \item Automation
-      \begin{itemize}
-         \item Medium-sized application
-         \item Light macro
-      \end{itemize}
-   \end{itemize}
+   \end{minipage}
+   \begin{minipage}{0.48\linewidth}
+      \begin{figure}[H]
+         \includegraphics[width=6cm]{../images/illustrations/code.jpg}
+      \end{figure}
+   \end{minipage}
+
 \end{frame}
 
 \begin{frame}\frametitle{Use cases}
    \begin{itemize}
       \item Data Analysis
+      \begin{minipage}{0.2\linewidth}
+         \begin{figure}[H]
+            \includegraphics[width=2cm]{../images/illustrations/piechart.png}
+         \end{figure}
+      \end{minipage}
       \item Python (Dash) visualization app
+      \begin{minipage}{0.2\linewidth}
+         \begin{figure}[H]
+            \includegraphics[width=4cm]{../images/illustrations/dashboard.png}
+         \end{figure}
+      \end{minipage}
       \item VBA macro
+      \begin{minipage}{0.2\linewidth}
+         \begin{figure}[H]
+            \includegraphics[width=4cm]{../images/illustrations/userform.jpeg}
+         \end{figure}
+      \end{minipage}
    \end{itemize}
 \end{frame}
 
@@ -244,32 +333,92 @@
 %------------------------------------------------------------------------------
 \subsection{Issues}
 %------------------------------------------------------------------------------
-% And RGPD
-\begin{frame}\frametitle{Issues}
+
+\begin{frame}\frametitle{Issues - Lack of robustness in production}
+   \begin{itemize}
+      \item Poor Model
+      \begin{itemize}
+         \item Wrong model choice
+         \item Overfitted / Underfitted model
+         \begin{figure}[H]
+            \includegraphics[width=5cm]{../images/illustrations/model_fit.png}
+         \end{figure}
+      \end{itemize}
+      \item Poor data:
+      \begin{itemize}
+         \item Poor data quality
+         \begin{minipage}{0.2\linewidth}
+            \begin{figure}[H]
+               \includegraphics[width=2cm]{../images/illustrations/blurry.png}
+            \end{figure}
+         \end{minipage}
+         \item Data not representative
+         \begin{minipage}{0.2\linewidth}
+            \begin{figure}[H]
+               \includegraphics[width=1.5cm]{../images/illustrations/pomme_poire.png}
+            \end{figure}
+         \end{minipage}
+         \item Evolving phenomenom (distribution / covariance shift)
+         \begin{minipage}{0.2\linewidth}
+            \begin{figure}[H]
+               \includegraphics[width=3cm]{../images/illustrations/distribution_shift.png}
+            \end{figure}
+         \end{minipage}
+      \end{itemize}
+   \end{itemize}   
+\end{frame}
+
+\begin{frame}\frametitle{Issues - Attacks}
    % TODO: add references articles to US models used for determining justice decisions
    \begin{itemize}
-      \item Attacks \href{https://viso.ai/deep-learning/adversarial-machine-learning/}:
+      \item Adversarial attack: Pixel wise, noise, post it
+      \begin{minipage}{0.4\linewidth}
+         \begin{figure}[H]
+            \includegraphics[width=6cm]{../images/illustrations/adversarial_attack.png}
+         \end{figure}
+      \end{minipage}
+      \item Modify model weights value (require access to the model)
+      \item Poison attack: provide bad examples for continuous training
+   \end{itemize}
+\end{frame}
+
+\begin{frame}\frametitle{Issues - Ethics (bias reproduction)}
+   \begin{itemize}
+      \item Racism\footnote{\href{https://www.kdnuggets.com/2021/06/ethics-fairness-ai.html}{Racism in AI}}, sexism
+      \hspace{20px}
+      \begin{minipage}{0.2\linewidth}
+         \begin{figure}[H]
+            \includegraphics[width=3cm]{../images/illustrations/racism.png}
+         \end{figure}
+      \end{minipage}
+
+      \item Any discrimination
       \begin{itemize}
-         \item Adversarial attack: Pixel wise, noise, post it
-         \item Modify model weights value (require access to the model)
-         \item Poison attack: provide bad examples for continuous training
-      \end{itemize}
-      \item Ethics (bias reproduction):
-      \begin{itemize}
-         \item Racism, sexism
-         \item Any discrimination
-      \end{itemize}
-      \item Lack of robustness in production
-      \begin{itemize}
-         \item Badly trained
-         \item Evolving phenomenom (distribution shift)
-      \end{itemize}
-      \item RGPD:
-      \begin{itemize}
-         \item Personal data
-         \item Manipulation
+         \item Health history
+         \item Carrier history
+         \item Any mater on which humans have bias
       \end{itemize}
    \end{itemize}
+\end{frame}
+
+\begin{frame}\frametitle{Issues - RGPD}
+
+   \begin{minipage}{0.38\linewidth}
+      \begin{itemize}
+         \item Personal data
+         \begin{itemize}
+            \item Passwords
+            \item Ethnicity
+            \item Salary
+            \item Health issues
+         \end{itemize}
+      \end{itemize}t
+   \end{minipage}
+   \begin{minipage}{0.6\linewidth}
+      \begin{figure}[H]
+         \includegraphics[width=6cm]{../images/illustrations/personal_data.png}
+      \end{figure}
+   \end{minipage}
 \end{frame}
 
 
@@ -279,14 +428,31 @@
 %------------------------------------------------------------------------------
 \begin{frame}\frametitle{Resources}
    \begin{itemize}
-      \item Stack Overflow
+      \item Stack Overflow \hspace{3px}
+      \begin{minipage}{0.4\linewidth}
+         \begin{figure}[H]
+            \includegraphics[width=2.5cm]{../images/illustrations/stackoverflow.png}
+         \end{figure}
+      \end{minipage}
+   
       \item Towards Data Science
+      \begin{minipage}{0.3\linewidth}
+         \begin{figure}[H]
+            \includegraphics[width=1.5cm]{../images/illustrations/tds.png}
+         \end{figure}
+      \end{minipage}
       \item Blogs of AI research Labs (GAFAM, OpenAI)
       \item Research Papers
       \begin{itemize}
          \item Google Scholar
          \item Arxiv
          \item Papers with code
+         \begin{minipage}{0.3\linewidth}
+            \begin{figure}[H]
+               \includegraphics[width=2.5cm]{../images/illustrations/papers_with_code.png}
+            \end{figure}
+         \end{minipage}
+
       \end{itemize}
    \end{itemize}
 \end{frame}
