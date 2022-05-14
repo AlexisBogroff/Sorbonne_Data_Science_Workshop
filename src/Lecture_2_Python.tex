@@ -1,5 +1,16 @@
 \input{CM_class.tex}
 
+\newlength\myheight
+\newlength\mydepth
+\settototalheight\myheight{Xygp}
+\settodepth\mydepth{Xygp}
+\setlength\fboxsep{0pt}
+\newcommand*\inlinegraphics[1]{%
+  \settototalheight\myheight{Xygp}%
+  \settodepth\mydepth{Xygp}%
+  \raisebox{-\mydepth}{\includegraphics[height=\myheight]{#1}}%
+}
+
 \begin{document}
 
 \begin{frame}
@@ -23,7 +34,7 @@
 %------------------------------------------------------------------------------
 \subsection{Why Python?}
 %------------------------------------------------------------------------------
-% Different Languages
+
 \begin{frame}\frametitle{Why Python?}
    \begin{itemize}
       \item Versatile
@@ -444,39 +455,115 @@
 \end{frame}
 
 
-\begin{frame}\frametitle{Essentials in the Python language}
-   \begin{minipage}{0.48\linewidth}
+\begin{frame}\frametitle{Objects - init}
+   \begin{minipage}{0.3\linewidth}
+      \begin{figure}[H]
+         \includegraphics[width=3.2cm]{../images/illustrations/object_simple.jpg}
+      \end{figure}
+   \end{minipage}
+   \begin{minipage}{0.68\linewidth}
       \begin{itemize}
-         \item Objects
-         \begin{itemize}
-            \item
-         \end{itemize}
+         \item Define init
+         \item Define properties / attributes (internal variables)
+         \item Access through \textbf{self}
+         \item Instanciate
+         \item Object reference
+         \item Access properties
       \end{itemize}
    \end{minipage}
-   \begin{minipage}{0.48\linewidth}
+\end{frame}
+
+\begin{frame}\frametitle{Objects - method}
+   \begin{minipage}{0.4\linewidth}
       \begin{figure}[H]
-         \includegraphics[width=4.5cm]{../images/illustrations/is.jpg}
+         \includegraphics[width=4cm]{../images/illustrations/object_method.png}
       \end{figure}
+   \end{minipage}
+   \begin{minipage}{0.58\linewidth}
+      \begin{itemize}
+         \item Create method
+         \item Pass \textbf{self} argument
+         \item Access attributes via \textbf{self.attribute}
+         \item Re-instanciate object \inlinegraphics{../images/illustrations/danger.png}
+         \item New reference
+         \item Access method via\\\textbf{self.method}
+      \end{itemize}
    \end{minipage}
 \end{frame}
 
 
-\begin{frame}\frametitle{Essentials in the Python language}
-   \begin{minipage}{0.48\linewidth}
-      \begin{itemize}
-         \item Coding conventions
-         \begin{itemize}
-            \item
-         \end{itemize}
-      \end{itemize}
-   \end{minipage}
-   \begin{minipage}{0.48\linewidth}
+\begin{frame}\frametitle{Objects - method with return}
+   \begin{minipage}{0.4\linewidth}
       \begin{figure}[H]
-         \includegraphics[width=4.5cm]{../images/illustrations/is.jpg}
+         \includegraphics[width=4cm]{../images/illustrations/object_return.png}
       \end{figure}
+   \end{minipage}
+   \begin{minipage}{0.58\linewidth}
+      \begin{itemize}
+         \item Create method with return
+         \item Set variable using return value
+      \end{itemize}
    \end{minipage}
 \end{frame}
 
+
+\begin{frame}\frametitle{Objects - init with arguments}
+   \begin{minipage}{0.48\linewidth}
+      \begin{figure}[H]
+         \includegraphics[width=4.8cm]{../images/illustrations/object_init_arguments.png}
+      \end{figure}
+   \end{minipage}
+   \begin{minipage}{0.48\linewidth}
+      \begin{itemize}
+         \item Set specific init values
+         \item Create different objects
+      \end{itemize}
+   \end{minipage}
+\end{frame}
+
+
+\begin{frame}\frametitle{Coding conventions}
+   \begin{itemize}
+      \item Names
+      \begin{itemize}
+         \item variables: snake\_style
+         \item constants: CAPITAL\_SNAKE\_STYLE
+         \item functions: snake\_style
+         \item classes: First\_letter\_capital
+      \end{itemize}
+      \item Spaces
+      \item Max number characters by row: \textbf{79}
+      \item Creation of iterables (lists, dicts)
+      \item Comments
+      \item File, functions, classes description
+   \end{itemize}
+\end{frame}
+
+
+\begin{frame}\frametitle{Coding conventions}
+   \begin{itemize}
+      \item Code order in a file:
+      \begin{itemize}
+         \item Description
+         \item Imports
+         \item Constants
+         \item Functions and Classes alphabetically
+         \item Body (functions calls, loops, variables)
+      \end{itemize}
+      \item Code organisation between files (script):
+      \begin{itemize}
+         \item Main file
+         \item Functions and Classes file
+         \item Settings file
+      \end{itemize}
+      \item Code organisation files (Jupyter Notebook):
+      \begin{itemize}
+         \item Load and prepare data file
+         \item Analysis file
+         \item Predictions file
+      \end{itemize}
+   \end{itemize}
+\end{frame}
 
 %------------------------------------------------------------------------------
 \subsection{Programming in general}
@@ -485,13 +572,26 @@
 \subsubsection{Good Practices}
 
 \begin{frame}\frametitle{Programming in general, good practices}
+   \begin{figure}[H]
+      \includegraphics[width=9cm]{../images/illustrations/principles.png}
+   \end{figure}
+\end{frame}
 
+\begin{frame}\frametitle{Programming in general, good practices}
    \begin{itemize}
-      \item Principles
-      \item Code organization
       \item Vectorization
+      \item Don't use loops when its possible to vectorize
+      \item Same in Python, Matlab
+      \item \textit{This code is explained in the next course}
    \end{itemize}
 
+   \begin{figure}[H]
+      \includegraphics[width=5cm]{../images/illustrations/mult_loop.png}
+   \end{figure}
+
+   \begin{figure}[H]
+      \includegraphics[width=4.2cm]{../images/illustrations/mult_vectorized.png}
+   \end{figure}
 \end{frame}
 
 
@@ -500,12 +600,15 @@
 \begin{frame}\frametitle{Programming in general, other languages}
 
    \begin{itemize}
-      \item Software development
+      \item Difference between programming for:
       \begin{itemize}
-         \item Front-end
-         \item Back-end
+         \item Analysis, statistics
+         \item Software development
+         \begin{itemize}
+            \item Front-end
+            \item Back-end
+         \end{itemize}
       \end{itemize}
-      \item Analysis, statistics
    \end{itemize}
 
 \end{frame}
@@ -519,16 +622,16 @@
       \item Trial and error
       \item Could be enough at first:
       \begin{itemize}
-         \item Introductory course
-         \item Choose project (Company, Kaggle, personal)
+         \item Python official documentation
+         \item Exercises \href{https://www.codingame.com/home}{Coding game}
          \item Google, Stackoverflow, Blogs
       \end{itemize}
-
+      
       \item Progress:
       \begin{itemize}
-         \item \href{https://www.codingame.com/home}{Coding game}
-         \item Official documentation
+         \item Choose project (company, Kaggle, personal)
          \item Peers: open-source project, Data For Good
+         \item MOOC: advanced course
       \end{itemize}
    \end{itemize}
 \end{frame}
