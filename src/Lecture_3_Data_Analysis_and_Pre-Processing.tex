@@ -19,6 +19,497 @@
 % =============================================================================
 % =============================================================================
 
+%------------------------------------------------------------------------------
+\subsection{Data Analysis with Pandas}
+%------------------------------------------------------------------------------
+
+\begin{frame}\frametitle{Pandas}
+   \begin{itemize}
+      \item Objects
+      \begin{itemize}
+         \item pd.DataFrame
+         \item pd.Series
+      \end{itemize}
+      \item Masks / Filters
+      \item Basic methods (max, info, describe)
+      \item Apply, vectorial operations
+      \item Other useful methods
+      \begin{itemize}
+         \item str
+         \item drop
+         \item sort\_values
+         \item value\_counts
+         \item groupby
+         \item .isna, .fillna
+         \item Graphs (.plot, .scatter.plot, .plot.bar, .hist)
+      \end{itemize}
+      \item merging DataFrames the right method (outer, indicator=True)
+      \item Pandas profiling
+   \end{itemize}
+\end{frame}
+
+
+
+%------------------------------------------------------------------------------
+\subsubsection{Pandas DataFrame}
+%------------------------------------------------------------------------------
+
+
+
+\begin{frame}\frametitle{Pandas - Series}
+   \begin{minipage}{0.48\linewidth}
+      \begin{itemize}
+         \item Advanced named list
+         \item Named index
+         \item Useful for Time Series
+      \end{itemize}
+   \end{minipage}
+   \begin{minipage}{0.48\linewidth}
+      \begin{figure}[H]
+         \includegraphics[width=6cm]{../images/illustrations/pandas_create_series.png}
+      \end{figure}
+   \end{minipage}
+\end{frame}
+
+
+\begin{frame}\frametitle{Pandas - DataFrame}
+   \begin{minipage}{0.48\linewidth}
+      \begin{itemize}
+         \item DataFrame ± Table
+         \item Advanced dictionnary
+         \item Columns: Series
+      \end{itemize}
+   \end{minipage}
+   \begin{minipage}{0.48\linewidth}
+      \begin{figure}[H]
+         \includegraphics[width=4cm]{../images/illustrations/pandas_create_df.png}
+      \end{figure}
+   \end{minipage}
+\end{frame}
+
+
+\begin{frame}\frametitle{Pandas - DataFrame}
+   \begin{minipage}{0.48\linewidth}
+      \begin{itemize}
+         \item Extract column
+      \end{itemize}
+   \end{minipage}
+   \begin{minipage}{0.48\linewidth}
+      \begin{figure}[H]
+         \includegraphics[width=2.8cm]{../images/illustrations/pandas_get_column.png}
+      \end{figure}
+   \end{minipage}
+\end{frame}
+
+
+\begin{frame}\frametitle{Pandas - DataFrame}
+   \begin{minipage}{0.58\linewidth}
+      \begin{itemize}
+         \item Extract specific row
+         \item iloc vs loc
+      \end{itemize}
+      \vspace{.5cm}
+      \begin{figure}[H]
+         \includegraphics[width=4cm]{../images/illustrations/pandas_index_names.png}
+      \end{figure}
+   \end{minipage}
+   \begin{minipage}{0.38\linewidth}
+      \begin{figure}[H]
+         \includegraphics[width=3cm]{../images/illustrations/pandas_iloc_loc.png}
+      \end{figure}
+   \end{minipage}
+\end{frame}
+
+
+\begin{frame}\frametitle{Pandas - DataFrame}
+   \begin{minipage}{0.58\linewidth}
+      \begin{itemize}
+         \item Extract multiple rows
+         \item Masks (filters)
+         \item Arrays of booleans
+      \end{itemize}
+      \vspace{.5cm}
+      \begin{figure}[H]
+         \includegraphics[width=2.4cm]{../images/illustrations/pandas_df_ex.png}
+      \end{figure}
+   \end{minipage}
+   \begin{minipage}{0.38\linewidth}
+      \begin{figure}[H]
+         \includegraphics[width=3cm]{../images/illustrations/pandas_mask.png}
+      \end{figure}
+   \end{minipage}
+\end{frame}
+
+
+%------------------------------------------------------------------------------
+\subsubsection{Pandas basic methods}
+%------------------------------------------------------------------------------
+
+
+\begin{frame}\frametitle{Pandas - DataFrame basic methods}
+   \begin{minipage}{0.58\linewidth}
+      \begin{itemize}
+         \item Methods
+         \begin{itemize}
+            \item Max
+         \end{itemize}
+      \end{itemize}
+      \vspace{.5cm}
+      \begin{figure}[H]
+         \includegraphics[width=2.4cm]{../images/illustrations/pandas_df_ex.png}
+      \end{figure}
+   \end{minipage}
+   \begin{minipage}{0.38\linewidth}
+      \begin{figure}[H]
+         \includegraphics[width=2cm]{../images/illustrations/pandas_max.png}
+      \end{figure}
+   \end{minipage}
+\end{frame}
+
+\begin{frame}\frametitle{Pandas - DataFrame basic methods}
+   \begin{minipage}{0.58\linewidth}
+      \begin{itemize}
+         \item Methods
+         \begin{itemize}
+            \item Shape
+         \end{itemize}
+      \end{itemize}
+      \vspace{.5cm}
+      \begin{figure}[H]
+         \includegraphics[width=2.4cm]{../images/illustrations/pandas_df_ex.png}
+      \end{figure}
+   \end{minipage}
+   \begin{minipage}{0.38\linewidth}
+      \begin{figure}[H]
+         \includegraphics[width=2cm]{../images/illustrations/pandas_shape.png}
+      \end{figure}
+   \end{minipage}
+\end{frame}
+
+\begin{frame}\frametitle{Pandas - DataFrame basic methods}
+   \begin{minipage}{0.58\linewidth}
+      \begin{itemize}
+         \item Methods
+         \begin{itemize}
+            \item Info
+         \end{itemize}
+      \end{itemize}
+      \vspace{.5cm}
+      \begin{figure}[H]
+         \includegraphics[width=2.4cm]{../images/illustrations/pandas_df_ex.png}
+      \end{figure}
+   \end{minipage}
+   \begin{minipage}{0.38\linewidth}
+      \begin{figure}[H]
+         \includegraphics[width=4.5cm]{../images/illustrations/pandas_info.png}
+      \end{figure}
+   \end{minipage}
+\end{frame}
+
+\begin{frame}\frametitle{Pandas - DataFrame basic methods}
+   \begin{minipage}{0.58\linewidth}
+      \begin{itemize}
+         \item Methods
+         \begin{itemize}
+            \item Describe
+         \end{itemize}
+      \end{itemize}
+      \vspace{.5cm}
+      \begin{figure}[H]
+         \includegraphics[width=2.4cm]{../images/illustrations/pandas_df_ex.png}
+      \end{figure}
+   \end{minipage}
+   \begin{minipage}{0.38\linewidth}
+      \begin{figure}[H]
+         \includegraphics[width=2.2cm]{../images/illustrations/pandas_describe.png}
+      \end{figure}
+   \end{minipage}
+\end{frame}
+
+
+%------------------------------------------------------------------------------
+\subsubsection{Pandas method apply}
+%------------------------------------------------------------------------------
+
+
+\begin{frame}\frametitle{Pandas - DataFrame "apply" method}
+   \begin{minipage}{0.58\linewidth}
+      \begin{itemize}
+         \item Apply
+         \begin{itemize}
+            \item Use apply, do not use loops
+            \item It applies a function to each row
+            \item All DataFrame or specific columns
+            \item Use lambda to create temporary functions
+         \end{itemize}
+      \end{itemize}
+      \vspace{.5cm}
+      \begin{figure}[H]
+         \includegraphics[width=2.4cm]{../images/illustrations/pandas_df_ex.png}
+      \end{figure}
+   \end{minipage}
+   \begin{minipage}{0.38\linewidth}
+      \begin{figure}[H]
+         \includegraphics[width=2.8cm]{../images/illustrations/pandas_apply_func.png}
+      \end{figure}
+      \begin{figure}[H]
+         \includegraphics[width=3cm]{../images/illustrations/pandas_apply_lambda.png}
+      \end{figure}
+   \end{minipage}
+\end{frame}
+
+
+%------------------------------------------------------------------------------
+\subsubsection{Pandas other useful methods}
+%------------------------------------------------------------------------------
+
+
+\begin{frame}\frametitle{Pandas - DataFrame useful methods}
+   \begin{minipage}{0.58\linewidth}
+      \begin{itemize}
+         \item Modify text
+         \begin{itemize}
+            \item Access strings methods .str
+         \end{itemize}
+      \end{itemize}
+      \vspace{.5cm}
+      \begin{figure}[H]
+         \includegraphics[width=2.4cm]{../images/illustrations/pandas_df_ex.png}
+      \end{figure}
+   \end{minipage}
+   \begin{minipage}{0.38\linewidth}
+      \begin{figure}[H]
+         \includegraphics[width=2.8cm]{../images/illustrations/pandas_str.png}
+      \end{figure}
+   \end{minipage}
+\end{frame}
+
+
+\begin{frame}\frametitle{Pandas - DataFrame useful methods}
+   \begin{minipage}{0.58\linewidth}
+      \begin{itemize}
+         \item Drop column
+         \begin{itemize}
+            \item No effect on current DataFrame
+            \item \textit{"View"} of the DataFrame
+         \end{itemize}
+      \end{itemize}
+      \vspace{.5cm}
+      \begin{figure}[H]
+         \includegraphics[width=2.4cm]{../images/illustrations/pandas_df_ex.png}
+      \end{figure}
+   \end{minipage}
+   \begin{minipage}{0.38\linewidth}
+      \begin{figure}[H]
+         \includegraphics[width=2.8cm]{../images/illustrations/pandas_drop_not_saved.png}
+      \end{figure}
+   \end{minipage}
+\end{frame}
+
+
+\begin{frame}\frametitle{Pandas - DataFrame useful methods}
+   \begin{minipage}{0.58\linewidth}
+      \begin{itemize}
+         \item Drop column
+         \begin{itemize}
+            \item Modify current DataFrame (method 1)
+            \item Standard variable assignment
+         \end{itemize}
+      \end{itemize}
+      \vspace{.5cm}
+      \begin{figure}[H]
+         \includegraphics[width=2.4cm]{../images/illustrations/pandas_df_ex.png}
+      \end{figure}
+   \end{minipage}
+   \begin{minipage}{0.38\linewidth}
+      \begin{figure}[H]
+         \includegraphics[width=3.5cm]{../images/illustrations/pandas_drop_assigned.png}
+      \end{figure}
+   \end{minipage}
+\end{frame}
+
+\begin{frame}\frametitle{Pandas - DataFrame useful methods}
+   \begin{minipage}{0.58\linewidth}
+      \begin{itemize}
+         \item Drop column
+         \begin{itemize}
+            \item Modify current DataFrame (method 2)
+            \item Inplace parameter
+         \end{itemize}
+      \end{itemize}
+      \vspace{.5cm}
+      \begin{figure}[H]
+         \includegraphics[width=2.4cm]{../images/illustrations/pandas_df_ex.png}
+      \end{figure}
+   \end{minipage}
+   \begin{minipage}{0.38\linewidth}
+      \begin{figure}[H]
+         \includegraphics[width=3.7cm]{../images/illustrations/pandas_drop_inplace.png}
+      \end{figure}
+   \end{minipage}
+\end{frame}
+
+% sort_values
+\begin{frame}\frametitle{Pandas - DataFrame useful methods}
+   \begin{minipage}{0.58\linewidth}
+      \begin{itemize}
+         \item Sort values
+         \begin{itemize}
+            \item Select the key column with "\textit{by}" parameter
+            \item Choose ordering direction with "\textit{ascending}" parameter
+         \end{itemize}
+      \end{itemize}
+      \vspace{.5cm}
+      \begin{figure}[H]
+         \includegraphics[width=2.4cm]{../images/illustrations/pandas_df_ex.png}
+      \end{figure}
+   \end{minipage}
+   \begin{minipage}{0.38\linewidth}
+      \begin{figure}[H]
+         \includegraphics[width=3.7cm]{../images/illustrations/pandas_sort_values.png}
+      \end{figure}
+   \end{minipage}
+\end{frame}
+
+
+% value_counts
+\begin{frame}\frametitle{Pandas - DataFrame useful methods}
+   \begin{minipage}{0.58\linewidth}
+      \begin{itemize}
+         \item Generate table of values counts
+      \end{itemize}
+      \vspace{.5cm}
+      \begin{figure}[H]
+         \includegraphics[width=2cm]{../images/illustrations/pandas_df_ex_2.png}
+      \end{figure}
+   \end{minipage}
+   \begin{minipage}{0.38\linewidth}
+      \begin{figure}[H]
+         \includegraphics[width=3.7cm]{../images/illustrations/pandas_value_counts.png}
+      \end{figure}
+   \end{minipage}
+\end{frame}
+
+
+% groupby
+\begin{frame}\frametitle{Pandas - DataFrame useful methods}
+   \begin{minipage}{0.58\linewidth}
+      \begin{itemize}
+         \item Group values using groupby
+         \item Define an aggregation method
+         \begin{itemize}
+            \item mean
+            \item median
+            \item max
+            \item etc.
+         \end{itemize}
+      \end{itemize}
+      \vspace{.5cm}
+      \begin{figure}[H]
+         \includegraphics[width=3cm]{../images/illustrations/pandas_df_ex_3.png}
+      \end{figure}
+   \end{minipage}
+   \begin{minipage}{0.38\linewidth}
+      \begin{figure}[H]
+         \includegraphics[width=3.7cm]{../images/illustrations/pandas_groupby.png}
+      \end{figure}
+   \end{minipage}
+\end{frame}
+
+% isna, fillna
+\begin{frame}\frametitle{Pandas - DataFrame useful methods}
+   \begin{minipage}{0.58\linewidth}
+      \begin{itemize}
+         \item Detect NA values
+         \item Replace (impute) NA values
+         \item Presence of NA casts\\column as float
+         \item Methods:
+         \begin{itemize}
+            \item bfill, ffill
+            \item constant (median, etc.)
+         \end{itemize}
+      \end{itemize}
+      \vspace{.5cm}
+      \begin{figure}[H]
+         \includegraphics[width=3cm]{../images/illustrations/pandas_df_with_na.png}
+      \end{figure}
+   \end{minipage}
+   \begin{minipage}{0.38\linewidth}
+      \begin{figure}[H]
+         \includegraphics[width=3.7cm]{../images/illustrations/pandas_isna_fillna.png}
+      \end{figure}
+   \end{minipage}
+\end{frame}
+
+
+%------------------------------------------------------------------------------
+\subsubsection{Pandas graphs}
+%------------------------------------------------------------------------------
+
+
+\begin{frame}\frametitle{Pandas - Graphs}
+   \begin{minipage}{0.58\linewidth}
+      \begin{itemize}
+         \item Generate graphs
+         \begin{itemize}
+            \item Line chart
+         \end{itemize}
+      \end{itemize}
+      \vspace{.5cm}
+      \begin{figure}[H]
+         \includegraphics[width=4cm]{../images/illustrations/pandas_df_graph_creation.png}
+      \end{figure}
+   \end{minipage}
+   \begin{minipage}{0.38\linewidth}
+      \begin{figure}[H]
+         \includegraphics[width=5cm]{../images/illustrations/pandas_line_chart.png}
+      \end{figure}
+   \end{minipage}
+\end{frame}
+
+
+
+\begin{frame}\frametitle{Pandas - Graphs}
+   \begin{minipage}{0.58\linewidth}
+      \begin{itemize}
+         \item Generate graphs
+         \begin{itemize}
+            \item Scatter plot
+         \end{itemize}
+      \end{itemize}
+      \vspace{.5cm}
+      \begin{figure}[H]
+         \includegraphics[width=2.8cm]{../images/illustrations/pandas_df_graph.png}
+      \end{figure}
+   \end{minipage}
+   \begin{minipage}{0.38\linewidth}
+      \begin{figure}[H]
+         \includegraphics[width=5cm]{../images/illustrations/pandas_scatter.png}
+      \end{figure}
+   \end{minipage}
+\end{frame}
+
+
+\begin{frame}\frametitle{Pandas - Graphs}
+   \begin{minipage}{0.58\linewidth}
+      \begin{itemize}
+         \item Generate graphs
+         \begin{itemize}
+            \item Histogram
+         \end{itemize}
+      \end{itemize}
+      \vspace{.5cm}
+      \begin{figure}[H]
+         \includegraphics[width=2.8cm]{../images/illustrations/pandas_df_graph.png}
+      \end{figure}
+   \end{minipage}
+   \begin{minipage}{0.38\linewidth}
+      \begin{figure}[H]
+         \includegraphics[width=5cm]{../images/illustrations/pandas_hist.png}
+      \end{figure}
+   \end{minipage}
+\end{frame}
+
 
 %------------------------------------------------------------------------------
 \subsection{Measures}
