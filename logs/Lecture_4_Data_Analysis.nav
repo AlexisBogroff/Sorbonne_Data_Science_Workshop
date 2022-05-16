@@ -1,0 +1,60 @@
+\headcommand {\slideentry {0}{0}{1}{1/1}{}{0}}
+\headcommand {\beamer@framepages {1}{1}}
+\headcommand {\slideentry {0}{0}{2}{2/3}{}{0}}
+\headcommand {\beamer@framepages {2}{3}}
+\headcommand {\slideentry {0}{0}{3}{4/4}{}{0}}
+\headcommand {\beamer@framepages {4}{4}}
+\headcommand {\beamer@sectionpages {1}{4}}
+\headcommand {\beamer@subsectionpages {1}{4}}
+\headcommand {\sectionentry {1}{Data Analysis}{5}{Data Analysis}{0}}
+\headcommand {\beamer@subsectionpages {5}{4}}
+\headcommand {\beamer@subsectionentry {0}{1}{1}{5}{Measures}}
+\headcommand {\slideentry {1}{1}{1}{5/5}{Measures}{0}}
+\headcommand {\beamer@framepages {5}{5}}
+\headcommand {\beamer@subsectionpages {5}{5}}
+\headcommand {\beamer@subsectionentry {0}{1}{2}{6}{Centrality}}
+\headcommand {\slideentry {1}{2}{1}{6/6}{Centrality}{0}}
+\headcommand {\beamer@framepages {6}{6}}
+\headcommand {\slideentry {1}{2}{2}{7/7}{Centrality}{0}}
+\headcommand {\beamer@framepages {7}{7}}
+\headcommand {\beamer@subsubsectionentry {0}{1}{2}{1}{8}{Dispersion}}
+\headcommand {\slideentry {1}{2}{3}{8/8}{Centrality}{0}}
+\headcommand {\beamer@framepages {8}{8}}
+\headcommand {\slideentry {1}{2}{4}{9/9}{Centrality}{0}}
+\headcommand {\beamer@framepages {9}{9}}
+\headcommand {\slideentry {1}{2}{5}{10/10}{Centrality}{0}}
+\headcommand {\beamer@framepages {10}{10}}
+\headcommand {\beamer@subsectionpages {6}{10}}
+\headcommand {\beamer@subsectionentry {0}{1}{3}{11}{Patterns Analysis}}
+\headcommand {\slideentry {1}{3}{1}{11/11}{Patterns Analysis}{0}}
+\headcommand {\beamer@framepages {11}{11}}
+\headcommand {\slideentry {1}{3}{2}{12/12}{Patterns Analysis}{0}}
+\headcommand {\beamer@framepages {12}{12}}
+\headcommand {\beamer@subsectionpages {11}{12}}
+\headcommand {\beamer@subsectionentry {0}{1}{4}{13}{Statistical Tools}}
+\headcommand {\beamer@subsubsectionentry {0}{1}{4}{1}{13}{Statistical Laws}}
+\headcommand {\slideentry {1}{4}{1}{13/13}{Statistical Tools}{0}}
+\headcommand {\beamer@framepages {13}{13}}
+\headcommand {\beamer@subsubsectionentry {0}{1}{4}{2}{14}{Statistical Tests}}
+\headcommand {\slideentry {1}{4}{2}{14/14}{Statistical Tools}{0}}
+\headcommand {\beamer@framepages {14}{14}}
+\headcommand {\beamer@sectionpages {5}{14}}
+\headcommand {\beamer@subsectionpages {13}{14}}
+\headcommand {\sectionentry {2}{Data Pre-Processing}{15}{Data Pre-Processing}{0}}
+\headcommand {\beamer@subsectionpages {15}{14}}
+\headcommand {\beamer@subsectionentry {0}{2}{1}{15}{Data Management}}
+\headcommand {\slideentry {2}{1}{1}{15/15}{Data Management}{0}}
+\headcommand {\beamer@framepages {15}{15}}
+\headcommand {\beamer@subsectionpages {15}{15}}
+\headcommand {\beamer@subsectionentry {0}{2}{2}{16}{Data Cleaning}}
+\headcommand {\slideentry {2}{2}{1}{16/16}{Data Cleaning}{0}}
+\headcommand {\beamer@framepages {16}{16}}
+\headcommand {\beamer@subsectionpages {16}{16}}
+\headcommand {\beamer@subsectionentry {0}{2}{3}{17}{Feature Engineering}}
+\headcommand {\slideentry {2}{3}{1}{17/17}{Feature Engineering}{0}}
+\headcommand {\beamer@framepages {17}{17}}
+\headcommand {\beamer@partpages {1}{17}}
+\headcommand {\beamer@subsectionpages {17}{17}}
+\headcommand {\beamer@sectionpages {15}{17}}
+\headcommand {\beamer@documentpages {17}}
+\headcommand {\gdef \inserttotalframenumber {16}}
