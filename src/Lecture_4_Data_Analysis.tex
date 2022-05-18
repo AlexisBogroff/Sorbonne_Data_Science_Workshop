@@ -392,11 +392,6 @@
 % Qualitative variables
 %----------------------
 
-% pattern_univariate_qualitative_df
-% pattern_univariate_qualitative_uniques
-% pattern_univariate_qualitative_counts
-% pattern_univariate_qualitative_bars
-
 \begin{frame}\frametitle{Univariate Analysis}
    \begin{minipage}{0.48\linewidth}
       \begin{itemize}
@@ -445,6 +440,297 @@
    \end{minipage}
 \end{frame}
 
+
+
+\subsubsection{Multivariate Analysis}
+%------------------------------------------------------------------------------
+% TODO: add axes names to each graph (everywhere)
+
+
+% Linear data
+%------------
+
+
+\begin{frame}\frametitle{Multivariate Analysis}
+   \begin{minipage}{0.48\linewidth}
+      \begin{itemize}
+         \item Quantitative variables\\
+               with linear relation
+         \begin{itemize}
+            \item Scatter plot
+            \item Linear regression
+            \item Relation / link
+         \end{itemize}
+      \end{itemize}
+      \vspace{.5cm}
+      \begin{figure}[H]
+         \includegraphics[width=2.5cm]{../images/illustrations/pattern_multivariate_quantitative_df.png}
+      \end{figure}
+   \end{minipage}
+   \begin{minipage}{0.48\linewidth}
+      \begin{figure}[H]
+         \includegraphics[width=6cm]{../images/illustrations/pattern_multivariate_quantitative_scatter.png}
+      \end{figure}
+   \end{minipage}
+\end{frame}
+
+
+
+\begin{frame}\frametitle{Multivariate Analysis}
+   \begin{minipage}{0.48\linewidth}
+      \begin{itemize}
+         \item Quantitative variables\\
+               with linear relation
+         \begin{itemize}
+            \item Bar plot raw data
+            \item More interesting when Time Series (not here)
+         \end{itemize}
+      \end{itemize}
+      \vspace{.5cm}
+      \begin{figure}[H]
+         \includegraphics[width=2.5cm]{../images/illustrations/pattern_multivariate_quantitative_df.png}
+      \end{figure}
+   \end{minipage}
+   \begin{minipage}{0.48\linewidth}
+      \begin{figure}[H]
+         \includegraphics[width=5cm]{../images/illustrations/pattern_multivariate_quantitative_bar_raw_data.png}
+      \end{figure}
+   \end{minipage}
+\end{frame}
+
+
+\begin{frame}\frametitle{Multivariate Analysis}
+   \begin{minipage}{0.48\linewidth}
+      \begin{itemize}
+         \item Quantitative variables\\
+               with linear relation
+         \begin{itemize}
+            \item Correlation matrix
+            \item Pearson correlation (linear)
+            \item Symetric matrix
+         \end{itemize}
+      \end{itemize}
+      \vspace{.5cm}
+      \begin{figure}[H]
+         \includegraphics[width=2.5cm]{../images/illustrations/pattern_multivariate_quantitative_df.png}
+      \end{figure}
+   \end{minipage}
+   \begin{minipage}{0.48\linewidth}
+      \begin{figure}[H]
+         \includegraphics[width=5cm]{../images/illustrations/pattern_multivariate_quantitative_corr.png}
+      \end{figure}
+   \end{minipage}
+\end{frame}
+
+
+\begin{frame}\frametitle{Multivariate Analysis}
+   \begin{minipage}{0.48\linewidth}
+      \begin{itemize}
+         \item Quantitative variables\\
+               with linear relation
+         \begin{itemize}
+            \item Pairplot: Histograms and scatter plots
+            \item Very useful for +3 variables
+         \end{itemize}
+      \end{itemize}
+      \vspace{.5cm}
+      \begin{figure}[H]
+         \includegraphics[width=2.5cm]{../images/illustrations/pattern_multivariate_quantitative_df.png}
+      \end{figure}
+   \end{minipage}
+   \begin{minipage}{0.48\linewidth}
+      \begin{figure}[H]
+         \includegraphics[width=5cm]{../images/illustrations/pattern_multivariate_quantitative_pairplot.png}
+      \end{figure}
+   \end{minipage}
+\end{frame}
+
+
+\begin{frame}\frametitle{Multivariate Analysis}
+   \begin{minipage}{0.48\linewidth}
+      \begin{itemize}
+         \item Quantitative variables\\
+               with linear relation
+         \begin{itemize}
+            \item Groupby
+            \item Aggregation functions: mean, max, std, etc.
+            \item Groups: type of clients, of investments, etc.
+            \item Less information, more lisibility
+         \end{itemize}
+      \end{itemize}
+      \begin{figure}[H]
+         \includegraphics[width=2.5cm]{../images/illustrations/pattern_multivariate_quantitative_df.png}
+      \end{figure}
+   \end{minipage}
+   \begin{minipage}{0.48\linewidth}
+      \begin{figure}[H]
+         \includegraphics[width=5cm]{../images/illustrations/pattern_multivariate_quantitative_groupby.png}
+      \end{figure}
+   \end{minipage}
+\end{frame}
+
+
+\begin{frame}\frametitle{Multivariate Analysis}
+   \begin{minipage}{0.48\linewidth}
+      \begin{itemize}
+         \item Quantitative variables\\
+               with linear relation
+         \begin{itemize}
+            \item Bar plot
+            \item Here based on grouped data
+            \item Complementary to raw data bar plot
+         \end{itemize}
+      \end{itemize}
+      \begin{figure}[H]
+         \includegraphics[width=2.5cm]{../images/illustrations/pattern_multivariate_quantitative_df.png}
+      \end{figure}
+   \end{minipage}
+   \begin{minipage}{0.48\linewidth}
+      \begin{figure}[H]
+         \includegraphics[width=5cm]{../images/illustrations/pattern_multivariate_quantitative_bar_grouped.png}
+      \end{figure}
+   \end{minipage}
+\end{frame}
+
+
+% Non-linear data
+%----------------
+
+
+\begin{frame}\frametitle{Multivariate Analysis}
+   \begin{minipage}{0.48\linewidth}
+      \begin{itemize}
+         \item Quantitative variables\\
+               with non-linear relation
+         \begin{itemize}
+            \item Scatter plot
+            \item Linear regression misleading
+         \end{itemize}
+      \end{itemize}
+      \vspace{.5cm}
+      \begin{figure}[H]
+         \includegraphics[width=1.8cm]{../images/illustrations/pattern_multivariate_quantitative_non_linear_df.png}
+      \end{figure}
+   \end{minipage}
+   \begin{minipage}{0.48\linewidth}
+      \begin{figure}[H]
+         \includegraphics[width=6cm]{../images/illustrations/pattern_multivariate_quantitative_non_linear_scatter.png}
+      \end{figure}
+   \end{minipage}
+\end{frame}
+
+
+\begin{frame}\frametitle{Multivariate Analysis}
+   \begin{minipage}{0.48\linewidth}
+      \begin{itemize}
+         \item Quantitative variables\\
+               with non-linear relation
+         \begin{itemize}
+            \item Correlation matrix
+            \item Pearson correlation (linear) also misleading
+         \end{itemize}
+      \end{itemize}
+      \vspace{.5cm}
+      \begin{figure}[H]
+         \includegraphics[width=1.8cm]{../images/illustrations/pattern_multivariate_quantitative_non_linear_df.png}
+      \end{figure}
+   \end{minipage}
+   \begin{minipage}{0.48\linewidth}
+      \begin{figure}[H]
+         \includegraphics[width=4.2cm]{../images/illustrations/pattern_multivariate_quantitative_non_linear_corr_pearson.png}
+      \end{figure}
+   \end{minipage}
+\end{frame}
+
+\begin{frame}\frametitle{Multivariate Analysis}
+   \begin{minipage}{0.48\linewidth}
+      \begin{itemize}
+         \item Quantitative variables\\
+               with non-linear relation
+         \begin{itemize}
+            \item Correlation matrix
+            \item Spearman correlation (non-linear) instead
+            \item Rank based correlation
+         \end{itemize}
+      \end{itemize}
+      \vspace{.5cm}
+      \begin{figure}[H]
+         \includegraphics[width=1.8cm]{../images/illustrations/pattern_multivariate_quantitative_non_linear_df.png}
+      \end{figure}
+   \end{minipage}
+   \begin{minipage}{0.5\linewidth}
+      \begin{figure}[H]
+         \includegraphics[width=6.6cm]{../images/illustrations/pattern_multivariate_quantitative_non_linear_corr_spearman.png}
+      \end{figure}
+   \end{minipage}
+\end{frame}
+
+
+\begin{frame}\frametitle{Multivariate Analysis}
+   \begin{minipage}{0.48\linewidth}
+      \begin{itemize}
+         \item Quantitative variables\\
+               with non-linear relation
+         \begin{itemize}
+            \item Pairplot
+            \item Different regims well separated?
+         \end{itemize}
+      \end{itemize}
+      \vspace{.5cm}
+      \begin{figure}[H]
+         \includegraphics[width=1.8cm]{../images/illustrations/pattern_multivariate_quantitative_non_linear_df.png}
+      \end{figure}
+   \end{minipage}
+   \begin{minipage}{0.48\linewidth}
+      \begin{figure}[H]
+         \includegraphics[width=5cm]{../images/illustrations/pattern_multivariate_quantitative_non_linear_pairplot.png}
+      \end{figure}
+   \end{minipage}
+\end{frame}
+
+
+\begin{frame}\frametitle{Multivariate Analysis}
+   \begin{minipage}{0.48\linewidth}
+      \begin{itemize}
+         \item Quantitative variables\\
+               with non-linear relation
+         \begin{itemize}
+            \item Analyse regimes relations separatly
+         \end{itemize}
+      \end{itemize}
+      \begin{figure}[H]
+         \includegraphics[width=1.8cm]{../images/illustrations/pattern_multivariate_quantitative_non_linear_df.png}
+      \end{figure}
+   \end{minipage}
+   \begin{minipage}{0.48\linewidth}
+      \begin{figure}[H]
+         \includegraphics[width=5.5cm]{../images/illustrations/pattern_multivariate_quantitative_non_linear_regressions.png}
+      \end{figure}
+   \end{minipage}
+\end{frame}
+
+
+\begin{frame}\frametitle{Multivariate Analysis}
+   \begin{minipage}{0.48\linewidth}
+      \begin{itemize}
+         \item Quantitative variables\\
+               with non-linear relation
+         \begin{itemize}
+            \item Analyse regimes correlations separatly
+         \end{itemize}
+      \end{itemize}
+      \begin{figure}[H]
+         \includegraphics[width=1.8cm]{../images/illustrations/pattern_multivariate_quantitative_non_linear_df.png}
+      \end{figure}
+   \end{minipage}
+   \begin{minipage}{0.48\linewidth}
+      \begin{figure}[H]
+         \includegraphics[width=3cm]{../images/illustrations/pattern_multivariate_quantitative_non_linear_corr_pearson_split.png}
+      \end{figure}
+   \end{minipage}
+\end{frame}
+
+% here
 %------------------------------------------------------------------------------
 \subsection{Statistical Tools}
 %------------------------------------------------------------------------------

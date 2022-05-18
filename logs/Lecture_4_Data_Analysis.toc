@@ -5,6 +5,7 @@
 \beamer@subsubsectionintoc {1}{2}{1}{Dispersion}{8}{0}{1}
 \beamer@subsectionintoc {1}{3}{Data Analysis - Patterns}{11}{0}{1}
 \beamer@subsubsectionintoc {1}{3}{1}{Univariate Analysis}{12}{0}{1}
-\beamer@subsectionintoc {1}{4}{Statistical Tools}{21}{0}{1}
-\beamer@subsubsectionintoc {1}{4}{1}{Statistical Laws}{22}{0}{1}
-\beamer@subsubsectionintoc {1}{4}{2}{Statistical Tests}{23}{0}{1}
+\beamer@subsubsectionintoc {1}{3}{2}{Multivariate Analysis}{21}{0}{1}
+\beamer@subsectionintoc {1}{4}{Statistical Tools}{33}{0}{1}
+\beamer@subsubsectionintoc {1}{4}{1}{Statistical Laws}{34}{0}{1}
+\beamer@subsubsectionintoc {1}{4}{2}{Statistical Tests}{35}{0}{1}
