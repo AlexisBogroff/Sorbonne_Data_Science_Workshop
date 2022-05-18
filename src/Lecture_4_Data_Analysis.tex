@@ -211,6 +211,8 @@
 \subsubsection{Univariate Analysis}
 %------------------------------------------------------------------------------
 
+% Time Series
+%------------
 
 \begin{frame}\frametitle{Univariate Analysis}
    \begin{minipage}{0.58\linewidth}
@@ -238,7 +240,7 @@
       \begin{itemize}
          \item Time Series
          \begin{itemize}
-            \item Compute trend
+            \item Compute overall trend
          \end{itemize}
       \end{itemize}
       \vspace{.5cm}
@@ -253,6 +255,195 @@
    \end{minipage}
 \end{frame}
 
+
+\begin{frame}\frametitle{Univariate Analysis}
+   \begin{minipage}{0.48\linewidth}
+      \begin{itemize}
+         \item Time Series
+         \begin{itemize}
+            \item Compute rolling mean
+            \begin{itemize}
+               \item Get trend along time
+               \item Smoothen curve, easier to read
+               \item + info vs overall trend
+               \item Delay first dates
+            \end{itemize}
+         \end{itemize}
+      \end{itemize}
+      \vspace{.5cm}
+      \begin{figure}[H]
+         \includegraphics[width=4cm]{../images/illustrations/pattern_graph_time_series.jpg}
+      \end{figure}
+   \end{minipage}
+   \begin{minipage}{0.48\linewidth}
+      \begin{figure}[H]
+         \includegraphics[width=6cm]{../images/illustrations/pattern_graph_time_series_moving_average.png}
+      \end{figure}
+   \end{minipage}
+\end{frame}
+
+
+\begin{frame}\frametitle{Univariate Analysis}
+   \begin{minipage}{0.48\linewidth}
+      \begin{itemize}
+         \item Time Series
+         \begin{itemize}
+            \item Autocorrelogram
+            \begin{itemize}
+               \item Correlation between dates (lags)
+            \end{itemize}
+         \end{itemize}
+      \end{itemize}
+      \vspace{.5cm}
+      \begin{figure}[H]
+         \includegraphics[width=4cm]{../images/illustrations/pattern_graph_time_series.jpg}
+      \end{figure}
+   \end{minipage}
+   \begin{minipage}{0.48\linewidth}
+      \begin{figure}[H]
+         \includegraphics[width=6cm]{../images/illustrations/pattern_graph_autocorrelation.png}
+      \end{figure}
+   \end{minipage}
+\end{frame}
+
+
+
+% Other quantitative variables
+%-----------------------------
+
+
+\begin{frame}\frametitle{Univariate Analysis}
+   \begin{minipage}{0.48\linewidth}
+      \begin{itemize}
+         \item Other quantitative variables
+         \begin{itemize}
+            \item Descriptive statistics
+         \end{itemize}
+      \end{itemize}
+      \vspace{.5cm}
+      \begin{figure}[H]
+         \includegraphics[width=2.2cm]{../images/illustrations/pattern_univariate_quantitative_df.png}
+      \end{figure}
+   \end{minipage}
+   \begin{minipage}{0.48\linewidth}
+      \begin{figure}[H]
+         \includegraphics[width=3.5cm]{../images/illustrations/pattern_univariate_quantitative_describe.png}
+      \end{figure}
+   \end{minipage}
+\end{frame}
+
+
+
+\begin{frame}\frametitle{Univariate Analysis}
+   \begin{minipage}{0.48\linewidth}
+      \begin{itemize}
+         \item Other quantitative variables
+         \begin{itemize}
+            \item Histogram
+            \begin{itemize}
+               \item Overview
+               \item Extreme values
+               \item All information
+            \end{itemize}
+         \end{itemize}
+      \end{itemize}
+      \vspace{.5cm}
+      \begin{figure}[H]
+         \includegraphics[width=2.2cm]{../images/illustrations/pattern_univariate_quantitative_df.png}
+      \end{figure}
+   \end{minipage}
+   \begin{minipage}{0.48\linewidth}
+      \begin{figure}[H]
+         \includegraphics[width=5cm]{../images/illustrations/pattern_univariate_quantitative_hist.png}
+      \end{figure}
+   \end{minipage}
+\end{frame}
+
+
+
+\begin{frame}\frametitle{Univariate Analysis}
+   \begin{minipage}{0.48\linewidth}
+      \begin{itemize}
+         \item Other quantitative variables
+         \begin{itemize}
+            \item Boxplot
+            \begin{itemize}
+               \item Overview
+               \item Extreme values
+               \item Contracted information
+               \item Quartiles
+               \item Outliers (seaborn)
+            \end{itemize}
+         \end{itemize}
+      \end{itemize}
+      \vspace{.5cm}
+      \begin{figure}[H]
+         \includegraphics[width=2.2cm]{../images/illustrations/pattern_univariate_quantitative_df.png}
+      \end{figure}
+   \end{minipage}
+   \begin{minipage}{0.48\linewidth}
+      \begin{figure}[H]
+         \includegraphics[width=5cm]{../images/illustrations/pattern_univariate_quantitative_boxplot.png}
+      \end{figure}
+   \end{minipage}
+\end{frame}
+
+
+% Qualitative variables
+%----------------------
+
+% pattern_univariate_qualitative_df
+% pattern_univariate_qualitative_uniques
+% pattern_univariate_qualitative_counts
+% pattern_univariate_qualitative_bars
+
+\begin{frame}\frametitle{Univariate Analysis}
+   \begin{minipage}{0.48\linewidth}
+      \begin{itemize}
+         \item Qualitative variables
+         \begin{itemize}
+            \item Information on categories
+         \end{itemize}
+      \end{itemize}
+      \vspace{.5cm}
+      \begin{figure}[H]
+         \includegraphics[width=3cm]{../images/illustrations/pattern_univariate_qualitative_df.png}
+      \end{figure}
+   \end{minipage}
+   \begin{minipage}{0.48\linewidth}
+      \begin{figure}[H]
+         \includegraphics[width=5cm]{../images/illustrations/pattern_univariate_qualitative_uniques.png}
+      \end{figure}
+      \begin{figure}[H]
+         \includegraphics[width=5cm]{../images/illustrations/pattern_univariate_qualitative_counts.png}
+      \end{figure}
+   \end{minipage}
+\end{frame}
+
+
+\begin{frame}\frametitle{Univariate Analysis}
+   \begin{minipage}{0.48\linewidth}
+      \begin{itemize}
+         \item Qualitative variables
+         \begin{itemize}
+            \item Bar plot
+            \begin{itemize}
+               \item Overview
+               \item Ordinal variables: (small, medium, large companies)
+            \end{itemize}
+         \end{itemize}
+      \end{itemize}
+      \vspace{.5cm}
+      \begin{figure}[H]
+         \includegraphics[width=3cm]{../images/illustrations/pattern_univariate_qualitative_df.png}
+      \end{figure}
+   \end{minipage}
+   \begin{minipage}{0.48\linewidth}
+      \begin{figure}[H]
+         \includegraphics[width=5cm]{../images/illustrations/pattern_univariate_qualitative_bars.png}
+      \end{figure}
+   \end{minipage}
+\end{frame}
 
 %------------------------------------------------------------------------------
 \subsection{Statistical Tools}
