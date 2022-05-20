@@ -23,27 +23,79 @@
 
 
 %------------------------------------------------------------------------------
-\subsection{Data Management}
+\subsection{Data Cleaning}
 %------------------------------------------------------------------------------
 
-\begin{frame}\frametitle{Data Management}
+
+\begin{frame}\frametitle{Data Cleaning}
    \begin{itemize}
-      \item Select variables
-      \item Merge tables
-      % TODO: add multiple code examples
+      \item Select variables (features) drop others
+      \begin{itemize}
+         \item Constant features
+         \item Duplicated columns
+         \item Excessive missing values
+         \item Excessive correlation between features
+      \end{itemize}
+   \end{itemize}
+\end{frame}
+
+\begin{frame}\frametitle{Data Cleaning}
+   \begin{itemize}
+      \item Drop poor rows
+      \begin{itemize}
+         \item Drop rows with constant values
+         \item Drop rows with excessing NA proportion
+      \end{itemize}
+   \end{itemize}
+\end{frame}
+
+
+\begin{frame}\frametitle{Data Cleaning}
+   \begin{itemize}
+      \item Impute NAs (NaNs, missing values)
+      \begin{itemize}
+         \item Missing is the information
+         \item Reconstruct (impute)
+         \begin{itemize}
+            \item Constant (average, median)
+            \item Ffil, bfill
+            \item Group by
+            \item Interpolate
+         \end{itemize}
+      \end{itemize}
+   \end{itemize}
+\end{frame}
+
+
+\begin{frame}\frametitle{Data Cleaning}
+   \begin{itemize}
+      \item Outliers
+      \begin{itemize}
+         \item Extreme values too keep
+         \item Abberations to delete
+         \item Variables to transform
+      \end{itemize}
    \end{itemize}
 \end{frame}
 
 
 %------------------------------------------------------------------------------
-\subsection{Data Cleaning}
+\subsection{Data Management}
 %------------------------------------------------------------------------------
 
-\begin{frame}\frametitle{Data Cleaning}
+
+\begin{frame}\frametitle{Data Management}
    \begin{itemize}
-      \item NaN Imputation
-      \item Outliers
-      % TODO: add multiple code examples
+      \item Merge tables
+      \begin{itemize}
+         \item Concatenation on rows
+         \item Merge on unique key column
+         \begin{itemize}
+            \item Outer (indicator)
+            \item Left
+            \item Right, inner
+         \end{itemize}
+      \end{itemize}
    \end{itemize}
 \end{frame}
 
