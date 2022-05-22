@@ -31,9 +31,90 @@
    \begin{itemize}
       \item Select variables (features) drop others
       \begin{itemize}
-         \item Constant features
+         \item Drop constant features
+         \begin{minipage}{0.38\linewidth}
+            \begin{figure}[H]
+               \includegraphics[width=2cm]{../images/illustrations/data_cleaning_constant.png}
+            \end{figure}
+         \end{minipage}         
+      \end{itemize}
+   \end{itemize}
+   \begin{figure}[H]
+      \includegraphics[width=9cm]{../images/illustrations/data_cleaning_df_origin.png}
+   \end{figure}
+\end{frame}
+
+
+\begin{frame}\frametitle{Data Cleaning}
+   \begin{itemize}
+      \item Select variables (features) drop others
+      \begin{itemize}
+         \item Drop constant features
+      \end{itemize}
+   \end{itemize}
+   \vspace{1cm}
+   \begin{minipage}{0.38\linewidth}
+      \begin{figure}[H]
+         \includegraphics[width=4cm]{../images/illustrations/data_cleaning_detect_constants.png}
+      \end{figure}
+   \end{minipage}
+   \begin{minipage}{0.58\linewidth}
+      \begin{figure}[H]
+         \includegraphics[width=7.5cm]{../images/illustrations/data_cleaning_remove_constants.png}
+      \end{figure}
+   \end{minipage}
+\end{frame}
+
+
+
+\begin{frame}\frametitle{Data Cleaning}
+   \begin{itemize}
+      \item Select variables (features) drop others
+      \begin{itemize}
          \item Duplicated columns
-         \item Excessive missing values
+      \end{itemize}
+   \end{itemize}
+   \vspace{1cm}
+   \begin{minipage}{0.38\linewidth}
+      \begin{figure}[H]
+         \includegraphics[width=4cm]{../images/illustrations/data_cleaning_detect_columns_duplicates.png}
+      \end{figure}
+   \end{minipage}
+   \begin{minipage}{0.58\linewidth}
+      \begin{figure}[H]
+         \includegraphics[width=7.5cm]{../images/illustrations/data_cleaning_drop_columns_duplicates.png}
+      \end{figure}
+   \end{minipage}
+\end{frame}
+
+
+
+
+\begin{frame}\frametitle{Data Cleaning}
+   \begin{itemize}
+      \item Select variables (features) drop others
+      \begin{itemize}
+         \item Drop columns full missing values (NA)
+      \end{itemize}
+   \end{itemize}
+   \vspace{1cm}
+   \begin{minipage}{0.38\linewidth}
+      \begin{figure}[H]
+         \includegraphics[width=4cm]{../images/illustrations/data_cleaning_detect_columns_na.png}
+      \end{figure}
+   \end{minipage}
+   \begin{minipage}{0.58\linewidth}
+      \begin{figure}[H]
+         \includegraphics[width=7.5cm]{../images/illustrations/data_cleaning_drop_columns_full_na.png}
+      \end{figure}
+   \end{minipage}
+\end{frame}
+
+
+\begin{frame}\frametitle{Data Cleaning}
+   \begin{itemize}
+      \item Select variables (features) drop others
+      \begin{itemize}
          \item Excessive correlation between features
       \end{itemize}
    \end{itemize}
