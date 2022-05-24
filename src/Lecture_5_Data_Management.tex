@@ -111,6 +111,45 @@
 \end{frame}
 
 
+% NA proportion
+\begin{frame}\frametitle{Data Cleaning}
+   \begin{itemize}
+      \item Select variables (features) drop others
+      \begin{itemize}
+         \item Excessive NA proportion
+      \end{itemize}
+   \end{itemize}
+   \vspace{.5cm}
+   \begin{minipage}{0.38\linewidth}
+      \begin{figure}[H]
+         \includegraphics[scale=.35]{../images/illustrations/data_cleaning_detect_columns_na_proportion.png}
+      \end{figure}
+   \end{minipage}
+   \begin{minipage}{0.58\linewidth}
+      \begin{figure}[H]
+         \includegraphics[scale=.35]{../images/illustrations/data_cleaning_detect_columns_excessive_na.png}
+      \end{figure}
+   \end{minipage}
+\end{frame}
+
+% NA proportion drop
+\begin{frame}\frametitle{Data Cleaning}
+   \begin{itemize}
+      \item Select variables (features) drop others
+      \begin{itemize}
+         \item Excessive NA proportion
+      \end{itemize}
+   \end{itemize}
+   \vspace{.5cm}
+   \begin{minipage}{0.38\linewidth}
+      \begin{figure}[H]
+         \includegraphics[scale=.35]{../images/illustrations/data_cleaning_drop_columns_excessive_na.png}
+      \end{figure}
+   \end{minipage}
+\end{frame}
+
+
+% data_cleaning_compute_corr
 \begin{frame}\frametitle{Data Cleaning}
    \begin{itemize}
       \item Select variables (features) drop others
@@ -118,36 +157,271 @@
          \item Excessive correlation between features
       \end{itemize}
    \end{itemize}
+   \vspace{.5cm}
+   \begin{figure}[H]
+      \includegraphics[scale=.35]{../images/illustrations/data_cleaning_compute_corr.png}
+   \end{figure}
 \end{frame}
+
+
+% data_cleaning_corr_heatmap
+\begin{frame}\frametitle{Data Cleaning}
+   \begin{itemize}
+      \item Select variables (features) drop others
+      \begin{itemize}
+         \item Excessive correlation between features
+      \end{itemize}
+   \end{itemize}
+   \vspace{.5cm}
+   \begin{figure}[H]
+      \includegraphics[scale=.35]{../images/illustrations/data_cleaning_corr_heatmap_code.png}
+   \end{figure}
+   \begin{figure}[H]
+      \includegraphics[scale=.35]{../images/illustrations/data_cleaning_corr_heatmap_graph.png}
+   \end{figure}
+\end{frame}
+
+
 
 \begin{frame}\frametitle{Data Cleaning}
    \begin{itemize}
       \item Drop poor rows
       \begin{itemize}
          \item Drop duplicated rows
+      \end{itemize}
+   \end{itemize}
+   \vspace{.5cm}
+   \begin{minipage}{0.38\linewidth}
+      \begin{figure}[H]
+         \includegraphics[scale=.35]{../images/illustrations/data_cleaning_detect_rows_duplicated.png}
+      \end{figure}
+   \end{minipage}
+   \begin{minipage}{0.58\linewidth}
+      \begin{figure}[H]
+         \includegraphics[scale=.35]{../images/illustrations/data_cleaning_drop_rows_duplicated.png}
+      \end{figure}
+   \end{minipage}
+\end{frame}
+
+\begin{frame}\frametitle{Data Cleaning}
+   \begin{itemize}
+      \item Drop poor rows
+      \begin{itemize}
          \item Drop rows with excessing NA proportion
       \end{itemize}
    \end{itemize}
+   \vspace{.5cm}
+   \begin{minipage}{0.38\linewidth}
+      \begin{figure}[H]
+         \includegraphics[scale=.35]{../images/illustrations/data_cleaning_detect_rows_na_proportion.png}
+      \end{figure}
+   \end{minipage}
+   \begin{minipage}{0.58\linewidth}
+      \begin{figure}[H]
+         \includegraphics[scale=.35]{../images/illustrations/data_cleaning_detect_rows_excessive_na.png}
+      \end{figure}
+   \end{minipage}
+\end{frame}
+
+\begin{frame}\frametitle{Data Cleaning}
+   \begin{itemize}
+      \item Drop poor rows
+      \begin{itemize}
+         \item Drop rows with excessing NA proportion
+      \end{itemize}
+   \end{itemize}
+   \vspace{.5cm}
+   \begin{minipage}{0.38\linewidth}
+      \begin{figure}[H]
+         \includegraphics[scale=.35]{../images/illustrations/data_cleaning_drop_rows_excessive_na.png}
+      \end{figure}
+   \end{minipage}
 \end{frame}
 
 
+% Missing can be the information
 \begin{frame}\frametitle{Data Cleaning}
    \begin{itemize}
       \item Impute NAs (NaNs, missing values)
       \begin{itemize}
-         \item Missing is the information
-         \item Reconstruct (impute)
-         \begin{itemize}
-            \item Constant (average, median)
-            \item Ffil, bfill
-            \item Group by
-            \item Interpolate
-         \end{itemize}
+         \item Missing can be the information
       \end{itemize}
    \end{itemize}
+   \vspace{.5cm}
+   \begin{minipage}{0.58\linewidth}
+      \begin{figure}[H]
+         \includegraphics[scale=.35]{../images/illustrations/data_cleaning_na_imputation_info_1.png}
+      \end{figure}
+   \end{minipage}
+
+   \begin{minipage}{0.26\linewidth}
+      \begin{figure}[H]
+         \includegraphics[scale=.35]{../images/illustrations/data_cleaning_na_imputation_info_2.png}
+      \end{figure}
+   \end{minipage}
+      \begin{minipage}{0.45\linewidth}
+      \begin{figure}[H]
+         \includegraphics[scale=.35]{../images/illustrations/data_cleaning_na_imputation_info_3.png}
+      \end{figure}
+   \end{minipage}
+   \begin{minipage}{0.18\linewidth}
+      \begin{figure}[H]
+         \includegraphics[scale=.35]{../images/illustrations/data_cleaning_na_imputation_info_4.png}
+      \end{figure}
+   \end{minipage}
+      
 \end{frame}
 
 
+% Impute NA with a Constant value
+\begin{frame}\frametitle{Data Cleaning}
+   \begin{itemize}
+      \item Impute NAs (NaNs, missing values)
+      \begin{itemize}
+         \item Standard methods
+         \item Replace by a constant value (mean, median)
+      \end{itemize}
+   \end{itemize}
+   \vspace{.5cm}
+   \begin{minipage}{0.58\linewidth}
+      \begin{figure}[H]
+         \includegraphics[scale=.35]{../images/illustrations/data_cleaning_na_imputation_const_1.png}
+      \end{figure}
+   \end{minipage}
+
+   \begin{minipage}{0.26\linewidth}
+      \begin{figure}[H]
+         \includegraphics[scale=.35]{../images/illustrations/data_cleaning_na_imputation_const_2.png}
+      \end{figure}
+   \end{minipage}
+      \begin{minipage}{0.45\linewidth}
+      \begin{figure}[H]
+         \includegraphics[scale=.35]{../images/illustrations/data_cleaning_na_imputation_const_3.png}
+      \end{figure}
+   \end{minipage}
+   \begin{minipage}{0.18\linewidth}
+      \begin{figure}[H]
+         \includegraphics[scale=.35]{../images/illustrations/data_cleaning_na_imputation_const_4.png}
+      \end{figure}
+   \end{minipage}
+      
+\end{frame}
+
+
+% Replace by a the next or previous row value (ffil, bfill)
+\begin{frame}\frametitle{Data Cleaning}
+   \begin{itemize}
+      \item Impute NAs (NaNs, missing values)
+      \begin{itemize}
+         \item Standard methods
+         \item Replace by a the next or previous row value (ffil, bfill)
+      \end{itemize}
+   \end{itemize}
+   \vspace{.5cm}
+   \begin{minipage}{0.58\linewidth}
+      \begin{figure}[H]
+         \includegraphics[scale=.35]{../images/illustrations/data_cleaning_na_imputation_const_1.png}
+      \end{figure}
+   \end{minipage}
+
+      \begin{minipage}{0.35\linewidth}
+      \begin{figure}[H]
+         \includegraphics[scale=.35]{../images/illustrations/data_cleaning_na_imputation_ffill.png}
+      \end{figure}
+   \end{minipage}
+   \begin{minipage}{0.3\linewidth}
+      \begin{figure}[H]
+         \includegraphics[scale=.35]{../images/illustrations/data_cleaning_na_imputation_bfill.png}
+      \end{figure}
+   \end{minipage}
+      
+\end{frame}
+
+
+% Impute NA with Group by (1)
+\begin{frame}\frametitle{Data Cleaning}
+   \begin{itemize}
+      \item Impute NAs (NaNs, missing values)
+      \begin{itemize}
+         \item Advanced methods
+         \item Group values to get precise mean or median
+      \end{itemize}
+   \end{itemize}
+   \vspace{.1cm}
+   \begin{minipage}{0.58\linewidth}
+      \begin{figure}[H]
+         \includegraphics[scale=.35]{../images/illustrations/data_cleaning_na_imputation_group_by_1.png}
+      \end{figure}
+   \end{minipage}
+   \vspace{.1cm}
+   \begin{minipage}{0.54\linewidth}
+      \begin{figure}[H]
+         \includegraphics[scale=.35]{../images/illustrations/data_cleaning_na_imputation_group_by_2.png}
+      \end{figure}
+   \end{minipage}
+   
+\end{frame}
+
+% Impute NA with Group by (2)
+\begin{frame}\frametitle{Data Cleaning}
+   \begin{itemize}
+      \item Impute NAs (NaNs, missing values)
+      \begin{itemize}
+         \item Advanced methods
+         \item Group values to get precise mean or median
+      \end{itemize}
+   \end{itemize}
+   \vspace{.5cm}
+   \begin{minipage}{0.58\linewidth}
+      \begin{figure}[H]
+         \includegraphics[scale=.35]{../images/illustrations/data_cleaning_na_imputation_group_by_3.png}
+      \end{figure}
+   \end{minipage}
+\end{frame}
+
+
+% Interpolate using a model 1
+\begin{frame}\frametitle{Data Cleaning}
+   \begin{itemize}
+      \item Impute NAs (NaNs, missing values)
+      \begin{itemize}
+         \item Advanced methods
+         \item Interpolate using a model
+      \end{itemize}
+   \end{itemize}
+   \vspace{.5cm}
+   \begin{minipage}{0.60\linewidth}
+      \begin{figure}[H]
+         \includegraphics[scale=.35]{../images/illustrations/data_cleaning_na_imputation_model_1.png}
+      \end{figure}
+   \end{minipage}
+   \begin{minipage}{0.36\linewidth}
+      \begin{figure}[H]
+         \includegraphics[scale=.45]{../images/illustrations/data_cleaning_na_imputation_interpolate.png}
+      \end{figure}
+   \end{minipage}
+\end{frame}
+
+% Interpolate using a model 2
+\begin{frame}\frametitle{Data Cleaning}
+   \begin{itemize}
+      \item Impute NAs (NaNs, missing values)
+      \begin{itemize}
+         \item Advanced methods
+         \item Interpolate using a model
+      \end{itemize}
+   \end{itemize}
+   \vspace{.5cm}
+   \begin{minipage}{0.68\linewidth}
+      \begin{figure}[H]
+         \includegraphics[scale=.35]{../images/illustrations/data_cleaning_na_imputation_model_2.png}
+      \end{figure}
+   \end{minipage}
+\end{frame}
+
+
+
+% Bottom HERE
 \begin{frame}\frametitle{Data Cleaning}
    \begin{itemize}
       \item Outliers
