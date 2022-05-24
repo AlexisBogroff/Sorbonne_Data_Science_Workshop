@@ -25,25 +25,58 @@
 %------------------------------------------------------------------------------
 % Use cases
 
-\begin{frame}\frametitle{What does that mean?}
+\begin{frame}\frametitle{Predictions: What does that mean?}
+   What is modeled?
+   \vspace{.3cm}
    \begin{itemize}
-      \item Patterns (correlations)
-      \item Correlation vs Causality
       \item Continuity (stationarity)
-      \item Examples:
+      \item Correlation (pattern)
+   \end{itemize}
+   \begin{minipage}{0.60\linewidth}
+      \begin{figure}[H]
+         \includegraphics[scale=.4]{../images/illustrations/model_pattern.png}
+      \end{figure}
+   \end{minipage}
+\end{frame}
+
+
+\begin{frame}\frametitle{Predictions: What does that mean?}
+   What is modeled?
+   \vspace{.5cm}
+   \begin{itemize}
+      \item Correlation vs Causality\footnote{\href{Spurious correlations site}{https://www.tylervigen.com/spurious-correlations}}
+   \end{itemize}
+   \begin{minipage}{0.60\linewidth}
+      \begin{figure}[H]
+         \includegraphics[scale=.15]{../images/illustrations/model_spurious_correlation.png}
+      \end{figure}
+   \end{minipage}
+\end{frame}
+
+
+\begin{frame}\frametitle{Predictions: Examples}
+   \begin{itemize}
+      \item Present:
       \begin{itemize}
-         \item Present:
-         \begin{itemize}
-            \item Electricity consumption (e.g. Seattle)
-            \item Missing values
-            \item Client category
-         \end{itemize}
-         \item Future:
-         \begin{itemize}
-            \item Electricity consumption next month (time series)
-            \item Client clicking add (recommander sys.)
-            \item Pedestrian and cars trajectories (RL)
-         \end{itemize}
+         \item Electricity consumption based on other cities (e.g. Seattle)
+         \item Missing values (interpolation, extrapolation)
+         \item Client category
+         \begin{minipage}{0.6\linewidth}
+            \begin{figure}[H]
+               \includegraphics[scale=.1]{../images/illustrations/model_client.png}
+            \end{figure}
+         \end{minipage}
+      \end{itemize}
+      \item Future:
+      \begin{itemize}
+         \item Electricity consumption next month (time series)
+         \begin{minipage}{0.60\linewidth}
+            \begin{figure}[H]
+               \includegraphics[scale=.35]{../images/illustrations/model_electricity.jpg}
+            \end{figure}
+         \end{minipage}
+         \item Client clicking add (recommander sys.)
+         \item Pedestrian and cars trajectories (RL)
       \end{itemize}
    \end{itemize}
    % TODO: add graph with predictions

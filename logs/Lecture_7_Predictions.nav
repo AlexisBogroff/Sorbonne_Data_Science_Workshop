@@ -11,42 +11,46 @@
 \headcommand {\beamer@subsectionentry {0}{1}{1}{5}{Predictions: What does that mean?}}
 \headcommand {\slideentry {1}{1}{1}{5/5}{Predictions: What does that mean?}{0}}
 \headcommand {\beamer@framepages {5}{5}}
-\headcommand {\beamer@subsectionpages {5}{5}}
-\headcommand {\beamer@subsectionentry {0}{1}{2}{6}{Supervised ML}}
-\headcommand {\beamer@subsubsectionentry {0}{1}{2}{1}{6}{Regression}}
-\headcommand {\slideentry {1}{2}{1}{6/6}{Supervised ML}{0}}
+\headcommand {\slideentry {1}{1}{2}{6/6}{Predictions: What does that mean?}{0}}
 \headcommand {\beamer@framepages {6}{6}}
-\headcommand {\beamer@subsubsectionentry {0}{1}{2}{2}{7}{Classification}}
-\headcommand {\slideentry {1}{2}{2}{7/7}{Supervised ML}{0}}
+\headcommand {\slideentry {1}{1}{3}{7/7}{Predictions: What does that mean?}{0}}
 \headcommand {\beamer@framepages {7}{7}}
-\headcommand {\beamer@subsectionpages {6}{7}}
-\headcommand {\beamer@subsectionentry {0}{1}{3}{8}{Unsupervised ML}}
-\headcommand {\slideentry {1}{3}{1}{8/8}{Unsupervised ML}{0}}
+\headcommand {\beamer@subsectionpages {5}{7}}
+\headcommand {\beamer@subsectionentry {0}{1}{2}{8}{Supervised ML}}
+\headcommand {\beamer@subsubsectionentry {0}{1}{2}{1}{8}{Regression}}
+\headcommand {\slideentry {1}{2}{1}{8/8}{Supervised ML}{0}}
 \headcommand {\beamer@framepages {8}{8}}
-\headcommand {\beamer@subsectionpages {8}{8}}
-\headcommand {\beamer@subsectionentry {0}{1}{4}{9}{Optimizing models Models}}
-\headcommand {\beamer@subsubsectionentry {0}{1}{4}{1}{9}{General}}
-\headcommand {\slideentry {1}{4}{1}{9/9}{Optimizing models Models}{0}}
+\headcommand {\beamer@subsubsectionentry {0}{1}{2}{2}{9}{Classification}}
+\headcommand {\slideentry {1}{2}{2}{9/9}{Supervised ML}{0}}
 \headcommand {\beamer@framepages {9}{9}}
-\headcommand {\beamer@subsubsectionentry {0}{1}{4}{2}{10}{Fit}}
-\headcommand {\slideentry {1}{4}{2}{10/10}{Optimizing models Models}{0}}
+\headcommand {\beamer@subsectionpages {8}{9}}
+\headcommand {\beamer@subsectionentry {0}{1}{3}{10}{Unsupervised ML}}
+\headcommand {\slideentry {1}{3}{1}{10/10}{Unsupervised ML}{0}}
 \headcommand {\beamer@framepages {10}{10}}
-\headcommand {\beamer@subsubsectionentry {0}{1}{4}{3}{11}{Metrics}}
-\headcommand {\slideentry {1}{4}{3}{11/11}{Optimizing models Models}{0}}
+\headcommand {\beamer@subsectionpages {10}{10}}
+\headcommand {\beamer@subsectionentry {0}{1}{4}{11}{Optimizing models Models}}
+\headcommand {\beamer@subsubsectionentry {0}{1}{4}{1}{11}{General}}
+\headcommand {\slideentry {1}{4}{1}{11/11}{Optimizing models Models}{0}}
 \headcommand {\beamer@framepages {11}{11}}
-\headcommand {\beamer@subsubsectionentry {0}{1}{4}{4}{12}{Transfer Learning}}
-\headcommand {\slideentry {1}{4}{4}{12/12}{Optimizing models Models}{0}}
+\headcommand {\beamer@subsubsectionentry {0}{1}{4}{2}{12}{Fit}}
+\headcommand {\slideentry {1}{4}{2}{12/12}{Optimizing models Models}{0}}
 \headcommand {\beamer@framepages {12}{12}}
-\headcommand {\slideentry {1}{4}{5}{13/13}{Optimizing models Models}{0}}
+\headcommand {\beamer@subsubsectionentry {0}{1}{4}{3}{13}{Metrics}}
+\headcommand {\slideentry {1}{4}{3}{13/13}{Optimizing models Models}{0}}
 \headcommand {\beamer@framepages {13}{13}}
-\headcommand {\slideentry {1}{4}{6}{14/14}{Optimizing models Models}{0}}
+\headcommand {\beamer@subsubsectionentry {0}{1}{4}{4}{14}{Transfer Learning}}
+\headcommand {\slideentry {1}{4}{4}{14/14}{Optimizing models Models}{0}}
 \headcommand {\beamer@framepages {14}{14}}
-\headcommand {\beamer@subsectionpages {9}{14}}
-\headcommand {\beamer@subsectionentry {0}{1}{5}{15}{Some code examples}}
-\headcommand {\slideentry {1}{5}{1}{15/15}{Some code examples}{0}}
+\headcommand {\slideentry {1}{4}{5}{15/15}{Optimizing models Models}{0}}
 \headcommand {\beamer@framepages {15}{15}}
-\headcommand {\beamer@partpages {1}{15}}
-\headcommand {\beamer@subsectionpages {15}{15}}
-\headcommand {\beamer@sectionpages {5}{15}}
-\headcommand {\beamer@documentpages {15}}
-\headcommand {\gdef \inserttotalframenumber {14}}
+\headcommand {\slideentry {1}{4}{6}{16/16}{Optimizing models Models}{0}}
+\headcommand {\beamer@framepages {16}{16}}
+\headcommand {\beamer@subsectionpages {11}{16}}
+\headcommand {\beamer@subsectionentry {0}{1}{5}{17}{Some code examples}}
+\headcommand {\slideentry {1}{5}{1}{17/17}{Some code examples}{0}}
+\headcommand {\beamer@framepages {17}{17}}
+\headcommand {\beamer@partpages {1}{17}}
+\headcommand {\beamer@subsectionpages {17}{17}}
+\headcommand {\beamer@sectionpages {5}{17}}
+\headcommand {\beamer@documentpages {17}}
+\headcommand {\gdef \inserttotalframenumber {16}}
