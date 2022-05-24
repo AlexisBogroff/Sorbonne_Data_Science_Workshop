@@ -1,0 +1,204 @@
+\input{CM_class.tex}
+
+\begin{document}
+
+\begin{frame}
+   \titlepage
+\end{frame}
+
+\input{CM_introduction.tex}
+
+\begin{frame}
+   \tableofcontents
+\end{frame}
+
+% =============================================================================
+% =============================================================================
+\section{Predictions}
+% 3 Hours course
+% =============================================================================
+% =============================================================================
+
+
+%------------------------------------------------------------------------------
+\subsection{Predictions: What does that mean?}
+%------------------------------------------------------------------------------
+% Use cases
+
+\begin{frame}\frametitle{What does that mean?}
+   \begin{itemize}
+      \item Patterns (correlations)
+      \item Correlation vs Causality
+      \item Continuity (stationarity)
+      \item Examples:
+      \begin{itemize}
+         \item Present:
+         \begin{itemize}
+            \item Electricity consumption (e.g. Seattle)
+            \item Missing values
+            \item Client category
+         \end{itemize}
+         \item Future:
+         \begin{itemize}
+            \item Electricity consumption next month (time series)
+            \item Client clicking add (recommander sys.)
+            \item Pedestrian and cars trajectories (RL)
+         \end{itemize}
+      \end{itemize}
+   \end{itemize}
+   % TODO: add graph with predictions
+\end{frame}
+
+
+%------------------------------------------------------------------------------
+\subsection{Supervised ML}
+%------------------------------------------------------------------------------
+
+\subsubsection{Regression}
+
+\begin{frame}\frametitle{Regression}
+   \begin{itemize}
+      \item Linear regression
+      \item Polynomial regression
+      \item SARIMA
+      \item Deep Learning (RNN, LSTM)
+   \end{itemize}
+   % TODO: add visual and code examples, and math expressions
+\end{frame}
+
+
+\subsubsection{Classification}
+
+\begin{frame}\frametitle{Classification}
+   \begin{itemize}
+      \item Logistic regression
+      \item Tree (ensemble models, RF, XGBoost)
+      \item K-NN
+      \item Neural Network (Deep Learning: CNN)
+   \end{itemize}
+   % TODO: add visual and code examples, and math expressions
+\end{frame}
+
+
+%------------------------------------------------------------------------------
+\subsection{Unsupervised ML}
+%------------------------------------------------------------------------------
+
+\begin{frame}\frametitle{Unsupervised ML}
+   \begin{itemize}
+      \item Clustering (grouping)
+      \item Dimensionality reduction
+      \item Reducing multicolinearity
+      \item Models:
+      \begin{itemize}
+         \item K-Means: entropy minimisation principle (min var intra, max var inter)
+         \item Hierarchical Clustering
+         \item PCA
+      \end{itemize}
+   \end{itemize}
+   % TODO: add visual and code examples, and math expressions
+\end{frame}
+
+
+
+
+%------------------------------------------------------------------------------
+\subsection{Optimizing models Models}
+%------------------------------------------------------------------------------
+
+\subsubsection{General}
+
+\begin{frame}\frametitle{General}
+   \begin{itemize}
+      \item Parameters
+      \item Hyperparameters
+      \item Train, cross-validate, test
+      \item Feature importance
+      \item Data Leakage
+   \end{itemize}
+   % TODO: add visual and code examples, and math expressions
+\end{frame}
+
+
+\subsubsection{Fit}
+
+\begin{frame}\frametitle{Fit}
+   \begin{itemize}
+      \item Generalization
+      \item Complexity
+      \item Over/Under-sampling
+      \item Unbalanced Datasets (weights on cost function, SMOTE, Auto-encoder)
+   \end{itemize}
+   % TODO: add visual and code examples, and math expressions
+\end{frame}
+
+
+\subsubsection{Metrics}
+
+\begin{frame}\frametitle{Metrics}
+   \begin{itemize}
+      \item Regression
+      \begin{itemize}
+         \item RMSE
+         \item $R^2$
+      \end{itemize}
+
+      \item Classification
+      \begin{itemize}
+         \item Accuracy
+         \item AUC, ROC Curve
+         \item Other metrics based on confusion matrix
+      \end{itemize}
+      % TODO: add visual and code examples, and math expressions
+   \end{itemize}
+\end{frame}
+
+
+\subsubsection{Transfer Learning}
+
+\begin{frame}\frametitle{Transfer Learning, Why?}
+   \begin{itemize}
+      \item Training can be complicated, long and expensive
+      \item Specific but complex (and similar) task (NLP)
+      \item Few samples
+      % TODO: add visual and code examples, and math expressions
+   \end{itemize}
+\end{frame}
+
+\begin{frame}\frametitle{What has been learnt?}
+   \begin{itemize}
+      \item Weights value (or centroids)
+      \item Hyperparameters
+      % TODO: add visual and code examples, and math expressions
+   \end{itemize}
+\end{frame}
+
+
+\begin{frame}\frametitle{Deep Learning}
+   \begin{itemize}
+      \item Optimize target objective on long term, intermediate steps on short term:
+      \begin{itemize}
+         \item Increase task difficulty gradually
+         \item Better generalisation: Multi-task learning (RL, learn recognize unrelated objects)
+         \item Improve Neural Network architecture (genetic algorithms)
+      \end{itemize}
+      % TODO: add visual and code examples, and math expressions
+   \end{itemize}
+\end{frame}
+
+
+%------------------------------------------------------------------------------
+\subsection{Some code examples}
+%------------------------------------------------------------------------------
+
+\begin{frame}\frametitle{Some code examples}
+   \begin{itemize}
+      \item Sklearn simple 4 lines of code
+      \item More advanced Sklearn
+      \item Deep Learning with Pytorch
+      % TODO: add visual and code examples, and math expressions
+   \end{itemize}
+\end{frame}
+
+
+\end{document}

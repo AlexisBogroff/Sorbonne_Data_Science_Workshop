@@ -1,0 +1,13 @@
+\babel@toc {english}{}
+\beamer@sectionintoc {1}{Predictions}{5}{0}{1}
+\beamer@subsectionintoc {1}{1}{Predictions: What does that mean?}{5}{0}{1}
+\beamer@subsectionintoc {1}{2}{Supervised ML}{6}{0}{1}
+\beamer@subsubsectionintoc {1}{2}{1}{Regression}{6}{0}{1}
+\beamer@subsubsectionintoc {1}{2}{2}{Classification}{7}{0}{1}
+\beamer@subsectionintoc {1}{3}{Unsupervised ML}{8}{0}{1}
+\beamer@subsectionintoc {1}{4}{Optimizing models Models}{9}{0}{1}
+\beamer@subsubsectionintoc {1}{4}{1}{General}{9}{0}{1}
+\beamer@subsubsectionintoc {1}{4}{2}{Fit}{10}{0}{1}
+\beamer@subsubsectionintoc {1}{4}{3}{Metrics}{11}{0}{1}
+\beamer@subsubsectionintoc {1}{4}{4}{Transfer Learning}{12}{0}{1}
+\beamer@subsectionintoc {1}{5}{Some code examples}{15}{0}{1}

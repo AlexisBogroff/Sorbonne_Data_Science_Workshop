@@ -1,0 +1,8 @@
+\babel@toc {english}{}
+\beamer@sectionintoc {1}{Pandas for Data Analysis}{5}{0}{1}
+\beamer@subsectionintoc {1}{1}{Data Management with Pandas}{5}{0}{1}
+\beamer@subsubsectionintoc {1}{1}{1}{Pandas DataFrame}{6}{0}{1}
+\beamer@subsubsectionintoc {1}{1}{2}{Pandas basic methods}{11}{0}{1}
+\beamer@subsubsectionintoc {1}{1}{3}{Pandas method apply}{15}{0}{1}
+\beamer@subsubsectionintoc {1}{1}{4}{Pandas other useful methods}{16}{0}{1}
+\beamer@subsubsectionintoc {1}{1}{5}{Pandas graphs}{24}{0}{1}
