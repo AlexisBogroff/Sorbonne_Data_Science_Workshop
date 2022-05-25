@@ -1,5 +1,4 @@
 \input{CM_class.tex}
-
 \begin{document}
 
 \begin{frame}
@@ -118,6 +117,21 @@
 
 \begin{frame}\frametitle{Regression}
    \begin{itemize}
+      \item Fight multicolinearity
+      \begin{itemize}
+         \item Ridge: lower weights
+         \item Lasso: set weights to zero
+         \item Elastic Net: combine both
+      \end{itemize}
+   \end{itemize}
+   \begin{figure}[H]
+      \includegraphics[scale=.23]{../images/illustrations/model_ridge_lasso.png}
+   \end{figure}
+\end{frame}
+
+
+\begin{frame}\frametitle{Regression}
+   \begin{itemize}
       \item SARIMA: seasonal, auto-regressive, integrated, moving average
       \item Parametric model that capture patterns like:
       \begin{itemize}
@@ -210,54 +224,93 @@
 
 \begin{frame}\frametitle{Unsupervised ML}
    \begin{itemize}
-      \item Clustering (grouping)
-      \item Dimensionality reduction
-      \item Reducing multicolinearity
-      \item Models:
+      \item Tasks
       \begin{itemize}
-         \item K-Means: entropy minimisation principle (min var intra, max var inter)
-         \item Hierarchical Clustering
+         \item Clustering (grouping)
+         \item Dimensionality reduction
+      \end{itemize}
+   \end{itemize}
+   \begin{figure}[H]
+      \includegraphics[scale=.35]{../images/illustrations/model_dimension_reduction.png}
+   \end{figure}
+\end{frame}
+
+
+\begin{frame}\frametitle{Unsupervised ML}
+   \begin{itemize}
+      \item Models
+      \begin{itemize}
+         \item Knn: entropy minimisation principle\\
+         (min var intraclass, max var interclass)
+         \item Hierarchical Clustering (dendrogram)
+      \end{itemize}
+   \end{itemize}
+   \begin{figure}[H]
+      \includegraphics[scale=.18]{../images/illustrations/model_hierarchical_clustering.png}
+   \end{figure}
+
+\end{frame}
+
+
+\begin{frame}\frametitle{Unsupervised ML}
+   \begin{itemize}
+      \item Models
+      \begin{itemize}
          \item PCA
       \end{itemize}
    \end{itemize}
-   % TODO: add visual and code examples, and math expressions
+   \begin{figure}[H]
+      \includegraphics[scale=.13]{../images/illustrations/model_pca_graphs.png}
+   \end{figure}
 \end{frame}
 
 
 
 
 %------------------------------------------------------------------------------
-\subsection{Optimizing models Models}
+\subsection{Optimizing models}
 %------------------------------------------------------------------------------
 
-\subsubsection{General}
+\begin{frame}\frametitle{Optimizing models - Control fit}
+   \begin{itemize}
+      \item Objective: generalization, i.e. good performance on out-of-sample data
+      \item Control over/under-fitting
+   \end{itemize}
+   \begin{figure}[H]
+      \includegraphics[scale=.25]{../images/illustrations/model_fit.png}
+   \end{figure}
+\end{frame}
 
-\begin{frame}\frametitle{General}
+\begin{frame}\frametitle{Optimizing models - Control fit}
    \begin{itemize}
       \item Parameters
       \item Hyperparameters
       \item Train, cross-validate, test
-      \item Feature importance
-      \item Data Leakage
    \end{itemize}
-   % TODO: add visual and code examples, and math expressions
+   \begin{figure}[H]
+      \includegraphics[scale=.25]{../images/illustrations/model_split_data.png}
+   \end{figure}
+\end{frame}
+
+\begin{frame}\frametitle{Optimizing models - Control fit}
+   \begin{itemize}
+      \item Feature importance
+   \end{itemize}
+   \begin{figure}[H]
+      \includegraphics[scale=.25]{../images/illustrations/model_feature_importance.png}
+   \end{figure}
 \end{frame}
 
 
-\subsubsection{Fit}
 
-\begin{frame}\frametitle{Fit}
+\begin{frame}\frametitle{Optimizing models - Issues}
    \begin{itemize}
-      \item Generalization
-      \item Complexity
-      \item Over/Under-sampling
+      \item Multicolinearity
+      \item Data Leakage: data not available at prediction time
       \item Unbalanced Datasets (weights on cost function, SMOTE, Auto-encoder)
    \end{itemize}
-   % TODO: add visual and code examples, and math expressions
 \end{frame}
 
-
-\subsubsection{Metrics}
 
 \begin{frame}\frametitle{Metrics}
    \begin{itemize}
@@ -277,8 +330,6 @@
    \end{itemize}
 \end{frame}
 
-
-\subsubsection{Transfer Learning}
 
 \begin{frame}\frametitle{Transfer Learning, Why?}
    \begin{itemize}
