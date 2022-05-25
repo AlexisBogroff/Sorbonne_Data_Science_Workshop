@@ -89,14 +89,56 @@
 
 \subsubsection{Regression}
 
+
 \begin{frame}\frametitle{Regression}
    \begin{itemize}
       \item Linear regression
+      \item Simple: $Y = aX + b$
+      \item Multiple: $Y = a_1X_1 + a_2X_2 + \dots + a_nX_n + b$
+   \end{itemize}
+
+   \begin{figure}[H]
+      \includegraphics[scale=.35]{../images/illustrations/model_linear_regression.png}
+   \end{figure}
+\end{frame}
+
+
+\begin{frame}\frametitle{Regression}
+   \begin{itemize}
       \item Polynomial regression
-      \item SARIMA
+      \item Simple: $Y = a_1X + a_2X^2 + \dots + a_nX^n +b$
+      \item Multiple: $$Y = a_{11}X_1 + a_{21}X_2 + a_{n1}X_n + a_{12}X_1^2 + a_{22}X_2^2 + a_{n2}X_n^2 + $$
+                           $$\dots + a_{1m}X_1^m + a_{2m}X_2^m + a_{nm}X_n^m + b$$
+   \end{itemize}
+   \begin{figure}[H]
+      \includegraphics[scale=.35]{../images/illustrations/model_polynomial_regression.png}
+   \end{figure}
+\end{frame}
+
+
+\begin{frame}\frametitle{Regression}
+   \begin{itemize}
+      \item SARIMA: seasonal, auto-regressive, integrated, moving average
+      \item Parametric model that capture patterns like:
+      \begin{itemize}
+         \item Trend
+         \item Cycle
+         \item Season
+      \end{itemize}
+   \end{itemize}
+\end{frame}
+
+
+\begin{frame}\frametitle{Regression}
+   \begin{itemize}
       \item Deep Learning (RNN, LSTM)
    \end{itemize}
-   % TODO: add visual and code examples, and math expressions
+   \begin{figure}[H]
+      \includegraphics[scale=.35]{../images/illustrations/model_rnn.png}
+   \end{figure}
+   \begin{figure}[H]
+      \includegraphics[scale=.35]{../images/illustrations/model_lstm.png}
+   \end{figure}
 \end{frame}
 
 
@@ -105,11 +147,60 @@
 \begin{frame}\frametitle{Classification}
    \begin{itemize}
       \item Logistic regression
-      \item Tree (ensemble models, RF, XGBoost)
-      \item K-NN
-      \item Neural Network (Deep Learning: CNN)
+      $\frac{1}{1 + e^{-z}}$ with \textit{z} linear (polynomial) regression
+      \begin{figure}[H]
+         \includegraphics[scale=.35]{../images/illustrations/model_logistic_regression.png}
+      \end{figure}
+      \begin{figure}[H]
+         \includegraphics[scale=.2]{../images/illustrations/model_logistic_regression_example.png}
+      \end{figure}
    \end{itemize}
-   % TODO: add visual and code examples, and math expressions
+\end{frame}
+
+
+\begin{frame}\frametitle{Classification}
+   \begin{itemize}
+      \item Tree (ensemble models, RF, XGBoost)
+      \begin{figure}[H]
+         \includegraphics[scale=.35]{../images/illustrations/model_tree.png}
+      \end{figure}
+      \begin{figure}[H]
+         \includegraphics[scale=.35]{../images/illustrations/model_tree_example.png}
+      \end{figure}
+   \end{itemize}
+\end{frame}
+
+
+
+\begin{frame}\frametitle{Classification}
+   \begin{itemize}
+      \item K-means
+      \begin{itemize}
+         \item Positionnement
+      \end{itemize}
+      \begin{enumerate}
+         \item Capture (iter 1)
+         \item Recentrage (iter 2)
+      \end{enumerate}
+      \begin{figure}[H]
+         \includegraphics[scale=.35]{../images/illustrations/model_kmeans.png}
+      \end{figure}
+   \end{itemize}
+\end{frame}
+
+
+\begin{frame}\frametitle{Classification}
+   \begin{itemize}
+      \item Neural Network (Deep Learning: CNN)\footnote{\href{https://playground.tensorflow.org/}{https://playground.tensorflow.org/}}
+      \begin{figure}[H]
+         \includegraphics[scale=.25]{../images/illustrations/model_neural_network.png}
+      \end{figure}
+      
+      \item Gradient descent
+      \begin{figure}[H]
+         \includegraphics[scale=.15]{../images/illustrations/model_optimization_gradient_descent.jpeg}
+      \end{figure}
+   \end{itemize}
 \end{frame}
 
 
