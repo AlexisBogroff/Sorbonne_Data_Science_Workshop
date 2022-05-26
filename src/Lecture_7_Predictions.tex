@@ -212,7 +212,7 @@
       
       \item Gradient descent
       \begin{figure}[H]
-         \includegraphics[scale=.15]{../images/illustrations/model_optimization_gradient_descent.jpeg}
+         \includegraphics[scale=.14]{../images/illustrations/model_optimization_gradient_descent.jpeg}
       \end{figure}
    \end{itemize}
 \end{frame}
@@ -260,7 +260,7 @@
       \end{itemize}
    \end{itemize}
    \begin{figure}[H]
-      \includegraphics[scale=.13]{../images/illustrations/model_pca_graphs.png}
+      \includegraphics[scale=.12]{../images/illustrations/model_pca_graphs.png}
    \end{figure}
 \end{frame}
 
@@ -307,27 +307,69 @@
    \begin{itemize}
       \item Multicolinearity
       \item Data Leakage: data not available at prediction time
-      \item Unbalanced Datasets (weights on cost function, SMOTE, Auto-encoder)
+      \begin{itemize}
+         \item Using feature not available \textit{e.g. comments on an evaluation}
+         \item Imputing NA train using average of whole data set
+      \end{itemize}
+      \item Unbalanced Datasets
+      \begin{itemize}
+         \item Weights on cost function
+         \item SMOTE
+         \item Auto-encoder
+      \end{itemize}
    \end{itemize}
+   \begin{figure}[H]
+      \includegraphics[scale=.32]{../images/illustrations/model_unbalanced_dataset.png}
+   \end{figure}
 \end{frame}
 
 
 \begin{frame}\frametitle{Metrics}
-   \begin{itemize}
-      \item Regression
+   \begin{minipage}{0.58\linewidth}
       \begin{itemize}
-         \item RMSE
-         \item $R^2$
+         \item Regression
+         \begin{itemize}
+            \item $RMSE = \sqrt{\sum_{i=1}^n{\frac{(\hat{y}_i-y_i)^2}{n}}}$
+            \vspace{.2cm}
+            \item $R^2 = \frac{SSR}{SST} = \frac{\sum(\hat{y}_i-\bar{y})^2}{\sum(y_i-\bar{y})^2}$
+         \end{itemize}
       \end{itemize}
+   \end{minipage}
+   \begin{minipage}{0.38\linewidth}
+      \begin{figure}[H]
+         \includegraphics[scale=.37]{../images/illustrations/model_results_regression.png}
+      \end{figure}
+   \end{minipage}
+   
+   \vspace{.5cm}
+   \begin{minipage}{0.58\linewidth}
+      \begin{itemize}
+         \item Classification      
+         \begin{itemize}
+            \item $Accuracy = \frac{TP + TN}{TP + TN + FP + FN}$
+            \vspace{.2cm}
+            \item AUC, ROC Curve
+         \end{itemize}
+      \end{itemize}
+   \end{minipage}
+   \begin{minipage}{0.38\linewidth}
+      \begin{figure}[H]
+         \includegraphics[scale=.37]{../images/illustrations/model_results_classification.png}
+      \end{figure}
+   \end{minipage}
 
-      \item Classification
-      \begin{itemize}
-         \item Accuracy
-         \item AUC, ROC Curve
-         \item Other metrics based on confusion matrix
-      \end{itemize}
-      % TODO: add visual and code examples, and math expressions
-   \end{itemize}
+   \vspace{.3cm}
+   \hspace{.2cm}
+   \begin{minipage}{0.48\linewidth}
+      \begin{figure}[H]
+         \includegraphics[scale=.17]{../images/illustrations/model_confusion_matrix.png}
+      \end{figure}
+   \end{minipage}
+   \begin{minipage}{0.38\linewidth}
+      \begin{figure}[H]
+         \includegraphics[scale=.09]{../images/illustrations/model_roc_curve.png}
+      \end{figure}
+   \end{minipage}
 \end{frame}
 
 
@@ -335,30 +377,71 @@
    \begin{itemize}
       \item Training can be complicated, long and expensive
       \item Specific but complex (and similar) task (NLP)
-      \item Few samples
-      % TODO: add visual and code examples, and math expressions
+      \item Few samples (one shot, few shots learning)
    \end{itemize}
+   
+   \vspace{.3cm}
+   \begin{minipage}{0.48\linewidth}
+      \begin{figure}[H]
+         \includegraphics[scale=.2]{../images/illustrations/model_transfer_learning.png}
+      \end{figure}
+   \end{minipage}
+   \begin{minipage}{0.48\linewidth}
+      \begin{figure}[H]
+         \includegraphics[scale=.2]{../images/illustrations/model_multitask_learning.png}
+      \end{figure}
+   \end{minipage}
 \end{frame}
 
 \begin{frame}\frametitle{What has been learnt?}
    \begin{itemize}
       \item Weights value (or centroids)
       \item Hyperparameters
-      % TODO: add visual and code examples, and math expressions
+      \item Structure (genetic algorithms)
    \end{itemize}
+   \begin{figure}[H]
+      \includegraphics[scale=.2]{../images/illustrations/model_genetic_algorithms.png}
+   \end{figure}
 \end{frame}
 
 
-\begin{frame}\frametitle{Deep Learning}
+\begin{frame}\frametitle{Transfer Learning, techniques}
    \begin{itemize}
-      \item Optimize target objective on long term, intermediate steps on short term:
+      \item Optimize target objective through intermediate steps:
       \begin{itemize}
-         \item Increase task difficulty gradually
-         \item Better generalisation: Multi-task learning (RL, learn recognize unrelated objects)
+         \begin{minipage}{0.7\linewidth}
+            \item Increase task difficulty gradually
+            \begin{itemize}
+               \item Classification: easy to subtile differences
+               \item RL: e.g. \textit{Cartpole}
+            \end{itemize}
+         \end{minipage}
+         \begin{minipage}{0.28\linewidth}
+            \begin{figure}[H]
+               \includegraphics[scale=.27]{../images/illustrations/model_cartpole.png}
+            \end{figure}
+         \end{minipage}
+   
+         \item Learn other tasks
+         \begin{itemize}
+            \item Classification: learn unrelated objects
+            \item RL: Multi-task learning
+         \end{itemize}
          \item Improve Neural Network architecture (genetic algorithms)
       \end{itemize}
-      % TODO: add visual and code examples, and math expressions
    \end{itemize}
+
+   \vspace{.3cm}
+   \begin{minipage}{0.38\linewidth}
+      \begin{figure}[H]
+         \includegraphics[scale=.09]{../images/illustrations/model_cat_dog.jpeg}
+      \end{figure}
+   \end{minipage}
+   \begin{minipage}{0.38\linewidth}
+      \begin{figure}[H]
+         \includegraphics[scale=.2]{../images/illustrations/model_puppy_or_cookie.jpeg}
+      \end{figure}
+   \end{minipage}
 \end{frame}
 
 
@@ -368,11 +451,36 @@
 
 \begin{frame}\frametitle{Some code examples}
    \begin{itemize}
-      \item Sklearn simple 4 lines of code
-      \item More advanced Sklearn
-      \item Deep Learning with Pytorch
-      % TODO: add visual and code examples, and math expressions
+      \item Scikit-learn: train and predict using 4 lines of code
+
+      \vspace{.3cm}
+      \begin{figure}[H]
+         \hspace*{-6cm}
+         \includegraphics[scale=.4]{../images/illustrations/model_code_linear_regression.png}
+      \end{figure}
+
+      \begin{figure}[H]
+         \hspace*{-3.76cm} 
+         \includegraphics[scale=.4]{../images/illustrations/model_code_random_forest.png}
+      \end{figure}
+      
    \end{itemize}
+\end{frame}
+
+
+\begin{frame}\frametitle{Some code examples}
+   \begin{itemize}
+      \item Deep Learning with Pytorch\footnote{\href{https://pytorch.org/tutorials/beginner/pytorch_with_examples.html}{Pytorch API}} or Tensorflow\footnote{\href{https://www.tensorflow.org/api_docs/python/tf?hl=fr}{Tensorlow API}}
+      \begin{itemize}
+         \item See \href{https://colab.research.google.com/github/omarsar/pytorch_notebooks/blob/master/pytorch_quick_start.ipynb}{Pytroch example CNN for MNIST detection}
+         \item Advantages: parallelize, automatic differenciation, and more
+      \end{itemize}
+   \end{itemize}
+
+   \begin{figure}[H]
+      \includegraphics[scale=.13]{../images/illustrations/model_pytorch_graph.png}
+   \end{figure}
+
 \end{frame}
 
 
