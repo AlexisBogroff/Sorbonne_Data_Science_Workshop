@@ -16,4 +16,4 @@ cp examples/TD6_Exam_MCQ.csv ../build/export/exercises/examples/TD6_Exam_MCQ.csv
 cp examples/TD6_Exam_MCQ.csv ../build/export/correction/examples/TD6_Exam_MCQ.csv
 
 cp ../build/Project.pdf ../build/export/project/Project.pdf
-cp masse-salariale-et-assiette-chomage-partiel-mensuelles-du-secteur-prive.csv ../build/export/project/masse-salariale-et-assiette-chomage-partiel-mensuelles-du-secteur-prive.csv
+cp masse-salariale-et-assiette-chomage-partiel-mensuelles-du-secteur-prive_modif.csv ../build/export/project/masse-salariale-et-assiette-chomage-partiel-mensuelles-du-secteur-prive_modif.csv
