@@ -15,7 +15,7 @@
 
 \begin{enumerate}
     \item Load data:\\
-    \textit{masse-salariale-et-assiette-chomage-partiel-mensuelles-du-secteur-prive.csv}\footnote{\href{https://www.data.gouv.fr/fr/datasets/masse-salariale-et-assiette-chomage-partiel-mensuelles-du-secteur-prive/}{Data is a modified version from this source}}
+    \textit{masse-salariale-et-assiette-chomage-partiel-mensuelles-du-secteur-prive\_modif.csv}\footnote{\href{https://www.data.gouv.fr/fr/datasets/masse-salariale-et-assiette-chomage-partiel-mensuelles-du-secteur-prive/}{Data is a modified version from this source}}
     \item See number of samples (rows) and features (columns)
     \item See data type
     \item Set \textit{dernier\_jour\_du\_mois} as index
@@ -64,7 +64,7 @@
 
 \begin{enumerate}
     \item Split your data into a train set (70\% of data) and a test set (30\%)
-    \item Use a linear regression to predcit 4 months ahead
+    \item Use a linear regression to predcit \textit{part\_assiette\_chomage\_partiel} 1 month ahead
     \begin{itemize}
         \item you should shift your features (in time) compared to your target
         \item find tutorials, there are a lot of them, its the only way toward autonomous learning!
@@ -75,8 +75,6 @@
         \item Interpret the results
         \item Give advices to your (hypothetical) colleague to continue your work
     \end{itemize}
-    \item Make a prediction without the added variable \textit{is\_year\_end}
-
 \end{enumerate}
 
 
@@ -86,8 +84,10 @@
 %----------------------------------------------------------------------------------------
 
 \begin{enumerate}
-    \item Use a \textbf{polynomial} regression to predcit 4 months ahead (find tutorials, there are a lot of them, and its the only way to learn autonomously!)
-    \item Predict 1 month ahead, then 3 months ahead. If your code is written correctly, it should only require to set a constant to 4, 1 or 3.
+    \item Make a prediction without the added variable \textit{is\_year\_end}
+    \item Use a Ridge regression in place of the Linear regression (you might become happy about the results!)
+    \item Use a \textbf{polynomial} regression to predcit 1 month ahead (find tutorials, there are a lot of them, and its the only way to learn autonomously!)
+    \item Predict 2 months ahead, then 3 and 4 months ahead. If your code is written correctly, it should only require to manually change the value of a constant.
 \end{enumerate}
 
 

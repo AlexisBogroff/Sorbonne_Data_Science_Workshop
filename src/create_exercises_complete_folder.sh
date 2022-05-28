@@ -17,3 +17,4 @@ cp examples/TD6_Exam_MCQ.csv ../build/export/correction/examples/TD6_Exam_MCQ.cs
 
 cp ../build/Project.pdf ../build/export/project/Project.pdf
 cp masse-salariale-et-assiette-chomage-partiel-mensuelles-du-secteur-prive_modif.csv ../build/export/project/masse-salariale-et-assiette-chomage-partiel-mensuelles-du-secteur-prive_modif.csv
+cp Project_correction.ipynb ../build/export/project/Project_correction.ipynb
